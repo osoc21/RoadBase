@@ -1,0 +1,15 @@
+{{outlet}}
+
+<form {{on ("submit" this.createBook)}}>
+  <dl>
+    <dt>Book title</dt>
+    <dd>
+      <Input @value={{this.newTitle}} @placeholder="Thinking Fast and Slow" />
+    </dd>
+    <dt>ISBN</dt>
+    <dd>
+      <Input @value={{this.newIsbn}} @placeholder="978-0374533557" />
+    </dd>
+  </dl>
+  <button type="submit">Create</button>
+</form>

@@ -3,14 +3,15 @@ import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
 
-export default class BookController extends Controller {
-  @tracked newTitle = "";
+export default class BooksController extends Controller {
   @tracked newIsbn = "";
+  @tracked newTitle = "";
 
-  @service() store;
+  @service store;
 
   @action
   async createBook(event) {
+    console.log("sdds");
     event.preventDefault();
 
     // create the new book

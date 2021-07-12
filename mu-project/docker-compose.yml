@@ -7,13 +7,16 @@ services:
       - dispatcher:dispatcher
     ports:
       - "80:80"
+
   dispatcher:
     image: semtech/mu-dispatcher:2.0.0
     links:
       - resource:resource
       - books:books
+      - homes:homes
     volumes:
       - ./config/dispatcher:/config
+
   db:
     image: tenforce/virtuoso:1.3.2-virtuoso7.2.2
     environment:
@@ -24,10 +27,17 @@ services:
     volumes:
       - ./data/db:/data
       - ./config/virtuoso/virtuoso.ini:/data/virtuoso.ini
+
   books:
     image: madnificent/books-service:2.0.0
     links:
       - db:database
+
+  homes:
+    build: ./homes/
+    links:
+      - db:database
+
   resource:
     image: semtech/mu-cl-resources:1.20.0
     links:

@@ -33,6 +33,8 @@
 
 (add-prefix "ext" "http://mu.semte.ch/vocabularies/ext/")
 
+(add-prefix "roadbase" "http://roadbase.be/vocabularies/")
+
 (add-prefix "lblodmow" "http://data.lblod.info/vocabularies/mobiliteit/")
 (add-prefix "dct" "http://purl.org/dc/terms/")
 (add-prefix "skos" "http://www.w3.org/2004/02/skos/core#")

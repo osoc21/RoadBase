@@ -1,0 +1,23 @@
+{{! <MapboxGl as |map|>
+  <map.source @options=(hash type='geojson' data=(hash type='Point' coordinates=(array  -96.7969879, 32.7766642 ))) as |source|>
+  </map.source>
+</MapboxGl> }}
+<p>asdas{{this.text}}</p>
+{{! <MapboxGl as |map|>
+  <map.source @options=(hash type='geojson' data=(hash type='Point' coordinates=(array  -96.7969879, 32.7766642 ))) as |source|>
+  </map.source>
+</MapboxGl> }}
+
+{{#mapbox-gl class='map-container' initOptions=(hash pitch=30) as |map|}}
+  {{!-- {{map.on 'click' (action 'mapClicked')}} --}}
+
+  {{!-- {{#map.source options=(hash type='geojson' data=marker) as |source|}}
+    {{source.layer
+      layer=(hash
+        type='circle' paint=(hash circle-color='#000' circle-radius=10)
+      )
+    }}
+  {{/map.source}} --}}
+{{/mapbox-gl}}
+
+{{outlet}}

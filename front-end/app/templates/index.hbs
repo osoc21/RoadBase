@@ -1,3 +1,18 @@
-{{page-title "FrontEnd"}}
-<NavBar/>
+{{page-title 'FrontEnd'}}
+<NavBar />
+
+<p>asdas{{this.text}}</p>
+{{!-- {{#map-comp text=this.text marker=markerOne}}{{/map-comp}} --}}
+
+{{#mapbox-gl class='map-container' initOptions=(hash pitch=30) as |map|}}
+  {{map.on 'click' (action 'mapClicked')}}
+
+  {{#map.source options=(hash type='geojson' data=marker) as |source|}}
+    {{source.layer
+      layer=(hash
+        type='circle' paint=(hash circle-color='#007cbf' circle-radius=10)
+      )
+    }}
+  {{/map.source}}
+{{/mapbox-gl}}
 {{outlet}}

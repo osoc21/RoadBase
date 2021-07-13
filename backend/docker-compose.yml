@@ -1,0 +1,34 @@
+version: '3.4'
+
+services:
+  identifier:
+    image: semtech/mu-identifier:1.9.1
+    links:
+      - dispatcher:dispatcher
+    ports:
+      - "80:80"
+
+  dispatcher:
+    image: semtech/mu-dispatcher:2.0.0
+    links:
+      - resource:resource
+    volumes:
+      - ./config/dispatcher:/config
+
+  db:
+    image: tenforce/virtuoso:virtuoso7.2.5
+    environment:
+      SPARQL_UPDATE: "true"
+      DEFAULT_GRAPH: "http://mu.semte.ch/application"
+    ports:
+      - "8890:8890"
+    volumes:
+      - ./data/db:/data
+      - ./config/virtuoso/virtuoso.ini:/data/virtuoso.ini
+
+  resource:
+    image: semtech/mu-cl-resources:1.20.0
+    links:
+      - db:database
+    volumes:
+      - ./config/resources:/config

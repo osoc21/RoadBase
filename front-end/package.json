@@ -70,5 +70,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@appuniversum/appuniversum": "^0.1.0"
   }
 }

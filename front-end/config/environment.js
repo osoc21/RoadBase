@@ -23,6 +23,7 @@ module.exports = function (environment) {
     },
     'mapbox-gl': {
       accessToken:
+        // should be set in doppler?
         'pk.eyJ1Ijoic3licmVuZGIiLCJhIjoiY2txdGtvYWJ3MDBiNjJ1bW1qc2Z1NDJqZyJ9.pU0f9LsEAo44NXmktpdnYA',
       map: {
         style: 'mapbox://styles/mapbox/streets-v11',

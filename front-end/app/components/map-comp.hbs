@@ -1,23 +1,14 @@
-{{! <MapboxGl as |map|>
-  <map.source @options=(hash type='geojson' data=(hash type='Point' coordinates=(array  -96.7969879, 32.7766642 ))) as |source|>
-  </map.source>
-</MapboxGl> }}
-<p>asdas{{this.text}}</p>
-{{! <MapboxGl as |map|>
-  <map.source @options=(hash type='geojson' data=(hash type='Point' coordinates=(array  -96.7969879, 32.7766642 ))) as |source|>
-  </map.source>
-</MapboxGl> }}
-
 {{#mapbox-gl class='map-container' initOptions=(hash pitch=30) as |map|}}
+  {{! where do we add this action? Is there a component specific controller? }}
   {{!-- {{map.on 'click' (action 'mapClicked')}} --}}
 
-  {{!-- {{#map.source options=(hash type='geojson' data=marker) as |source|}}
+  {{#map.source options=(hash type='geojson' data=marker) as |source|}}
     {{source.layer
       layer=(hash
-        type='circle' paint=(hash circle-color='#000' circle-radius=10)
+        type='circle' paint=(hash circle-color='#007cbf' circle-radius=10)
       )
     }}
-  {{/map.source}} --}}
+  {{/map.source}}
 {{/mapbox-gl}}
 
 {{outlet}}

@@ -1,7 +1,6 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-  text: 'sd',
   marker: {
     type: 'FeatureCollection',
     features: [

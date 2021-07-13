@@ -32,3 +32,10 @@
 ;; by them and that it shouldn't be used for permanent URIs.
 
 (add-prefix "ext" "http://mu.semte.ch/vocabularies/ext/")
+
+(add-prefix "lblodmow" "http://data.lblod.info/vocabularies/mobiliteit/")
+(add-prefix "dct" "http://purl.org/dc/terms/")
+(add-prefix "skos" "http://www.w3.org/2004/02/skos/core#")
+(add-prefix "org" "http://www.w3.org/ns/org#")
+(add-prefix "mobiliteit" "https://data.vlaanderen.be/ns/mobiliteit#")
+(add-prefix "vs" "http://www.w3.org/2003/06/sw-vocab-status/ns#")

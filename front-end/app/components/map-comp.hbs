@@ -1,0 +1,18 @@
+<LeafletMap
+  @lat={{this.lat}}
+  @lng={{this.lng}}
+  @zoom={{this.zoom}}
+  @onClick={{this.onMapClick}}
+  as |layers|
+>
+  <layers.tile
+    @url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
+  />
+  <layers.marker @location={{this.location}} as |markerLayer|>
+    <markerLayer.popup>
+      <h3>The Oregon Convention Center</h3>
+      777 NE Martin Luther King Jr Blvd<br />
+      Portland, OR 97232
+    </markerLayer.popup>
+  </layers.marker>
+</LeafletMap>

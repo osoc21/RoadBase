@@ -1,3 +1,11 @@
-{{page-title "FrontEnd"}}
-<NavBar/>
-{{outlet}}
+{{page-title 'FrontEnd'}}
+<NavBar />
+
+<p>{{this.clickedPosition}}</p>
+<MapComp
+  @lat={{lat}}
+  @lng={{lng}}
+  @zoom={{zoom}}
+  @markers={{this.markers}}
+  @onMapClick={{this.setClickedPosition}}
+/>

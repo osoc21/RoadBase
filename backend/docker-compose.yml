@@ -39,3 +39,5 @@ services:
       - db:database
     volumes:
       - ./config/migrations:/data/migrations
+    environment:
+      - BATCH_SIZE=750  # Otherwise virtuoso will create pretty long SQL queries and keep retrying with a smaller batch size until it succeeds

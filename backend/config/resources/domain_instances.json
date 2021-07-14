@@ -6,40 +6,29 @@
 		"lblodmow": "https://data.lblod.info/vocabularies/mobiliteit/",
 		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#"
 	},
+
 	"resources": {
 		"road-sign-instances": {
 			"name": "roadSignInstance",
 			"class": "roadbase:RoadSignInstance",
-			"attributes": {},
+			"attributes": {
+				"location_lat": {
+					"type": "string",
+					"predicate": "schema:latitude"
+				},
+				"location_long": {
+					"type": "string",
+					"predicate": "schema:longitude"
+				}
+			},
 			"relationships": {
 				"road-sign-concept": {
 					"predicate": "roadbase:placeholder-predicate",
 					"target": "roadSignConcept",
 					"cardinality": "one"
-				},
-				"location": {
-					"predicate": "schema:location",
-					"target": "location",
-					"cardinality": "one"
 				}
 			},
 			"new-resource-base": "https://roadbase.be/vocabularies/roadsigninstance"
-		},
-
-		"locations": {
-			"name": "location",
-			"class": "schema:GeoCoordinates",
-			"attributes": {
-				"latitude": {
-					"type": "string",
-					"predicate": "schema:latitude"
-				},
-				"longitude": {
-					"type": "string",
-					"predicate": "schema:longitude"
-				}
-			},
-			"new-resource-base": "https://roadbase.be/vocabularies/location"
 		}
 	}
 }

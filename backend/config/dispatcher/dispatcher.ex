@@ -13,10 +13,6 @@ defmodule Dispatcher do
 
 
 
-  match "/locations/*path" do
-    Proxy.forward conn, path, "http://resource/locations/"
-  end
-
   match "/road-sign-instances/*path" do
     Proxy.forward conn, path, "http://resource/road-sign-instances/"
   end

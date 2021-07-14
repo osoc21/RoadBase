@@ -12,18 +12,18 @@
 			"class": "roadbase:RoadSignInstance",
 			"attributes": {},
 			"relationships": {
-				"roadsignconcept": {
+				"road-sign-concept": {
 					"predicate": "roadbase:placeholder-predicate",
 					"target": "roadSignConcept",
 					"cardinality": "one"
 				},
 				"location": {
 					"predicate": "schema:location",
-					"target": "roadSignCategory",
+					"target": "location",
 					"cardinality": "one"
 				}
 			},
-			"new-resource-base": "https://roadbase.be/vocabularies/location/roadsigninstance"
+			"new-resource-base": "https://roadbase.be/vocabularies/roadsigninstance"
 		},
 
 		"locations": {

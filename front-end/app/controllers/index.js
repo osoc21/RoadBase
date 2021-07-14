@@ -1,19 +1,12 @@
 import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
-export default Controller.extend({
-  marker: {
-    type: 'FeatureCollection',
-    features: [
-      {
-        type: 'Feature',
-        geometry: { type: 'Point', coordinates: [-96.7969879, 32.7766642] },
-      },
-    ],
-  },
-
-  actions: {
-    mapClicked({ target: map, point }) {
-      console.log(map, point);
-    },
-  },
-});
+export default class IndexController extends Controller {
+  @tracked clickedPosition = 'value';
+  @action
+  setClickedPosition(event) {
+    console.log(event);
+    this.clickedPosition = 'lat' + event.latlng.lat + 'lng' + event.latlng.lng;
+  }
+}

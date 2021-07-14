@@ -1,14 +1,20 @@
-{{#mapbox-gl class='map-container' initOptions=(hash pitch=30) as |map|}}
-  {{! where do we add this action? Is there a component specific controller? }}
-  {{!-- {{map.on 'click' (action 'mapClicked')}} --}}
-
-  {{#map.source options=(hash type='geojson' data=marker) as |source|}}
-    {{source.layer
-      layer=(hash
-        type='circle' paint=(hash circle-color='#007cbf' circle-radius=10)
-      )
-    }}
-  {{/map.source}}
-{{/mapbox-gl}}
+<LeafletMap
+  @lat={{this.lat}}
+  @lng={{this.lng}}
+  @zoom={{this.zoom}}
+  @onClick={{this.onMapClick}}
+  as |layers|
+>
+  <layers.tile
+    @url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
+  />
+  <layers.marker @location={{this.location}} as |markerLayer|>
+    <markerLayer.popup>
+      <h3>The Oregon Convention Center</h3>
+      777 NE Martin Luther King Jr Blvd<br />
+      Portland, OR 97232
+    </markerLayer.popup>
+  </layers.marker>
+</LeafletMap>
 
 {{outlet}}

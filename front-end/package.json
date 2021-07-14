@@ -75,7 +75,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "@appuniversum/appuniversum": "^0.1.0",
-    "ember-mapbox-gl": "^1.0.1"
+    "@appuniversum/appuniversum": "^0.1.0"
   }
 }

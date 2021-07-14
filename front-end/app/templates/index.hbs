@@ -3,9 +3,13 @@
 
 <p>{{this.clickedPosition}}</p>
 <MapComp
-  @lat={{lat}}
-  @lng={{lng}}
-  @zoom={{zoom}}
+  @lat={{this.lat}}
+  @lng={{this.lng}}
+  @zoom={{this.zoom}}
   @markers={{this.markers}}
   @onMapClick={{this.setClickedPosition}}
 />
+
+{{#each model.signs as |sign|}}
+  <img src={{sign.image}} />
+{{/each}}

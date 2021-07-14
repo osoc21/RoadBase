@@ -13,7 +13,13 @@ defmodule Dispatcher do
 
 
 
-  # Our routing goes here
+  match "/locations/*path" do
+    Proxy.forward conn, path, "http://resource/locations/"
+  end
+
+  match "/road-sign-instances/*path" do
+    Proxy.forward conn, path, "http://resource/road-sign-instances/"
+  end
 
 
   # "Verkeersborden" migration microservice
@@ -31,14 +37,6 @@ defmodule Dispatcher do
 
   match "/road-sign-categories/*path" do
     Proxy.forward conn, path, "http://resource/road-sign-categories/"
-  end
-
-  match "/accounts/*path" do
-    Proxy.forward conn, path, "http://resource/accounts/"
-  end
-
-  match "/groups/*path" do
-    Proxy.forward conn, path, "http://resource/groups/"
   end
 
 

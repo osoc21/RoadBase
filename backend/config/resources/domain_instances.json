@@ -1,8 +1,9 @@
 {
 	"version": "0.1",
 	"prefixes": {
-		"roadbase": "http://roadbase.be/vocabularies/",
-		"lblodmow": "http://data.lblod.info/vocabularies/mobiliteit/",
+		"roadbase": "https://roadbase.be/vocabularies/",
+		"schema": "https://schema.org/",
+		"lblodmow": "https://data.lblod.info/vocabularies/mobiliteit/",
 		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#"
 	},
 	"resources": {
@@ -12,7 +13,7 @@
 			"attributes": {},
 			"relationships": {
 				"roadsignconcept": {
-					"predicate": "a",
+					"predicate": "roadbase:placeholder-predicate",
 					"target": "roadSignConcept",
 					"cardinality": "one"
 				},
@@ -25,7 +26,7 @@
 			"new-resource-base": "https://roadbase.be/vocabularies/location/roadsigninstance"
 		},
 
-		"location":{
+		"locations": {
 			"name": "location",
 			"class": "schema:GeoCoordinates",
 			"attributes": {

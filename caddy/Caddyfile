@@ -1,2 +1,2 @@
 localhost
-reverse_proxy ember:4200
+reverse_proxy ember:80

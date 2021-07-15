@@ -8,11 +8,19 @@
   <layers.tile
     @url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
   />
-  <layers.marker @location={{this.location}} as |markerLayer|>
-    <markerLayer.popup>
-      <h3>The Oregon Convention Center</h3>
-      777 NE Martin Luther King Jr Blvd<br />
-      Portland, OR 97232
-    </markerLayer.popup>
-  </layers.marker>
+  {{#each @signs as |sign|}}
+    <layers.marker
+      @location={{sign.location}}
+      @icon={{sign.marker}}
+      as |markerLayer|
+    >
+      <markerLayer.popup>
+        <h3>{{sign.content.meaning}}</h3>
+      </markerLayer.popup>
+    </layers.marker>
+  {{/each}}
 </LeafletMap>
+
+{{#each this.signs as |sign|}}
+  <p>{{sign.content.meaning}}</p>
+{{/each}}

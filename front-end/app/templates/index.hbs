@@ -1,11 +1,14 @@
 {{page-title 'FrontEnd'}}
 <NavBar />
 
-<p>{{this.clickedPosition}}</p>
 <MapComp
-  @lat={{lat}}
-  @lng={{lng}}
-  @zoom={{zoom}}
-  @markers={{this.markers}}
+  @lat={{this.lat}}
+  @lng={{this.lng}}
+  @zoom={{this.zoom}}
+  @signs={{this.signsOnMap}}
   @onMapClick={{this.setClickedPosition}}
 />
+
+{{#if this.clickedPosition}}
+  <RoadSignList @signs={{this.model.signs}} @onSelect={{this.addSignToMap}} />
+{{/if}}

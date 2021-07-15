@@ -1,0 +1,5 @@
+<div class-name='signs-list'>
+  {{#each @signs as |sign|}}
+    <img src={{sign.image}} {{on 'click' (fn this.selectItem sign)}} />
+  {{/each}}
+</div>

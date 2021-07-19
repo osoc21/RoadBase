@@ -1,5 +1,8 @@
 @import 'appuniversum.scss';
 
-.leaflet-container {
-  height: 500px;
+header{
+  min-height: 4.5vh;
+}
+.leaflet-container{
+  height: (100vh - 4.5vh);
 }

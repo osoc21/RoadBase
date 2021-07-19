@@ -5,10 +5,19 @@
       {{#each this.stepTitles as |title index|}}
         <div
           class='add-sign-nav__item
-            {{if (eq this.currentTitle title) 'add-sign-nav__item--active'}}'
+            {{if (eq this.currentTitle title) 'add-sign-nav__item--active'}}
+            {{if
+              (is-lower index this.currentStep)
+              'add-sign-nav__item--completed'
+            }}
+            '
           {{on 'click' (fn this.setCurrentStep index)}}
         >
-          <div class='nav-item__icon'>{{index}}</div>
+          {{#if (is-lower index this.currentStep)}}
+            <AuBadge @icon='check' />
+          {{else}}
+            <AuBadge @number={{(increment index 1)}} />
+          {{/if}}
           <p class='nav-item__title'>{{title}}</p>
         </div>
       {{/each}}

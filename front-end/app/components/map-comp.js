@@ -7,6 +7,7 @@ export default class CounterComponent extends Component {
   @tracked lat = 52;
   @tracked zoom = 12;
   @tracked location = [52, 4];
+
   @action
   onMapClick(e) {
     this.args.onMapClick(e);
@@ -14,8 +15,19 @@ export default class CounterComponent extends Component {
 
   get instances() {
     const data = this.args.instances;
-    data.map((data) => {
-      return [data['location_lat'], data['location_long']];
-    });
+    console.log(data);
+    return data
+      .filter((loca) => {
+        if (
+          loca['location_lat'] !== undefined ||
+          loca['location_long'] !== undefined
+        ) {
+          return loca;
+        }
+      })
+      .map((loc) => {
+        console.log([loc['location_lat'], loc['location_long']]);
+        return [loc['location_lat'], loc['location_long']];
+      });
   }
 }

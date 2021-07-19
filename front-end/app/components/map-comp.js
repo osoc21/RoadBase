@@ -11,4 +11,11 @@ export default class CounterComponent extends Component {
   onMapClick(e) {
     this.args.onMapClick(e);
   }
+
+  get instances() {
+    const data = this.args.instances;
+    data.map((data) => {
+      return [data['location_lat'], data['location_long']];
+    });
+  }
 }

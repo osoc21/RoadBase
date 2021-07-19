@@ -1,0 +1,57 @@
+.add-sign-container {
+  width: 40%;
+  max-width: 600px;
+  min-width: 400px;
+  height: 100vh;
+
+  position: fixed;
+  left: 100%;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  .add-sign-header {
+    .add-sign-nav {
+      display: flex;
+
+      &__item {
+        cursor: pointer;
+        display: flex;
+        flex-direction: center;
+
+        .nav-item__icon {
+          width: 30px;
+          border-radius: 50%;
+          border: 2px solid black;
+        }
+        .nav-item__item {
+        }
+      }
+
+      &__item--active {
+        color: green;
+      }
+    }
+  }
+
+  .add-sign-content {
+    flex: 1;
+    background-color: blue;
+    height: 100%;
+  }
+
+  .add-sign-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0 0;
+  }
+}
+
+.is-showing {
+  left: auto;
+  right: 0;
+}

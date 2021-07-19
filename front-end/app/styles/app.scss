@@ -4,20 +4,26 @@ $navBarHeight: 4.5vh;
 $toolBarHeight: 5vh;
 $paddingValue: 1vh;
 
-header{
-  min-height: $navBarHeight;
-}
+.ember-application {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 
-// PaddingValue is *2 because both Top & Bottom padding is used
-.leaflet-container{
-  height: (100vh - $navBarHeight - $toolBarHeight - ($paddingValue*2));
-}
+  header {
+    min-height: $navBarHeight;
+  }
 
-.au-c-toolbar{
-  padding: $paddingValue;
-  min-height: $toolBarHeight;
-}
+  // PaddingValue is *2 because both Top & Bottom padding is used
+  .leaflet-container {
+    flex: 1;
+  }
 
-.au-c-button{
-  height: min-content;
+  .au-c-toolbar {
+    padding: $paddingValue;
+    min-height: $toolBarHeight;
+  }
+
+  .au-c-button {
+    height: min-content;
+  }
 }

@@ -1,0 +1,59 @@
+<div class='add-sign-container {{if @isActive 'is-showing'}}'>
+  <div class='add-sign-header'>
+    <h1>Maak een nieuw verkeersbord</h1>
+    <div class='add-sign-nav'>
+      {{#each this.stepTitles as |title index|}}
+        <div
+          class='add-sign-nav__item
+            {{if (eq this.currentTitle title) 'add-sign-nav__item--active'}}'
+          {{on 'click' (fn this.setCurrentStep index)}}
+        >
+          <p class='nav-item__icon'>{{index}}</p>
+          <p class='nav-item__title'>{{title}}</p>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class='add-sign-content'>
+    {{#if (eq this.currentStep 0)}}
+      {{! insert component for screen 0 }}
+      <p>step 0</p>
+    {{/if}}
+
+    {{#if (eq this.currentStep 1)}}
+      {{! insert component for screen 1 }}
+      <p>step 1</p>
+    {{/if}}
+
+    {{#if (eq this.currentStep 2)}}
+      {{! insert component for screen 2 }}
+      <p>step 2</p>
+    {{/if}}
+
+    {{#if (eq this.currentStep 3)}}
+      {{! insert component for screen 3 }}
+      <p>step 3</p>
+    {{/if}}
+
+    {{#if (eq this.currentStep 4)}}
+      {{! insert component for screen 4 }}
+      <p>step 4</p>
+    {{/if}}
+  </div>
+  <div class='add-sign-footer'>
+    <AuButton
+      @icon='arrow-left'
+      @iconAlignment='left'
+      {{on 'click' this.decrementCurrentStep}}
+    >
+      Terug
+    </AuButton>
+    <AuButton
+      @icon='arrow-right'
+      @iconAlignment='right'
+      {{on 'click' this.incrementCurrentStep}}
+    >
+      Volgende
+    </AuButton>
+  </div>
+</div>

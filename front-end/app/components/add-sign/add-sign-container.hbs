@@ -1,6 +1,6 @@
 <div class='add-sign-container {{if @isActive 'is-showing'}}'>
   <div class='add-sign-header'>
-    <h1>Maak een nieuw verkeersbord</h1>
+    <AuHeading @level='2' @skin='2'>Maak een nieuw verkeersbord</AuHeading>
     <div class='add-sign-nav'>
       {{#each this.stepTitles as |title index|}}
         <div
@@ -8,7 +8,7 @@
             {{if (eq this.currentTitle title) 'add-sign-nav__item--active'}}'
           {{on 'click' (fn this.setCurrentStep index)}}
         >
-          <p class='nav-item__icon'>{{index}}</p>
+          <div class='nav-item__icon'>{{index}}</div>
           <p class='nav-item__title'>{{title}}</p>
         </div>
       {{/each}}
@@ -17,7 +17,7 @@
   <div class='add-sign-content'>
     {{#if (eq this.currentStep 0)}}
       {{! insert component for screen 0 }}
-      <p>step 0</p>
+      <p>step 0 adsdasd</p>
     {{/if}}
 
     {{#if (eq this.currentStep 1)}}
@@ -27,7 +27,7 @@
 
     {{#if (eq this.currentStep 2)}}
       {{! insert component for screen 2 }}
-      <p>step 2</p>
+      <p>step 2 asdasdasdas</p>
     {{/if}}
 
     {{#if (eq this.currentStep 3)}}
@@ -37,7 +37,7 @@
 
     {{#if (eq this.currentStep 4)}}
       {{! insert component for screen 4 }}
-      <p>step 4</p>
+      <p>step 4 asdasdadsa</p>
     {{/if}}
   </div>
   <div class='add-sign-footer'>

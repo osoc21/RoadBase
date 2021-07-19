@@ -18,12 +18,16 @@ export default class AddSignContainerComponent extends Component {
 
   @action
   incrementCurrentStep() {
-    this.currentStep += 1;
+    if (this.currentStep + 1 < this.stepTitles.length) {
+      this.currentStep += 1;
+    }
   }
 
   @action
   decrementCurrentStep() {
-    this.currentStep -= 1;
+    if (this.currentStep - 1 >= 0) {
+      this.currentStep -= 1;
+    }
   }
 
   @action

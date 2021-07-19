@@ -27,4 +27,4 @@ jobs:
       - name: Docker Push
         run: |
           docker ps
-          docker push jodideloof/osoc-containers:osemtech/mu-identifier:1.9.1
+          docker push jodideloof/osoc-containers:backend_identifier_1

@@ -28,7 +28,10 @@ jobs:
         run: |
           docker ps
           docker tag semtech/mu-identifier:1.9.1 jodideloof/osoc-containers:backend_identifier_1
+          docker tag semtech/mu-dispatcher:2.0.0 jodideloof/osoc-containers:backend_dispatcher_1
+          
       - name: Docker Push
         run: |
           docker ps
           docker push jodideloof/osoc-containers:backend_identifier_1
+          docker push jodideloof/osoc-containers:backend_dispatcher_1

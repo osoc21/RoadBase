@@ -1,5 +1,32 @@
 @import 'appuniversum.scss';
 
-.leaflet-container {
-  height: 500px;
+// import components
+@import './components/add-sign-container.scss';
+
+$navBarHeight: 4.5vh;
+$toolBarHeight: 5vh;
+$paddingValue: 1vh;
+
+.ember-application {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  header {
+    min-height: $navBarHeight;
+  }
+
+  // PaddingValue is *2 because both Top & Bottom padding is used
+  .leaflet-container {
+    flex: 1;
+  }
+
+  .au-c-toolbar {
+    padding: $paddingValue;
+    min-height: $toolBarHeight;
+  }
+
+  .au-c-button {
+    height: min-content;
+  }
 }

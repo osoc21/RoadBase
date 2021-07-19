@@ -1,7 +1,7 @@
 {{yield}}
-<header>
-  <AuBrand/>
-  <nav>
-    <!-- Add the relevant links here! -->
-  </nav>
-</header>
+<AuMainHeader @brandLink="https://www.vlaanderen.be/nl" @homeRoute="index" @appTitle="RoadBase">
+  <AuButton @skin="tertiary" role="menuitem">
+    <AuIcon @icon="logout" @alignment="left"/>
+    Afmelden
+  </AuButton>
+</AuMainHeader>

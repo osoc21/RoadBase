@@ -17,6 +17,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/road-sign-instances/"
   end
 
+  match "/accidents/*path" do
+    Proxy.forward conn, path, "http://resource/accidents/"
+  end
+
 
   # "Verkeersborden" migration microservice
   match "/road-sign-concepts/*path" do

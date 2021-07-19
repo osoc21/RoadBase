@@ -28,7 +28,7 @@
 					"cardinality": "one"
 				}
 			},
-			"new-resource-base": "https://roadbase.be/vocabularies/roadsigninstance"
+			"new-resource-base": "https://roadbase.be/road-sign-instances/"
 		}
 	}
 }

@@ -7,3 +7,4 @@
 
 (read-domain-file "domain_concepts.json")
 (read-domain-file "domain_instances.json")
+(read-domain-file "domain_accidents.json")

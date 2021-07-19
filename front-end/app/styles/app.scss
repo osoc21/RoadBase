@@ -1,8 +1,23 @@
 @import 'appuniversum.scss';
 
+$navBarHeight: 4.5vh;
+$toolBarHeight: 5vh;
+$paddingValue: 1vh;
+
 header{
-  min-height: 4.5vh;
+  min-height: $navBarHeight;
 }
+
+// PaddingValue is *2 because both Top & Bottom padding is used
 .leaflet-container{
-  height: (100vh - 4.5vh);
+  height: (100vh - $navBarHeight - $toolBarHeight - ($paddingValue*2));
+}
+
+.au-c-toolbar{
+  padding: $paddingValue;
+  min-height: $toolBarHeight;
+}
+
+.au-c-button{
+  height: min-content;
 }

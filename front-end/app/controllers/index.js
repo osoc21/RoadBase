@@ -5,15 +5,14 @@ import * as L from 'leaflet';
 
 export default class IndexController extends Controller {
   @tracked clickedPosition = undefined;
-  @tracked signsOnMap = [
-    // {
-    //   location: [52, 4],
-    //   content: { meaning: 'sds' },
-    // },
-  ];
+  @tracked signsOnMap = [];
+
+  @tracked showAddSign = false;
+
   @action
   setClickedPosition(event) {
     this.clickedPosition = { lat: event.latlng.lat, lon: event.latlng.lng };
+    this.showAddSign = true;
   }
 
   @action

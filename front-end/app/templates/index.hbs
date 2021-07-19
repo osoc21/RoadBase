@@ -1,13 +1,11 @@
 {{page-title 'FrontEnd'}}
 <NavBar />
-<ActionBar />
-<MapComp
-  @lat={{this.lat}}
-  @lng={{this.lng}}
-  @zoom={{this.zoom}}
-  @signs={{this.signsOnMap}}
-  @onMapClick={{this.setClickedPosition}}
-/>
+
+<MapComp @signs={{this.signsOnMap}} @onMapClick={{this.setClickedPosition}} />
+
+<AddSign::AddSignContainer @isActive={{this.showAddSign}}>
+  <p>sdfdssfd</p>
+</AddSign::AddSignContainer>
 
 {{#if this.clickedPosition}}
   <RoadSignList @signs={{this.model.signs}} @onSelect={{this.addSignToMap}} />

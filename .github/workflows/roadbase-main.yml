@@ -24,15 +24,16 @@ jobs:
             DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           docker-compose -f "backend/docker-compose.yml" up -d --build
-          docker tag semtech/mu-identifier:1.9.1 "$DOCKER_USER"/semtech/mu-identifier:1.9.1
-          docker tag semtech/mu-dispatcher:2.0.0 "$DOCKER_USER"/semtech/mu-dispatcher:2.0.0
-          docker tag tenforce/virtuoso:virtuoso7.2.5 "$DOCKER_USER"/tenforce/virtuoso:virtuoso7.2.5
-          docker tag semtech/mu-cl-resources:1.20.0 "$DOCKER_USER"/semtech/mu-cl-resources:1.20.0
-          docker tag semtech/mu-migrations-service:0.7.0 "$DOCKER_USER"/semtech/mu-migrations-service:0.7.0
+          docker tag semtech/mu-identifier:1.9.1 jodideloof/semtech/mu-identifier:1.9.1
+          docker tag semtech/mu-dispatcher:2.0.0 jodideloof/semtech/mu-dispatcher:2.0.0
+          docker tag tenforce/virtuoso:virtuoso7.2.5 jodideloof/tenforce/virtuoso:virtuoso7.2.5
+          docker tag semtech/mu-cl-resources:1.20.0 jodideloof/semtech/mu-cl-resources:1.20.0
+          docker tag semtech/mu-migrations-service:0.7.0 jodideloof/semtech/mu-migrations-service:0.7.0
       - name: Docker Push
         run: |
-          docker push "$DOCKER_USER"/semtech/mu-identifier:1.9.1
-          docker push "$DOCKER_USER"/semtech/mu-dispatcher:2.0.0
-          docker push "$DOCKER_USER"/tenforce/virtuoso:virtuoso7.2.5
-          docker push "$DOCKER_USER"/semtech/mu-cl-resources:1.20.0
-          docker push "$DOCKER_USER"/semtech/mu-migrations-service:0.7.0
+          docker ps
+          docker push jodideloof/semtech/mu-identifier:1.9.1
+          docker push jodideloof/semtech/mu-dispatcher:2.0.0
+          docker push jodideloof/tenforce/virtuoso:virtuoso7.2.5
+          docker push jodideloof/semtech/mu-cl-resources:1.20.0
+          docker push jodideloof/semtech/mu-migrations-service:0.7.0

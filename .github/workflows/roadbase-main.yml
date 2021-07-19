@@ -22,4 +22,10 @@ jobs:
       - name: Docker build
         run: |
           docker-compose -f "backend/docker-compose.yml" up -d --build
-          
+      - name: Docker Push
+        run: |
+          docker push semtech/mu-identifier:1.9.1
+          docker push semtech/mu-dispatcher:2.0.0
+          docker push tenforce/virtuoso:virtuoso7.2.5
+          docker push semtech/mu-cl-resources:1.20.0
+          docker push semtech/mu-migrations-service:0.7.0

@@ -2,7 +2,7 @@ import rdflib
 import csv
 from dataclasses import dataclass
 from datetime import datetime, timezone, timedelta
-from rdflib.namespace import XSD
+from rdflib.namespace import RDF, XSD
 
 BASE_URL = 'https://roadbase.be'
 SCHEMA = rdflib.Namespace('https://schema.org/')
@@ -33,6 +33,7 @@ class Accident:
 		dt_iso8601 = dt.isoformat()
 
 		# Add triples for coordinates and timestamp of the accident
+		g.add((uri, RDF.type, rdflib.Literal(f'{BASE_URL}/vocabularies/accident')))
 		g.add((uri, SCHEMA.latitude, rdflib.Literal(self.lat)))
 		g.add((uri, SCHEMA.longitude, rdflib.Literal(self.lng)))
 		g.add((uri, XSD.dateTime, rdflib.Literal(dt_iso8601)))

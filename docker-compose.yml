@@ -2,14 +2,17 @@ version: '3.4'
 
 services:
   caddy:
-    image: caddy:alpine
+    build: ./caddy
     ports:
       - 80:80
       - 443:443
+      - 8000:8000
     volumes:
-      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
+    environment:
+      - CADDY_FRONTEND_URL=http://localhost
+      - CADDY_BACKEND_URL=http://localhost:8000
 
 
   ember:

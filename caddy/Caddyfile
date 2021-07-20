@@ -1,2 +1,8 @@
-localhost
-reverse_proxy ember:80
+{$CADDY_FRONTEND_URL} {
+	reverse_proxy ember:80
+}
+
+
+{$CADDY_BACKEND_URL} {
+	reverse_proxy identifier:80
+}

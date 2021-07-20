@@ -1,0 +1,26 @@
+{{yield}}
+<section>
+  <AuHeading @level="3" @skin="3">
+    Eigenaar & plaatsingsdatum
+  </AuHeading>
+  <AuContent>
+    <p>Defineer wie verantwoordelijk is voor het verkeersbord & de plaatsingsdatum</p>
+    <form action="#">
+      <AuLabel for="sign-authority" class="au-c-la">Autoriteit</AuLabel>
+      <PowerSelect
+              id="sign-authority"
+              @allowClear={{false}}
+              @searchEnabled={{true}}
+              @loadingMessage="Aan het laden..."
+              @noMatchesMessage="Geen resultaten"
+              @searchMessage="Typ om te zoeken"
+              @options={{this.cities}}
+              @selected={{this.autority}}
+              @onChange={{fn (mut this.autority)}} as |city|>
+        <p>{{city}}</p>
+      </PowerSelect>
+      <AuLabel for="sign-date">Geplande datum of plaatsingsdatum</AuLabel>
+      <AuDatePicker @label="" id="sign-date"/>
+    </form>
+  </AuContent>
+</section>

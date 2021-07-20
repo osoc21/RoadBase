@@ -2,6 +2,7 @@
 @import 'variables.scss';
 // import components
 @import './components/add-sign-container.scss';
+@import './components/add-sign-three.scss';
 // import appuniversum
 @import 'appuniversum.scss';
 
@@ -31,4 +32,9 @@ $paddingValue: 1vh;
   .au-c-button {
     height: min-content;
   }
+}
+
+//Override for PowerSelect Dropdown
+#ember-basic-dropdown-wormhole{
+  z-index: 2000;
 }

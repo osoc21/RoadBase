@@ -15,7 +15,6 @@ export default class CounterComponent extends Component {
 
   get instances() {
     const data = this.args.instances;
-    console.log(data);
     return data
       .filter((loca) => {
         if (

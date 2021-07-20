@@ -11,12 +11,14 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     environment:
-      - CADDY_FRONTEND_URL=http://localhost
-      - CADDY_BACKEND_URL=http://localhost:8000
+      - FRONTEND_URL=${FRONTEND_URL}
+      - BACKEND_URL=${BACKEND_URL}
 
 
   ember:
     build: ./front-end
+    environment:
+      - BACKEND_URL=${BACKEND_URL}
 
 
 

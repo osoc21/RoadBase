@@ -6,8 +6,17 @@
   </AuHeading>
     <p>Defineer wie verantwoordelijk is voor het verkeersbord & de plaatsingsdatum</p>
     <form action="#">
-      <AuLabel for="sign-authority">Authoriteit:</AuLabel>
-      <AuInput id="sign-authority" @width="block"></AuInput>
+      <PowerSelect
+              @allowClear={{false}}
+              @searchEnabled={{true}}
+              @loadingMessage="Aan het laden..."
+              @noMatchesMessage="Geen resultaten"
+              @searchMessage="Typ om te zoeken"
+              @options={{this.cities}}
+              @selected={{this.city}}
+              @onChange={{this.foo}} as |city|>
+        <p>{{city}}</p>
+      </PowerSelect>
       <AuLabel for="sign-date">Geplande datum of plaatsingsdatum</AuLabel>
       <AuDatePicker @label="" id="sign-date"/>
     </form>

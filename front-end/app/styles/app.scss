@@ -32,3 +32,8 @@ $paddingValue: 1vh;
     height: min-content;
   }
 }
+
+//Override for PowerSelect Dropdown
+#ember-basic-dropdown-wormhole{
+  z-index: 2000;
+}

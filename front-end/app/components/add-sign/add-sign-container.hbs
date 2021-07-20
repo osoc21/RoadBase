@@ -1,6 +1,6 @@
 <div class='add-sign-container {{if @isActive 'is-showing'}}'>
   <div class='add-sign-header'>
-    <AuHeading @level='2' @skin='2'>Maak een nieuw verkeersbord</AuHeading>
+    <AuHeading @level='2' @skin='2'>Verkeersbord maken</AuHeading>
     <div class='add-sign-nav'>
       {{#each this.stepTitles as |title index|}}
         <div
@@ -25,8 +25,7 @@
   </div>
   <div class='add-sign-content'>
     {{#if (eq this.currentStep 0)}}
-      {{! insert component for screen 0 }}
-      <p>step 0 adsdasd</p>
+      <AddSign::AddSignOne />
     {{/if}}
 
     {{#if (eq this.currentStep 1)}}

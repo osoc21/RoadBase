@@ -65,13 +65,15 @@
         }
       }
     }
+    .add-sign-nav::before {
+      content: '';
+      height: 2px;
+      width: 100%;
+      background-color: green;
+    }
   }
-  .add-sign-header::after {
-    content: '';
-    height: 2px;
-    width: 100%;
-    background-color: green;
-  }
+  // .add-sign-header::before {
+  // }
 
   .add-sign-content {
     flex: 1;

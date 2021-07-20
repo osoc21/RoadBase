@@ -3,10 +3,9 @@
 
 <MapComp @signs={{this.signsOnMap}} @onMapClick={{this.setClickedPosition}} />
 
-<AddSign::AddSignContainer @isActive={{this.showAddSign}}>
+<AddSign::AddSignContainer
+  @isActive={{this.showAddSign}}
+  @signs={{this.model.signs}}
+>
   <p>sdfdssfd</p>
 </AddSign::AddSignContainer>
-
-{{#if this.clickedPosition}}
-  <RoadSignList @signs={{this.model.signs}} @onSelect={{this.addSignToMap}} />
-{{/if}}

@@ -1,0 +1,15 @@
+{{yield}}
+<section>
+  <AuContent>
+    <AuHeading @level="3" @skin="3">
+    Eigenaar & plaatsingsdatum
+  </AuHeading>
+    <p>Defineer wie verantwoordelijk is voor het verkeersbord & de plaatsingsdatum</p>
+    <form action="#">
+      <AuLabel for="sign-authority">Authoriteit:</AuLabel>
+      <AuInput id="sign-authority" @width="block"></AuInput>
+      <AuLabel for="sign-date">Geplande datum of plaatsingsdatum</AuLabel>
+      <AuDatePicker @label="" id="sign-date"/>
+    </form>
+  </AuContent>
+</section>

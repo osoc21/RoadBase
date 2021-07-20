@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 
 export default class AddSignAddSignFourComponent extends Component {
   @tracked cities = ['Aalst', 'Antwerpen', 'Aalter'];
-
+  @tracked authority = this.cities[1];
   @action
   foo() {}
 }

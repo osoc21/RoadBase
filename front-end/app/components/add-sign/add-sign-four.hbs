@@ -13,8 +13,8 @@
               @noMatchesMessage="Geen resultaten"
               @searchMessage="Typ om te zoeken"
               @options={{this.cities}}
-              @selected={{this.city}}
-              @onChange={{this.foo}} as |city|>
+              @selected={{this.autority}}
+              @onChange={{fn (mut this.autority)}} as |city|>
         <p>{{city}}</p>
       </PowerSelect>
       <AuLabel for="sign-date">Geplande datum of plaatsingsdatum</AuLabel>

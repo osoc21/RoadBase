@@ -1,6 +1,20 @@
-<div class-name='signs-list'>
-  <p>sd</p>
-  {{#each @signs as |sign|}}
-    <img src={{sign.image}} {{on 'click' (fn this.selectItem sign)}} />
-  {{/each}}
+<div class='signs-list'>
+  <div class='signs-list__filters'>
+    <AuInput
+      id='input-regular'
+      @icon='search'
+      {{on 'input' this.filterSignsOnSearch}}
+    />
+  </div>
+  <div class='signs-list__list'>
+    {{#each this.selectedSigns as |sign|}}
+      <div
+        class='signs-list__list-item'
+        {{on 'click' (fn this.selectItem sign)}}
+      >
+        <img src={{sign.image}} />
+        <p>{{sign.roadSignConceptCode}}</p>
+      </div>
+    {{/each}}
+  </div>
 </div>

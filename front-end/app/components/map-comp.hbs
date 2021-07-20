@@ -19,6 +19,13 @@
       </markerLayer.popup>
     </layers.marker>
   {{/each}}
+  {{#each this.instances as |instance|}}
+    <layers.marker
+            @location={{instance}}
+            as |markerLayer|
+    >
+    </layers.marker>
+  {{/each}}
 </LeafletMap>
 
 {{#each this.signs as |sign|}}

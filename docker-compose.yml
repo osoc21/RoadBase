@@ -1,0 +1,67 @@
+version: '3.4'
+
+services:
+  caddy:
+    build: ./caddy
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    environment:
+      - FRONTEND_URL=${FRONTEND_URL}
+      - BACKEND_URL=${BACKEND_URL}
+
+
+  ember:
+    build: ./front-end
+    environment:
+      - BACKEND_URL=${BACKEND_URL}
+
+
+
+  identifier:
+    image: semtech/mu-identifier:1.9.1
+    links:
+      - dispatcher:dispatcher
+
+  dispatcher:
+    image: semtech/mu-dispatcher:2.0.0
+    links:
+      - resource:resource
+    volumes:
+      - ./backend/config/dispatcher:/config
+
+  db:
+    image: tenforce/virtuoso:virtuoso7.2.5
+    environment:
+      SPARQL_UPDATE: "true"
+      DEFAULT_GRAPH: "http://mu.semte.ch/application"
+    ports:
+      - "8890:8890"
+    volumes:
+      - ./backend/data/db:/data
+      - ./backend/config/virtuoso/virtuoso.ini:/data/virtuoso.ini
+
+  resource:
+    image: semtech/mu-cl-resources:1.20.0
+    links:
+      - db:database
+    volumes:
+      - ./backend/config/resources:/config
+
+  migrations:
+    image: semtech/mu-migrations-service:0.7.0
+    links:
+      - db:database
+    volumes:
+      - ./backend/config/migrations:/data/migrations
+    environment:
+      - BATCH_SIZE=750  # Otherwise virtuoso will create pretty long SQL queries and keep retrying with a smaller batch size until it succeeds
+
+
+volumes:
+  caddy_data:
+  caddy_config:

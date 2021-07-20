@@ -1,0 +1,8 @@
+{$FRONTEND_URL} {
+	reverse_proxy ember:80
+}
+
+
+{$BACKEND_URL} {
+	reverse_proxy identifier:80
+}

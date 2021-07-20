@@ -1,7 +1,9 @@
-@import 'appuniversum.scss';
-
+// import variables
+@import 'variables.scss';
 // import components
 @import './components/add-sign-container.scss';
+// import appuniversum
+@import 'appuniversum.scss';
 
 $navBarHeight: 4.5vh;
 $toolBarHeight: 5vh;

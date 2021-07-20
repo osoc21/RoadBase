@@ -1,0 +1,29 @@
+<section>
+  <AuHeading @level='3' @skin='3'>
+    Hoogte
+  </AuHeading>
+
+  <form>
+    <p>
+      <AuLabel for='input-regular'>Definieer de hoogte van de paal in meter.</AuLabel>
+
+      <AuInput id='input-regular' />
+    </p>
+  </form>
+</section>
+
+<section>
+  <div class='section-title-container'>
+
+    <AuHeading @level='3' @skin='3'>
+      Borden
+    </AuHeading>
+  </div>
+
+  <AuButton @skin='secondary' {{on 'click' this.toggleShowSignSelector}}>
+    Bord toevoegen
+  </AuButton>
+  {{#if this.showSignSelector}}
+    <RoadSignList @signs={{@signs}} @onSelect={{this.addSignToMap}} />
+  {{/if}}
+</section>

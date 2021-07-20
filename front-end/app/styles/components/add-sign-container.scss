@@ -27,6 +27,10 @@
         align-items: center;
         flex-direction: column;
 
+        * {
+          margin: 0;
+        }
+
         .nav-item__icon {
           width: 50px;
           height: 50px;
@@ -36,16 +40,40 @@
           align-items: center;
           justify-content: center;
         }
-        .nav-item__item {
+        .nav-item__title {
           text-align: center;
+          font-size: 13px;
+          margin: 8px 0;
+          color: $secondary-text;
         }
       }
 
       &__item--active {
-        color: green;
+        .nav-item__title {
+          color: $primary-blue;
+        }
+
+        .au-c-badge {
+          background-color: $primary-blue;
+          color: white;
+        }
+      }
+      &__item--completed {
+        .au-c-badge {
+          background-color: $primary-green;
+          color: white;
+        }
       }
     }
+    .add-sign-nav::before {
+      content: '';
+      height: 2px;
+      width: 100%;
+      background-color: green;
+    }
   }
+  // .add-sign-header::before {
+  // }
 
   .add-sign-content {
     flex: 1;

@@ -8,7 +8,7 @@ export default class AddSignContainerComponent extends Component {
     'Borden en hoogte',
     'Positie',
     'Windrichting',
-    'Eigenaar en Plaatsingsdatum',
+    'Beheer',
     'Overzicht',
   ];
 

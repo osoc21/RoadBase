@@ -14,29 +14,29 @@ defmodule Dispatcher do
 
 
   match "/road-sign-instances/*path" do
-    Proxy.forward conn, path, "http://resource/road-sign-instances/"
+    Proxy.forward conn, path, "http://resources/road-sign-instances/"
   end
 
   match "/accidents/*path" do
-    Proxy.forward conn, path, "http://resource/accidents/"
+    Proxy.forward conn, path, "http://resources/accidents/"
   end
 
 
   # "Verkeersborden" migration microservice
   match "/road-sign-concepts/*path" do
-    Proxy.forward conn, path, "http://resource/road-sign-concepts/"
+    Proxy.forward conn, path, "http://resources/road-sign-concepts/"
   end
 
   match "/road-sign-concept-status/*path" do
-    Proxy.forward conn, path, "http://resource/road-sign-concept-status/"
+    Proxy.forward conn, path, "http://resources/road-sign-concept-status/"
   end
 
   match "/road-sign-concept-status-codes/*path" do
-    Proxy.forward conn, path, "http://resource/road-sign-concept-status-codes/"
+    Proxy.forward conn, path, "http://resources/road-sign-concept-status-codes/"
   end
 
   match "/road-sign-categories/*path" do
-    Proxy.forward conn, path, "http://resource/road-sign-categories/"
+    Proxy.forward conn, path, "http://resources/road-sign-categories/"
   end
 
 

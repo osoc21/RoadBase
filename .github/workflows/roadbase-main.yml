@@ -23,11 +23,11 @@ jobs:
             DOCKER_USER: ${{ secrets.DOCKER_USER }}
             DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          docker build /caddy/
-          docker build /dispatcher/
-          docker build /migrations/
-          docker build /resources/
-          docker build /virtuoso/
+          docker build caddy/
+          docker build dispatcher/
+          docker build migrations/
+          docker build resources/
+          docker build virtuoso/
       - name: Docker tag
         run: |
           docker ps

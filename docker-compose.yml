@@ -28,36 +28,29 @@ services:
       - dispatcher:dispatcher
 
   dispatcher:
-    image: semtech/mu-dispatcher:2.0.0
+    build: ./dispatcher
     links:
-      - resource:resource
-    volumes:
-      - ./backend/config/dispatcher:/config
+      - resources:resources
 
   db:
-    image: tenforce/virtuoso:virtuoso7.2.5
+    build: ./virtuoso
     environment:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://mu.semte.ch/application"
     ports:
       - "8890:8890"
     volumes:
-      - ./backend/data/db:/data
-      - ./backend/config/virtuoso/virtuoso.ini:/data/virtuoso.ini
+      - virtuoso_data:/data
 
-  resource:
-    image: semtech/mu-cl-resources:1.20.0
+  resources:
+    build: ./resources
     links:
       - db:database
-    volumes:
-      - ./backend/config/resources:/config
 
   migrations:
-    image: semtech/mu-migrations-service:0.7.0
+    build: ./migrations
     links:
       - db:database
-    volumes:
-      - ./backend/config/migrations:/data/migrations
     environment:
       - BATCH_SIZE=750  # Otherwise virtuoso will create pretty long SQL queries and keep retrying with a smaller batch size until it succeeds
 
@@ -65,3 +58,4 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+  virtuoso_data:

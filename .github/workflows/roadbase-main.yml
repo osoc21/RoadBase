@@ -28,6 +28,7 @@ jobs:
           docker build migrations/ -t jodideloof/osoc-containers:migrations_image
           docker build resources/ -t jodideloof/osoc-containers:resources_image
           docker build virtuoso/ -t jodideloof/osoc-containers:virtuoso_image
+          docker build frontend/ -t jodideloof/osoc-containers:frontend_image
       - name: Docker Push
         run: |
           docker ps -a
@@ -36,3 +37,4 @@ jobs:
           docker push jodideloof/osoc-containers:migrations_image
           docker push jodideloof/osoc-containers:resources_image
           docker push jodideloof/osoc-containers:virtuoso_image
+          docker push jodideloof/osoc-containers:frontend_image

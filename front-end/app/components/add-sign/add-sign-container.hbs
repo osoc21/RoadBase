@@ -30,7 +30,7 @@
 
     {{#if (eq this.currentStep 1)}}
       {{! insert component for screen 1 }}
-      <p>step 1</p>
+      <AddSign::AddSignTwo  @clickedPosition={{@clickedPosition}}/> 
     {{/if}}
 
     {{#if (eq this.currentStep 2)}}
@@ -49,6 +49,7 @@
   </div>
   <div class='add-sign-footer'>
     <AuButton
+      @skin='secondary'
       @icon='arrow-left'
       @iconAlignment='left'
       {{on 'click' this.decrementCurrentStep}}
@@ -56,6 +57,7 @@
       Terug
     </AuButton>
     <AuButton
+      @skin='secondary'
       @icon='arrow-right'
       @iconAlignment='right'
       {{on 'click' this.incrementCurrentStep}}

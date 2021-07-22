@@ -1,0 +1,70 @@
+<section>
+  <AuHeading @level='3' @skin='3'>
+    Positie
+  </AuHeading>
+
+  <p>Defineer de positie & toebehorende straten van het bord.</p>
+  
+  <AuHeading @level='4' @skin='4' class="position__subtitle">
+    Toebehorende straten
+  </AuHeading>
+
+  <form>
+    {{#each this.streets as |street|}}
+      <AuInput id='input-regular' class="position__street_input" placeholder="Voeg een straat toe ..." />
+    {{/each}}
+  </form>
+  
+
+  <AuButton 
+    @skin='primary'
+    @icon='add'
+    @iconAlignment='left' 
+    {{on 'click' this.addStreet}}>
+    Voeg een andere straat toe
+  </AuButton>
+
+  <AuHeading @level='4' @skin='4' class="position__subtitle">
+    Rastercoördinaten
+  </AuHeading>
+  <span>{{@clickedPosition}}</span>
+  <div>
+    <div class="position__coordinate">
+      <div class="position__coordinate__section">
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.latDegrees}} />
+        <span>°</span>
+      </div>
+
+      <div class="position__coordinate__section">
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.latMinutes}} />
+        <span>'</span>
+      </div>
+
+      <div class="position__coordinate__section">
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.latSeconds}} />
+        <span>''</span>
+      </div>
+      <span>{{this.latDirection}}</span>
+    </div>
+
+    <div class="position__coordinate">
+      <div class="position__coordinate__section">
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.lonDegrees}} />
+        <span>°</span>
+      </div>
+
+      <div class="position__coordinate__section">
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.lonMinutes}} />
+        <span>'</span>
+      </div>
+
+      <div class="position__coordinate__section">
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.lonSeconds}} />
+        <span>''</span>
+      </div>
+      <span>{{this.lonDirection}}</span>
+    </div>
+  </div>
+
+  
+</section>

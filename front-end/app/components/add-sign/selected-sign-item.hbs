@@ -4,7 +4,7 @@
     class='selected-signs-item__code'
   >{{this.sign.concept.roadSignConceptCode}}</p>
   <span class='selected-signs-item__divider'></span>
-  <p>Grootte:</p>
+  <p class='selected-signs-item__size-label'>Grootte:</p>
   <PowerSelect
     id='sign-size'
     @allowClear={{false}}
@@ -16,4 +16,5 @@
   >
     <p>{{size}}</p>
   </PowerSelect>
+  <p class='selected-signs-item__symbol'>m</p>
 </div>

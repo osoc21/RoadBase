@@ -1,0 +1,30 @@
+section {
+  .selected-signs {
+    &__item {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      .selected-signs-item__img {
+        width: 85px;
+        margin: 0 25px 0 0;
+      }
+      .selected-signs-item__code {
+        font-size: 18px;
+        margin: 0 25px 0 0;
+        width: 30px;
+      }
+      .selected-signs-item__divider {
+        width: 1px;
+        height: 85px;
+        background-color: black;
+        margin: 0 25px 0 0;
+      }
+      .selected-signs-item__size-label {
+        margin-right: 15px;
+      }
+      .selected-signs-item__symbol {
+        margin-left: 5px;
+      }
+    }
+  }
+}

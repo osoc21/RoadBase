@@ -42,7 +42,6 @@ export default class AddSignOneComponent extends Component {
       newEl.position = i;
       return newEl;
     });
-    console.log(newSelectedSigns);
     this.selectedSigns = newSelectedSigns;
   }
 }

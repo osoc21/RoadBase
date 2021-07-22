@@ -7,6 +7,7 @@ export default class IndexController extends Controller {
   @tracked clickedPosition = undefined;
   @tracked signsOnMap = [];
   @tracked showAddSign = false;
+  @tracked showFilter = false;
 
   @action
   setClickedPosition(event) {

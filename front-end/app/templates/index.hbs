@@ -1,5 +1,8 @@
 {{page-title 'FrontEnd'}}
 <NavBar />
+<Taskbar @filterIsActive{{this.showFilter}} />
+{{showFilter1}}
+<Filter @filterIsActive{{this.showFilter}}/>
 
 <MapComp @signs={{this.signsOnMap}} @instances={{this.model.instances}} @onMapClick={{this.setClickedPosition}}  />
 

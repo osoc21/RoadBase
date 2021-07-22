@@ -1,0 +1,117 @@
+<div class="filter {{if @filterIsActive 'visible'}}">
+  <div class="filter__heading">
+    <AuHeading @level='4' @skin='4'>Filteren op</AuHeading>
+
+    <AuButton @skin="secondary" >
+        Alle filters verwijderen
+    </AuButton>
+  </div>
+  <div class="filter__slider"></div>
+  <form action="" class="filter__form">
+    <div>
+      <AuHeading @level="5" @skin="5" class="filter__form__subtitle">Type</AuHeading>
+
+      <div class="au-c-form">
+        <p>
+          <AuControlCheckbox @label="Verkeersborden" @identifier="verkeersborden" />
+        </p>
+        <p>
+          <AuControlCheckbox @label="Wegmarkeringen" @identifier="wegmarkeringen" />
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <AuHeading @level="5" @skin="5" class="filter__form__subtitle">Doelgroep</AuHeading>
+
+      <div class="au-c-form">
+        <p>
+          <AuControlCheckbox @label="Fietsers" @identifier="fietsers" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Gemotoriseerd transport" @identifier="gemotoriseerd transport" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Openbaar vervoer" @identifier="openbaar vervoer" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Voetgangers" @identifier="voetgangers" />
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <AuHeading @level="5" @skin="5" class="filter__form__subtitle">Toestand</AuHeading>
+
+      <div class="au-c-form">
+        <p>
+          <AuControlCheckbox @label="Actief" @identifier="actief" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Conceptueel" @identifier="conceptueel" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Gepland" @identifier="gepland" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Probleem" @identifier="probleem" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Tijdelijk" @identifier="tijdelijk" />
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <AuHeading @level="5" @skin="5" class="filter__form__subtitle">Zones</AuHeading>
+
+      <div class="au-c-form">
+        <p>
+          <AuControlCheckbox @label="Autosnelweg zones" @identifier="autosnelweg" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Bebouwde kom zones" @identifier="bebouwde kom" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Fietsstraat zones" @identifier="fietsstraat" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Woonerf zones" @identifier="woonerf" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Zones voor landbouwverkeer" @identifier="landbouwverkeer" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Zones 30" @identifier="zones 30" />
+        </p>
+
+        <p>
+          <AuControlCheckbox @label="Zones 50" @identifier="zones 50" />
+        </p>
+      </div>
+    </div>
+
+    <div class="filter__form__traffic-sign">
+      <AuHeading @level="5" @skin="5" class="filter__form__subtitle">Verkeersbord</AuHeading>
+      <div class="au-c-form">
+        <p class="filter__form__traffic-sign__container">
+          <AuLabel class="filter__form__traffic-sign__label" for="input-regular">Code bord</AuLabel>
+          <AuInput class="filter__form__traffic-sign__input" id="input-regular" />
+        </p>
+      </div>
+    </div>
+
+  </form>
+</div>

@@ -24,6 +24,27 @@
     Bord toevoegen
   </AuButton>
   {{#if this.showSignSelector}}
-    <RoadSignList @signs={{@signs}} @onSelect={{this.addSignToMap}} />
+    <RoadSignList @signs={{@signs}} @onSelect={{this.setSelectedSign}} />
   {{/if}}
+
+  <div class='selected-signs'>
+    {{!-- {{#each this.selectedSigns as |sign index|}}
+      <AddSign::SelectedSignItem
+        @data={{sign}}
+        @locationInList={{index}}
+        @updateSign={{this.updateSign}}
+      />
+    {{/each}} --}}
+    <DragSortList
+      @items={{this.selectedSigns}}
+      @dragEndAction={{this.updateSignsOrder}}
+      as |sign|
+    >
+      <AddSign::SelectedSignItem
+        @data={{sign}}
+        @locationInList={{sign.position}}
+        @updateSign={{this.updateSign}}
+      />
+    </DragSortList>
+  </div>
 </section>

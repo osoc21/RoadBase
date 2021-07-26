@@ -29,5 +29,7 @@ If you want to change which docker hub repository the images are pushed to, chan
 ![github secrets](https://i.imgur.com/YCqEylB.png)
 
 ## Deployment
-To setup deployment on any server, a [docker-compose.yml](https://github.com/osoc21/RoadBase/blob/master/misc/deployment/docker-compose.yml) has been created in this folder.
+To setup deployment on any server, a [docker-compose.yml](https://github.com/osoc21/RoadBase/blob/master/misc/deployment/docker-compose.yml) has been created in this folder. If the docker hub repository has changed, don't forget to edit the image links in this file as well.
+
+
 

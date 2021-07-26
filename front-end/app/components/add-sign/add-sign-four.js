@@ -9,7 +9,7 @@ export default class AddSignAddSignFourComponent extends Component {
     'Haaltert',
     'Erembodegem',
     'Dendermonde',
-    'Moorsel'
+    'Moorsel',
   ];
   @tracked authority = this.cities[1];
   @action

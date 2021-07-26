@@ -24,6 +24,12 @@ $paddingValue: 1vh;
     min-height: $navBarHeight;
   }
 
+  .content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
   // PaddingValue is *2 because both Top & Bottom padding is used
   .leaflet-container {
     flex: 1;
@@ -49,7 +55,7 @@ $paddingValue: 1vh;
   button {
     display: block;
     margin: $paddingValue 0;
-    
+
     // &:hover {
     //   cursor: pointer;
     // }
@@ -82,7 +88,6 @@ $paddingValue: 1vh;
 #ember-basic-dropdown-wormhole {
   z-index: 2000;
 }
-
 
 .views {
   position: fixed;

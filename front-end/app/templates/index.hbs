@@ -6,14 +6,16 @@
 />
 
 {{!-- <p {{on 'click' this.randomAction}}>sdfdssfd</p> --}}
-<MapComp
-  @signs={{this.signsOnMap}}
-  @instances={{this.model.instances}}
-  @onMapClick={{this.setClickedPosition}}
-/>
+<div class='content'>
+  <MapComp
+    @signs={{this.signsOnMap}}
+    @instances={{this.model.instances}}
+    @onMapClick={{this.setClickedPosition}}
+  />
 
-<AddSign::AddSignContainer
-  @isActive={{this.showAddSign}}
-  @signs={{this.model.signs}}
-  @clickedPosition={{this.clickedPosition}}
-/>
+  <AddSign::AddSignContainer
+    @isActive={{this.showAddSign}}
+    @signs={{this.model.signs}}
+    @clickedPosition={{this.clickedPosition}}
+  />
+</div>

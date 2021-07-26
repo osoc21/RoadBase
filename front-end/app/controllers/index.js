@@ -7,11 +7,25 @@ export default class IndexController extends Controller {
   @tracked clickedPosition = undefined;
   @tracked signsOnMap = [];
   @tracked showAddSign = false;
+  @tracked allowAddSign = false;
+
+  @action
+  updateAllowAddSign(newValue) {
+    this.allowAddSign = newValue;
+    if (newValue === true) {
+      document.getElementById('ember192').style.cursor = 'copy'
+    } else {
+      document.getElementById('ember192').style.cursor = 'move'
+    }
+    console.log(this.allowAddSign);
+  }
 
   @action
   setClickedPosition(event) {
     this.clickedPosition = { lat: event.latlng.lat, lon: event.latlng.lng };
-    this.showAddSign = true;
+    if (this.allowAddSign) {
+      this.showAddSign = true;
+    }
   }
 
   @action

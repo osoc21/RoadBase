@@ -67,6 +67,14 @@ $paddingValue: 1vh;
   margin-right: 3rem;
 }
 
+.taskbar__actions .au-c-button {
+  color: #000;
+}
+
+.taskbar__actions .button-active {
+  color: $primary-blue;
+}
+
 //Override for PowerSelect Dropdown
 #ember-basic-dropdown-wormhole{
   z-index: 2000;
@@ -78,4 +86,8 @@ $paddingValue: 1vh;
   bottom: 1rem;
   left: 1rem;
   z-index: 2000;
+}
+
+#ember192 {
+  cursor: move;
 }

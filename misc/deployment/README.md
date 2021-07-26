@@ -38,7 +38,7 @@ The way this deployment is setup, no source is needed on the server itself. The 
 
 ### Full setup
 - Install docker on the server: [Docker documentation](https://docs.docker.com/engine/install/ubuntu/)
-- Copy and edit [docker-compose.yml](https://github.com/osoc21/RoadBase/blob/master/misc/deployment/docker-compose.yml) to use the correct docker hub images.
+- Copy the [docker-compose.yml](https://github.com/osoc21/RoadBase/blob/master/misc/deployment/docker-compose.yml) file to the server and edit it to use the correct docker hub images.
 - Run docker-compose up in the directory on the server that contains the docker-compose.yml file. This will also spin up the Caddy server image so no nginx is needed.
 - If desired, follow the watchtower documentation for automatic deployment to the server.
 

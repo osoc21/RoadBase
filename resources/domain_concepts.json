@@ -4,7 +4,7 @@
 		"lblodmow": "http://data.lblod.info/vocabularies/mobiliteit/",
 		"skos": "http://www.w3.org/2004/02/skos/core#",
 		"org": "http://www.w3.org/ns/org#",
-		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#",
+		"mobiliteit": "http://data.vlaanderen.be/ns/mobiliteit#",
 		"vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#"
 	},
 	"resources": {

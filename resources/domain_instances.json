@@ -3,8 +3,10 @@
 	"prefixes": {
 		"roadbase": "https://roadbase.be/vocabularies/",
 		"schema": "https://schema.org/",
-		"lblodmow": "https://data.lblod.info/vocabularies/mobiliteit/",
-		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#"
+		"org": "http://www.w3.org/ns/org#",
+		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#",
+		"openbaardomein": "https://data.vlaanderen.be/ns/openbaardomein#",
+		"xsd": "http://www.w3.org/2001/XMLSchema#"
 	},
 
 	"resources": {
@@ -19,11 +21,23 @@
 				"location_long": {
 					"type": "string",
 					"predicate": "schema:longitude"
+				},
+				"height": {
+					"type": "schema:QuantitativeValue",
+					"predicate": "mobiliteit:hoogte"
+				},
+				"direction": {
+					"type": "string",
+					"predicate": "mobiliteit:aanzicht"
+				},
+				"authority": {
+					"type": "org:Organization",
+					"predicate": "openbaardomein:beheerder"
 				}
 			},
 			"relationships": {
 				"road-sign-concept": {
-					"predicate": "roadbase:placeholder-predicate",
+					"predicate": "mobiliteit:realiseert",
 					"target": "roadSignConcept",
 					"cardinality": "one"
 				}

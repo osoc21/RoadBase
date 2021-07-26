@@ -46,7 +46,7 @@ For the server deployment, please visit [this guide](https://github.com/osoc21/R
 ### Technical Team
 
 - Bo Robbrecht
-    - [Linked](https://www.linkedin.com/in/borobbrecht/)
+    - [LinkedIn](https://www.linkedin.com/in/borobbrecht/)
     - [GitHub](https://github.com/BT-Creator)
 - Hans Vertriest
     - [LinkedIn](https://www.linkedin.com/in/hans-vertriest-a57763174/)

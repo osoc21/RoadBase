@@ -28,6 +28,33 @@ Roadbase is a POC tool created for crowd-sourcing information about road marks i
     ```
 5. You can now access the application with the address the console returns. *(Normally, this should be http://localhost:4200)*
 
-## Credits
+### Server Deployment
+For the server deployment, please visit [this guide](https://github.com/osoc21/RoadBase/blob/master/misc/deployment/README.md).
 
+## Credits
+### Technical Team
+- Bo Robbrecht
+    - [Send an email](mailto:robbrechtbo@hotmail.com) 
+- Hans Vertriest
+    - [Send an email](mailto:hans.vertriest@gmail.com)
+- Julia Van Der Kris
+    - [Send an email](mailto:samvdkris@disroot.org)
+- Sybren De Boever
+    - [Send an email](mailto:sybrendeboever3344@hotmail.com)
+- Lieselot Geirnaert
+    - [Send an email](mailto:lieselot.geirnaert@gmail.com)
+### Strategical Team
+- Ilya Plyusnin
+    - [Send an email](mailto:plyusninilya97@gmail.com)  
+- Inés Elvira Pérez
+    - [Send an email](mailto:inesjin@hotmail.es)
+- Fien Goedman
+    - [Send an email](mailto:fiengoeman@hotmail.com)
+- Xuan Hung Dinh
+    - [Send an email](mailto:hungdinh100297@gmail.com)
+### Coaches
+- Initi Valderas Caro
+    - [Send an email](mailto:inti@valderas.be)
+- Jodi De Loof
+    - [Send an email](mailto:jodi@jodideloof.be)
 ## Additional Resources

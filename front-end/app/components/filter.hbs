@@ -1,114 +1,212 @@
-<div class="filter {{if @showFilter 'filter-visible'}}">
-  <div class="filter__heading">
+<div class='filter {{if @showFilter 'filter-visible'}}'>
+  <div class='filter__heading'>
     <AuHeading @level='4' @skin='4'>Filteren op</AuHeading>
 
-    <AuButton @skin="secondary" {{on 'click' this.uncheck}}>
-        Alle filters verwijderen
+    <AuButton @skin='secondary' {{on 'click' this.uncheck}}>
+      Alle filters verwijderen
     </AuButton>
   </div>
-  <div class="filter__slider"></div>
-  <form action="" class="filter__form">
+  <div class='filter__slider'></div>
+  <form action='' class='filter__form'>
     <div>
-      <AuHeading @level="5" @skin="5" class="filter__form__subtitle">Type</AuHeading>
+      <AuHeading
+        @level='5'
+        @skin='5'
+        class='filter__form__subtitle'
+      >Type</AuHeading>
 
-      <div class="au-c-form">
+      <div class='au-c-form'>
         <p>
-          <AuControlCheckbox @label="Verkeersborden" @identifier="verkeersborden" @checked={{this.checked}} />
+          <AuControlCheckbox
+            @label='Verkeersborden'
+            @identifier='verkeersborden'
+            @checked={{this.verkeersborden}}
+          />
         </p>
         <p>
-          <AuControlCheckbox @label="Wegmarkeringen" @identifier="wegmarkeringen" @checked={{this.checked}}/>
+          <AuControlCheckbox
+            @label='Wegmarkeringen'
+            @identifier='wegmarkeringen'
+            @checked={{this.wegmarkeringen}}
+          />
         </p>
       </div>
     </div>
 
     <div>
-      <AuHeading @level="5" @skin="5" class="filter__form__subtitle">Doelgroep</AuHeading>
+      <AuHeading
+        @level='5'
+        @skin='5'
+        class='filter__form__subtitle'
+      >Doelgroep</AuHeading>
 
-      <div class="au-c-form">
+      <div class='au-c-form'>
         <p>
-          <AuControlCheckbox @label="Fietsers" @identifier="fietsers" @checked={{this.checked}} />
+          <AuControlCheckbox
+            @label='Fietsers'
+            @identifier='fietsers'
+            @checked={{this.fietsers}}
+          />
         </p>
 
         <p>
-          <AuControlCheckbox @label="Gemotoriseerd transport" @identifier="gemotoriseerd transport" @checked={{this.checked}} />
+          <AuControlCheckbox
+            @label='Gemotoriseerd transport'
+            @identifier='gemotoriseerd transport'
+            @checked={{this.transport}}
+          />
         </p>
 
         <p>
-          <AuControlCheckbox @label="Openbaar vervoer" @identifier="openbaar vervoer" @checked={{this.checked}} />
+          <AuControlCheckbox
+            @label='Openbaar vervoer'
+            @identifier='openbaar vervoer'
+            @checked={{this.vervoer}}
+          />
         </p>
 
         <p>
-          <AuControlCheckbox @label="Voetgangers" @identifier="voetgangers" @checked={{this.checked}} />
-        </p>
-      </div>
-    </div>
-
-    <div>
-      <AuHeading @level="5" @skin="5" class="filter__form__subtitle">Toestand</AuHeading>
-
-      <div class="au-c-form">
-        <p>
-          <AuControlCheckbox @label="Actief" @identifier="actief" @checked={{this.checked}} />
-        </p>
-
-        <p>
-          <AuControlCheckbox @label="Conceptueel" @identifier="conceptueel" @checked={{this.checked}} />
-        </p>
-
-        <p>
-          <AuControlCheckbox @label="Gepland" @identifier="gepland" @checked={{this.checked}} />
-        </p>
-
-        <p>
-          <AuControlCheckbox @label="Probleem" @identifier="probleem" @checked={{this.checked}} />
-        </p>
-
-        <p>
-          <AuControlCheckbox @label="Tijdelijk" @identifier="tijdelijk" @checked={{this.checked}} />
+          <AuControlCheckbox
+            @label='Voetgangers'
+            @identifier='voetgangers'
+            @checked={{this.voetgangers}}
+          />
         </p>
       </div>
     </div>
 
     <div>
-      <AuHeading @level="5" @skin="5" class="filter__form__subtitle">Zones</AuHeading>
+      <AuHeading
+        @level='5'
+        @skin='5'
+        class='filter__form__subtitle'
+      >Toestand</AuHeading>
 
-      <div class="au-c-form">
+      <div class='au-c-form'>
         <p>
-          <AuControlCheckbox @label="Autosnelweg zones" @identifier="autosnelweg" @checked={{this.checked}} />
+          <AuControlCheckbox
+            @label='Actief'
+            @identifier='actief'
+            @checked={{this.actief}}
+          />
         </p>
 
         <p>
-          <AuControlCheckbox @label="Bebouwde kom zones" @identifier="bebouwde kom" @checked={{this.checked}} />
+          <AuControlCheckbox
+            @label='Conceptueel'
+            @identifier='conceptueel'
+            @checked={{this.conceptueel}}
+          />
         </p>
 
         <p>
-          <AuControlCheckbox @label="Fietsstraat zones" @identifier="fietsstraat" @checked={{this.checked}} />
+          <AuControlCheckbox
+            @label='Gepland'
+            @identifier='gepland'
+            @checked={{this.gepland}}
+          />
         </p>
 
         <p>
-          <AuControlCheckbox @label="Woonerf zones" @identifier="woonerf" @checked={{this.checked}} />
+          <AuControlCheckbox
+            @label='Probleem'
+            @identifier='probleem'
+            @checked={{this.probleem}}
+          />
         </p>
 
         <p>
-          <AuControlCheckbox @label="Zones voor landbouwverkeer" @identifier="landbouwverkeer" @checked={{this.checked}} />
-        </p>
-
-        <p>
-          <AuControlCheckbox @label="Zones 30" @identifier="zones 30" @checked={{this.checked}} />
-        </p>
-
-        <p>
-          <AuControlCheckbox @label="Zones 50" @identifier="zones 50" @checked={{this.checked}} />
+          <AuControlCheckbox
+            @label='Tijdelijk'
+            @identifier='tijdelijk'
+            @checked={{this.tijdelijk}}
+          />
         </p>
       </div>
     </div>
 
-    <div class="filter__form__traffic-sign">
-      <AuHeading @level="5" @skin="5" class="filter__form__subtitle">Verkeersbord</AuHeading>
-      <div class="au-c-form">
-        <p class="filter__form__traffic-sign__container">
-          <AuLabel class="filter__form__traffic-sign__label" for="input-regular">Code bord</AuLabel>
-          <AuInput class="filter__form__traffic-sign__input" id="input-regular" />
+    <div>
+      <AuHeading
+        @level='5'
+        @skin='5'
+        class='filter__form__subtitle'
+      >Zones</AuHeading>
+
+      <div class='au-c-form'>
+        <p>
+          <AuControlCheckbox
+            @label='Autosnelweg zones'
+            @identifier='autosnelweg'
+            @checked={{this.autosnelweg}}
+          />
+        </p>
+
+        <p>
+          <AuControlCheckbox
+            @label='Bebouwde kom zones'
+            @identifier='bebouwde kom'
+            @checked={{this.kom}}
+          />
+        </p>
+
+        <p>
+          <AuControlCheckbox
+            @label='Fietsstraat zones'
+            @identifier='fietsstraat'
+            @checked={{this.fietsstraat}}
+          />
+        </p>
+
+        <p>
+          <AuControlCheckbox
+            @label='Woonerf zones'
+            @identifier='woonerf'
+            @checked={{this.woonerf}}
+          />
+        </p>
+
+        <p>
+          <AuControlCheckbox
+            @label='Zones voor landbouwverkeer'
+            @identifier='landbouwverkeer'
+            @checked={{this.landbouwverkeer}}
+          />
+        </p>
+
+        <p>
+          <AuControlCheckbox
+            @label='Zones 30'
+            @identifier='zones 30'
+            @checked={{this.zonesThirty}}
+          />
+        </p>
+
+        <p>
+          <AuControlCheckbox
+            @label='Zones 50'
+            @identifier='zones 50'
+            @checked={{this.zonesFifty}}
+          />
+        </p>
+      </div>
+    </div>
+
+    <div class='filter__form__traffic-sign'>
+      <AuHeading
+        @level='5'
+        @skin='5'
+        class='filter__form__subtitle'
+      >Verkeersbord</AuHeading>
+      <div class='au-c-form'>
+        <p class='filter__form__traffic-sign__container'>
+          <AuLabel
+            class='filter__form__traffic-sign__label'
+            for='input-regular'
+          >Code bord</AuLabel>
+          <AuInput
+            class='filter__form__traffic-sign__input'
+            id='input-regular'
+          />
         </p>
       </div>
     </div>

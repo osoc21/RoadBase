@@ -1,18 +1,21 @@
 {{page-title 'FrontEnd'}}
 <NavBar />
-<Taskbar @allowAddSign={{this.allowAddSign}} @onClick={{this.updateAllowAddSign}} />
+<Taskbar
+  @allowAddSign={{this.allowAddSign}}
+  @onClick={{this.updateAllowAddSign}}
+/>
 
+{{!-- <p {{on 'click' this.randomAction}}>sdfdssfd</p> --}}
+<div class='content'>
+  <MapComp
+    @signs={{this.signsOnMap}}
+    @instances={{this.model.instances}}
+    @onMapClick={{this.setClickedPosition}}
+  />
 
-
-<MapComp @signs={{this.signsOnMap}} @instances={{this.model.instances}} @onMapClick={{this.setClickedPosition}} @allowAddSign={{this.allowAddSign}} />
-
-<AddSign::AddSignContainer
-  @isActive={{this.showAddSign}}
-  @signs={{this.model.signs}}
-  @clickedPosition={{this.clickedPosition}}
->
-
-</AddSign::AddSignContainer>
-
-
-
+  <AddSign::AddSignContainer
+    @isActive={{this.showAddSign}}
+    @signs={{this.model.signs}}
+    @clickedPosition={{this.clickedPosition}}
+  />
+</div>

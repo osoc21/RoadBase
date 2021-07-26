@@ -1,0 +1,22 @@
+<div class='selected-signs__item'>
+  <img class='selected-signs-item__icon' src='/draggable.svg' />
+  <img class='selected-signs-item__img' src={{this.sign.concept.image}} />
+  <p
+    class='selected-signs-item__code'
+  >{{this.sign.concept.roadSignConceptCode}}</p>
+  <span class='selected-signs-item__divider'></span>
+  <p class='selected-signs-item__size-label'>Grootte:</p>
+  <PowerSelect
+    id='sign-size'
+    @allowClear={{false}}
+    @searchEnabled={{false}}
+    @options={{this.signSizes}}
+    @selected={{this.selectedSize}}
+    @onChange={{fn this.onSizeSelect}}
+    as |size|
+  >
+    <p>{{size}}</p>
+  </PowerSelect>
+  <p class='selected-signs-item__symbol'>m</p>
+
+</div>

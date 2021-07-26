@@ -26,7 +26,6 @@ export default class CounterComponent extends Component {
         }
       })
       .map((loc) => {
-        console.log([loc['location_lat'], loc['location_long']]);
         return [loc['location_lat'], loc['location_long']];
       });
   }

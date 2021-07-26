@@ -34,6 +34,12 @@ To setup deployment on any server, a [docker-compose.yml](https://github.com/oso
 ## Server
 Issue: Importing the accident database and migrating it to linked open data generates a huge load on the server which causes the docker compose to fail if not enough memory is available (tried using 1gb of RAM on a digital ocean droplet). The current fix was to only migrate a small part of this dataset.
 
+### Full setup
+- Install docker: [Docker documentation](https://docs.docker.com/engine/install/ubuntu/)
+- Copy and edit [docker-compose.yml](https://github.com/osoc21/RoadBase/blob/master/misc/deployment/docker-compose.yml) to use the correct docker hub images.
+- Run docker-compose up in the directory on the server that contains the docker-compose.yml file. This will also spin up the Caddy server image so no nginx is needed.
+- If desired, follow the watchtower documentation for automatic deployment to the server.
+
 ## Automatic deployment
 For the automatic deployment, [watchtower](https://github.com/containrrr/watchtower) will be used to automate the refresh of the images after they are pushed to docker hub.
 

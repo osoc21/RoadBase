@@ -7,9 +7,10 @@
     <AuHeading @level='4' @skin='4' class="position__subtitle">
       Locatie
     </AuHeading>
-    <p class="">{{ this.addSign.position.latDeg }} °N {{ this.addSign.position.latMin }} {{ this.addSign.position.latDeg }}</p>
+    <p class="">{{ this.addSign.position.latDeg }}° {{ this.addSign.position.latMin }}' {{ this.addSign.position.latSec }}" {{ this.addSign.position.latDirection }}</p>
+    <p class="">{{ this.addSign.position.lonDeg }}° {{ this.addSign.position.lonMin }}' {{ this.addSign.position.lonSec }}" {{ this.addSign.position.lonDirection }}</p>
     {{#each this.addSign.streets as |street|}}
-    <p>{{ street }}</p>
+      <p>{{ street }}</p>
     {{/each}}
     <AuHeading @level='4' @skin='4' class="position__subtitle">
       Windrichting
@@ -22,7 +23,6 @@
       Eigenaar
     </AuHeading>
     <p class="">{{ this.addSign.direction }} °N</p>
-
 
     <AuButton @skin='primary' @icon='add' @iconAlignment='left' {{on 'click' this.log}}>
       Voeg een andere straat toe

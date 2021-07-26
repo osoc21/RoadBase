@@ -8,16 +8,6 @@ export default class AddSignAddSignTwoComponent extends Component {
 
   @tracked streets = [];
 
-  get latDirection() {
-    const direction = this.args.clickedPosition.latDeg >= 0 ? 'N' : 'Z';
-    return direction;
-  }
-
-  get lonDirection() {
-    const direction = this.args.clickedPosition.lonDeg >= 0 ? 'O' : 'W';
-    return direction;
-  }
-
   @action addStreet() {
     let streetsTemp = [];
     const $streetInputs = document.querySelectorAll('.position__street_input');
@@ -27,9 +17,7 @@ export default class AddSignAddSignTwoComponent extends Component {
       }
     });
     this.streets = [...streetsTemp];
-    console.log('streets', this.streets);
     this.addSign.setStreets(streetsTemp);
-    console.log('store', this.addSign.streets);
   }
 
   @action addStreetInput() {

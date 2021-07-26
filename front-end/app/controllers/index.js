@@ -23,15 +23,18 @@ export default class IndexController extends Controller {
     let lonMin = Math.floor(Math.abs(lon - lonDeg) * 60);
     let lonSec = Math.floor((Math.abs(lon - lonDeg) * 60 - lonMin) * 60);
 
+    let latDirection = event.latlng.lat >= 0 ? 'N' : 'Z';
+    let lonDirection = event.latlng.lng >= 0 ? 'O' : 'W';
+
     this.clickedPosition = {
       latDeg: latDeg,
       latMin: latMin,
       latSec: latSec,
-      latDirection: latDeg >= 0 ? 'N' : 'Z',
+      latDirection: latDirection,
       lonDeg: lonDeg,
       lonMin: lonMin,
       lonSec: lonSec,
-      lonDirection: lonDeg >= 0 ? 'O' : 'W',
+      lonDirection: lonDirection,
     };
 
     this.showAddSign = true;

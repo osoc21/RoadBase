@@ -8,13 +8,13 @@ services:
       - 443:443
       - 8000:8000
     environment:
-      - FRONTEND_URL=http://localhost:80
-      - BACKEND_URL=http://localhost:8000
+      - FRONTEND_URL=http://roadbase.osoc.be:80
+      - BACKEND_URL=http://roadbase.osoc.be:8000
 
   ember:
     image: jodideloof/osoc-containers:frontend_image
     environment:
-        - BACKEND_URL=http://localhost:8000
+        - BACKEND_URL=http://roadbase.osoc.be:8000
 
   identifier:
     image: semtech/mu-identifier:1.9.1
@@ -45,6 +45,12 @@ services:
       - db:database
     environment:
       - BATCH_SIZE=750  # Otherwise virtuoso will create pretty long SQL queries and keep retrying with a smaller batch size until it succeeds
+  
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 180
 
 volumes:
     caddy_data:

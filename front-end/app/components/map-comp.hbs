@@ -5,9 +5,14 @@
   @onClick={{this.onMapClick}}
   as |layers|
 >
+{{#if this.view}}
   <layers.tile
     @url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
   />
+  {{else}}
+  <layers.tile @url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+{{/if}}
+  
   {{#each @signs as |sign|}}
     <layers.marker
       @location={{sign.location}}
@@ -31,3 +36,5 @@
 {{#each this.signs as |sign|}}
   <p>{{sign.content.meaning}}</p>
 {{/each}}
+
+<Views @view={{this.view}} @onClick={{this.updateView}}/>

@@ -5,8 +5,8 @@ import { action } from '@ember/object';
 export default class FilterComponent extends Component {
   @tracked checked = true;
 
-  @action 
-  uncheck () {
+  @action
+  uncheck() {
     this.checked = false;
-  } 
+  }
 }

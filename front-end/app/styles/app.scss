@@ -71,3 +71,11 @@ $paddingValue: 1vh;
 #ember-basic-dropdown-wormhole{
   z-index: 2000;
 }
+
+
+.views {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2000;
+}

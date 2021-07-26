@@ -1,4 +1,4 @@
-# RoadBase - Deployment directions
+# RoadBase - Deployment documentation
 ## Applications
 RoadBase consists of the following services that need to be deployed:
 ### Frontend
@@ -57,3 +57,7 @@ docker run -d \
 ````
 
 (more documentation to be added while doing the actual deploy)
+
+## Current server
+164.90.192.163
+roadbase.osoc.be

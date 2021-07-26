@@ -9,6 +9,15 @@ export default class AddSignOneComponent extends Component {
   // sates
   @tracked showSignSelector = false;
   @tracked selectedSigns = [];
+  @tracked poleHeight = 0;
+
+  get remainingHeight() {
+    let remainingHeight = this.poleHeight;
+    this.selectedSigns.forEach((sign) => {
+      remainingHeight -= sign.size;
+    });
+    return remainingHeight.toFixed(2);
+  }
 
   @action toggleShowSignSelector() {
     this.showSignSelector = !this.showSignSelector;
@@ -43,5 +52,14 @@ export default class AddSignOneComponent extends Component {
       return newEl;
     });
     this.selectedSigns = newSelectedSigns;
+  }
+
+  @action updatePoleheight(event) {
+    const input = event.target.value;
+    if (input && Number(input)) {
+      this.poleHeight = Number(input);
+    } else {
+      this.poleHeight = 0;
+    }
   }
 }

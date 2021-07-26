@@ -1,9 +1,26 @@
 section {
+  margin-bottom: 70px !important;
+  #pole-height {
+    display: flex;
+    align-items: center;
+    p {
+      margin-left: 10px;
+    }
+  }
+  .section-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .selected-signs {
     &__item {
       display: flex;
       align-items: center;
       margin: 20px 0;
+      .selected-signs-item__icon {
+        width: 35px;
+        margin: 0 25px 0 0;
+      }
       .selected-signs-item__img {
         width: 85px;
         margin: 0 25px 0 0;
@@ -11,7 +28,7 @@ section {
       .selected-signs-item__code {
         font-size: 18px;
         margin: 0 25px 0 0;
-        width: 30px;
+        min-width: 30px;
       }
       .selected-signs-item__divider {
         width: 1px;

@@ -3,7 +3,7 @@
     <AuInput
       id='input-regular'
       @icon='search'
-      {{on 'input' this.filterSignsOnSearch}}
+      {{on 'input' (route-action 'searchSignsByCode')}}
     />
   </div>
   <div class='signs-list__list'>

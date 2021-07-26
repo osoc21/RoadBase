@@ -46,4 +46,14 @@ The way this deployment is setup, no source is needed on the server itself. The 
 ## Automatic deployment
 For the automatic deployment, [watchtower](https://github.com/containrrr/watchtower) will be used to automate the refresh of the images after they are pushed to docker hub.
 
+Run the following command to start the watchtower docker container and pol for the change of images every 2 mins:
+
+````
+docker run -d \
+  --name watchtower \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower \
+  --interval 120
+````
+
 (more documentation to be added while doing the actual deploy)

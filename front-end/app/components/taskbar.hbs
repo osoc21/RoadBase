@@ -1,6 +1,6 @@
 {{yield}}
 
-{{showFilter1 data= this.viewFilter}}
+{{!-- {{showFilter1 data= this.viewFilter}} --}}
 <AuToolbar @nowrap={{true}}>
   <AuToolbarGroup>
       <AuHeading @level='3' @skin='3'>
@@ -27,3 +27,5 @@
     </AuButton>
   </AuToolbarGroup>
 </AuToolbar>
+
+<Filter @showFilter={{this.showFilter}} />

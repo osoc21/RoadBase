@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class TaskbarComponent extends Component {
-  @tracked viewFilter = false;
+  @tracked showFilter = false;
 
   @action viewFilter() {
-    this.viewFilter = !this.viewFilter;
-    // this.args.showFilter = !this.a
+    this.showFilter = !this.showFilter;
   }
 }

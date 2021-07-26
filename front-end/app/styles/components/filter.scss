@@ -2,13 +2,14 @@
   width: 30%;
   height: 60rem;
   position: fixed;
-  right: 0;
+  right: -50rem;
   top: 13rem;
   z-index: 3000;
   margin-left: auto;
   background-color: $primary-gray;
   padding: 0 1rem;
   overflow-y: scroll;
+  transition: all 0.2s ease-in-out;
 
   &__heading {
     display: flex;
@@ -47,4 +48,8 @@
       }
     }
   }
+}
+
+.filter-visible {
+  right: 0;
 }

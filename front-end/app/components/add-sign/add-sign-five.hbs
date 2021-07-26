@@ -1,0 +1,28 @@
+<section>
+  <AuHeading @level='3' @skin='3'>
+    Overzicht
+  </AuHeading>
+
+  <AuContent class="content">
+    <AuHeading @level='4' @skin='4' class="position__subtitle">
+      Locatie
+    </AuHeading>
+    <p class="">{{ this.addSign.location }} °N</p>
+    <AuHeading @level='4' @skin='4' class="position__subtitle">
+      Windrichting
+    </AuHeading>
+    <AuHeading @level='4' @skin='4' class="position__subtitle">
+      Plaatsingsdatum
+    </AuHeading>
+    <p class="">{{ this.addSign.direction }} °N</p>
+    <AuHeading @level='4' @skin='4' class="position__subtitle">
+      Eigenaar
+    </AuHeading>
+    <p class="">{{ this.addSign.direction }} °N</p>
+
+
+    <AuButton @skin='primary' @icon='add' @iconAlignment='left' {{on 'click' this.log}}>
+      Voeg een andere straat toe
+    </AuButton>
+  </AuContent>
+</section>

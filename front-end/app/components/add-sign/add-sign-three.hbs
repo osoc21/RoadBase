@@ -4,9 +4,9 @@
   </AuHeading>
   <AuContent class="content">
     <p>Defineer de windrichting van de wegmarkering. Je kan de windrichting aanpassen met het kompas.</p>
-      <input type="range" min="0" max="360" value="0" step="5" class="slider" id="myRange" {{on 'input' this.showDirectionValue}}>
+      <input type="range" min="0" max="360" value="{{ this.direction }}" step="5" class="slider" id="myRange" {{on 'input' this.showDirectionValue}}>
     <div class="compass">
-      <p class="compass-value">{{ this.value }} °N</p>
+      <p class="compass-value">{{ this.direction }} °N</p>
       <span class="compass-direction compass-direction__nord">N °</span>
       <span class="compass-direction compass-direction__east">O °</span>
       <span class="compass-direction compass-direction__south">Z °</span>

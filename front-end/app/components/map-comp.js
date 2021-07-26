@@ -4,9 +4,9 @@ import { action } from '@ember/object';
 
 export default class CounterComponent extends Component {
   @tracked lng = 4;
-  @tracked lat = 52;
+  @tracked lat = 51;
   @tracked zoom = 12;
-  @tracked location = [52, 4];
+  @tracked location = [51, 4];
   @tracked view = true;
 
   @action

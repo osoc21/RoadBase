@@ -1,10 +1,10 @@
 {{page-title 'FrontEnd'}}
 <NavBar />
-<Taskbar />
+<Taskbar @allowAddSign={{this.allowAddSign}} @onClick={{this.updateAllowAddSign}} />
 
 
 
-<MapComp @signs={{this.signsOnMap}} @instances={{this.model.instances}} @onMapClick={{this.setClickedPosition}}  />
+<MapComp @signs={{this.signsOnMap}} @instances={{this.model.instances}} @onMapClick={{this.setClickedPosition}} @allowAddSign={{this.allowAddSign}} />
 
 <AddSign::AddSignContainer
   @isActive={{this.showAddSign}}

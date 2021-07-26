@@ -6,7 +6,7 @@ import { inject as service } from '@ember/service';
 export default class AddSignAddSignTwoComponent extends Component {
   @service addSign;
 
-  @tracked streets = ['Voeg een straat toe ...'];
+  @tracked streets = [];
   @tracked latDeg = 0;
   @tracked latMin = 0;
   @tracked lonDeg = 0;
@@ -62,7 +62,26 @@ export default class AddSignAddSignTwoComponent extends Component {
   }
 
   @action addStreet() {
-    // this.nrStreets += 1;
-    this.streets = [...this.streets, 'Voeg een straat toe ...'];
+    let streetsTemp = [];
+    const $streetInputs = document.querySelectorAll('.position__street_input');
+    $streetInputs.forEach((input) => {
+      if (input.value !== '') {
+        streetsTemp.push(input.value);
+      }
+    });
+    this.streets = [...streetsTemp];
+    console.log('streets', this.streets);
+    this.addSign.setStreets(streetsTemp);
+    console.log('store', this.addSign.streets);
+  }
+
+  @action addStreetInput() {
+    const $streetForm = document.querySelector('.streets-form');
+    const $streetInput = document.querySelector('.streets-form__input');
+    const $streetInputClone = $streetInput.cloneNode(false);
+    $streetInputClone.classList.remove('hidden', 'streets-form__input');
+    $streetInputClone.classList.add('position__street_input');
+    $streetInputClone.addEventListener('blur', this.addStreet);
+    $streetForm.appendChild($streetInputClone);
   }
 }

@@ -4,23 +4,21 @@
   </AuHeading>
 
   <p>Defineer de positie & toebehorende straten van het bord.</p>
-  
+
   <AuHeading @level='4' @skin='4' class="position__subtitle">
     Toebehorende straten
   </AuHeading>
 
-  <form>
-    {{#each this.streets as |street|}}
-      <AuInput id='input-regular' class="position__street_input" placeholder="Voeg een straat toe ..." />
-    {{/each}}
+  <form class="streets-form">
+    <AuInput id='input-regular' class="hidden streets-form__input" placeholder="Voeg een straat toe ..." />
+    <AuInput id='input-regular' class="position__street_input" placeholder="Voeg een straat toe ..." {{on "blur" this.addStreet}} />
   </form>
-  
 
-  <AuButton 
+  <AuButton
     @skin='primary'
     @icon='add'
-    @iconAlignment='left' 
-    {{on 'click' this.addStreet}}>
+    @iconAlignment='left'
+    {{on 'click' this.addStreetInput}}>
     Voeg een andere straat toe
   </AuButton>
 
@@ -66,5 +64,5 @@
     </div>
   </div>
 
-  
+
 </section>

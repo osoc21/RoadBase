@@ -12,6 +12,10 @@ $navBarHeight: 4.5vh;
 $toolBarHeight: 5vh;
 $paddingValue: 1vh;
 
+.hidden {
+  display: none;
+}
+
 .ember-application {
   display: flex;
   flex-direction: column;
@@ -46,7 +50,7 @@ $paddingValue: 1vh;
   button {
     display: block;
     margin: $paddingValue 0;
-    
+
     // &:hover {
     //   cursor: pointer;
     // }

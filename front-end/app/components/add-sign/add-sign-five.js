@@ -9,5 +9,6 @@ export default class AddSignAddSignFiveComponent extends Component {
   @action log() {
     console.log('test');
     console.log(this.addSign);
+    console.log('testttttt');
   }
 }

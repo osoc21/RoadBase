@@ -8,6 +8,9 @@
       Locatie
     </AuHeading>
     <p class="">{{ this.addSign.location }} °N</p>
+    {{#each this.addSign.streets as |street|}}
+    <p>{{ street }}</p>
+    {{/each}}
     <AuHeading @level='4' @skin='4' class="position__subtitle">
       Windrichting
     </AuHeading>

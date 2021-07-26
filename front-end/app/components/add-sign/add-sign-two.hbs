@@ -29,17 +29,17 @@
   <div>
     <div class="position__coordinate">
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.latDegrees}} />
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.latDeg}} />
         <span>°</span>
       </div>
 
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.latMinutes}} />
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.latMin}} />
         <span>'</span>
       </div>
 
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.latSeconds}} />
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.latSec}} />
         <span>''</span>
       </div>
       <span>{{this.latDirection}}</span>
@@ -47,17 +47,17 @@
 
     <div class="position__coordinate">
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.lonDegrees}} />
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.lonDeg}} />
         <span>°</span>
       </div>
 
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.lonMinutes}} />
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.lonMin}} />
         <span>'</span>
       </div>
 
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{this.lonSeconds}} />
+        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.lonSec}} />
         <span>''</span>
       </div>
       <span>{{this.lonDirection}}</span>

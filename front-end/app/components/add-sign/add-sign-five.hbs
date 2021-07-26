@@ -7,7 +7,7 @@
     <AuHeading @level='4' @skin='4' class="position__subtitle">
       Locatie
     </AuHeading>
-    <p class="">{{ this.addSign.location }} °N</p>
+    <p class="">{{ this.addSign.position.latDeg }} °N {{ this.addSign.position.latMin }} {{ this.addSign.position.latDeg }}</p>
     {{#each this.addSign.streets as |street|}}
     <p>{{ street }}</p>
     {{/each}}

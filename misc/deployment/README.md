@@ -5,7 +5,7 @@ RoadBase consists of the following services that need to be deployed:
 The frontend is a simple Ember application that runs in a docker container.
 
 ### Backend
-The RoadBase backend (v3.4) consists of multiple containers that can be executed using docker compose:
+The RoadBase backend consists of multiple services:
 - semtech/mu-identifier:1.9.1
 - semtech/mu-dispatcher:2.0.0
   - Mounted volumes: ./config/dispatcher:/config
@@ -31,6 +31,10 @@ If you want to change which docker hub repository the images are pushed to, chan
 ## Deployment
 To setup deployment on any server, a [docker-compose.yml](https://github.com/osoc21/RoadBase/blob/master/misc/deployment/docker-compose.yml) has been created in this folder. If the docker hub repository has changed, don't forget to edit the image links in this file as well.
 
-##Server
+## Server
 Issue: Importing the accident database and migrating it to linked open data generates a huge load on the server which causes the docker compose to fail if not enough memory is available (tried using 1gb of RAM on a digital ocean droplet). The current fix was to only migrate a small part of this dataset.
 
+## Automatic deployment
+For the automatic deployment, [watchtower](https://github.com/containrrr/watchtower) will be used to automate the refresh of the images after they are pushed to docker hub.
+
+(more documentation to be added while doing the actual deploy)

@@ -1,6 +1,7 @@
 // import variables
 @import 'variables.scss';
 // import components
+@import './components/filter.scss';
 @import './components/add-sign-container.scss';
 @import './components/add-sign-two.scss';
 @import './components/add-sign-three.scss';
@@ -45,10 +46,36 @@ $paddingValue: 1vh;
   button {
     display: block;
     margin: $paddingValue 0;
+    
+    // &:hover {
+    //   cursor: pointer;
+    // }
   }
+}
+
+// Override for taskbar
+.au-c-toolbar__group {
+  align-items: center;
+}
+
+.au-c-form > * + * {
+  margin-top: 0;
+}
+
+.taskbar__actions {
+  margin-left: auto;
+  margin-right: 3rem;
 }
 
 //Override for PowerSelect Dropdown
 #ember-basic-dropdown-wormhole{
+  z-index: 2000;
+}
+
+
+.views {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
   z-index: 2000;
 }

@@ -1,0 +1,55 @@
+.filter {
+  width: 30%;
+  height: 60rem;
+  position: fixed;
+  right: -50rem;
+  top: 13rem;
+  z-index: 3000;
+  margin-left: auto;
+  background-color: $primary-gray;
+  padding: 0 1rem;
+  overflow-y: scroll;
+  transition: all 0.2s ease-in-out;
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__slider::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $secondary-blue;
+    border-radius: 3rem;
+    margin: 1rem 0;
+  }
+
+  &__form {
+
+    &__subtitle {
+      color: $primary-blue;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+
+    &__traffic-sign {
+      padding-bottom: 1rem;
+
+      &__container {
+        display: flex;
+        align-items: center;
+
+        .au-c-label {
+          display: inline-block;
+          margin-right: 3rem;
+        }
+      }
+    }
+  }
+}
+
+.filter-visible {
+  right: 0;
+}

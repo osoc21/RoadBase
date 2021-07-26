@@ -7,6 +7,7 @@ export default class CounterComponent extends Component {
   @tracked lat = 52;
   @tracked zoom = 12;
   @tracked location = [52, 4];
+  @tracked view = true;
 
   @action
   onMapClick(e) {
@@ -28,5 +29,11 @@ export default class CounterComponent extends Component {
         console.log([loc['location_lat'], loc['location_long']]);
         return [loc['location_lat'], loc['location_long']];
       });
+  }
+
+  @action
+  updateView(newView) {
+    this.view = newView
+    console.log(this.view);
   }
 }

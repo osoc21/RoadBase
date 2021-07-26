@@ -34,3 +34,7 @@ To setup deployment on any server, a [docker-compose.yml](https://github.com/oso
 ##Server
 Issue: Importing the accident database and migrating it to linked open data generates a huge load on the server which causes the docker compose to fail if not enough memory is available (tried using 1gb of RAM on a digital ocean droplet). The current fix was to only migrate a small part of this dataset.
 
+## Automatic deployment
+For the automatic deployment, [watchtower](https://github.com/containrrr/watchtower) will be used to automate the refresh of the images after they are pushed to docker hub.
+
+(more documentation to be added while doing the actual deploy)

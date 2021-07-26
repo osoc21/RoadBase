@@ -23,8 +23,9 @@ open source web server with automatic HTTPS written in Go. Also running in a doc
 
 ## Github actions
 All docker images are build and pushed to docker hub using github actions ([roadbase-main.yml](https://github.com/osoc21/RoadBase/blob/master/.github/workflows/roadbase-main.yml)).
+
 If you want to change which docker hub repository the images are pushed to, change DOCKER_PASSWORD and DOCKER_USER in the github "secrets" settings:
-![github secrets](https://imgur.com/YCqEylB)
+![github secrets](https://i.imgur.com/YCqEylB.png)
 
 
 

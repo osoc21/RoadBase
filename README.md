@@ -11,16 +11,21 @@ Roadbase is a POC tool created for crowd-sourcing information about road marks i
     ```bash
     git clone https://github.com/osoc21/RoadBase.git
     ```
+    
 2. Navigate to the folder where the project is located.
     ```bash
     cd ./RoadBase
     ```
-    
-3. In the `front-end` directory, install all npm dependencies
-   ```bash
-   cd ./front-end
-   npm install
-   ```
+3. In the root of the directory, make a file called `.env` with the following contents:
+    ```dotenv
+    FRONTEND_URL=http://localhost
+    BACKEND_URL=http://localhost:8000
+    ```
+5. In the `front-end` directory, install all npm dependencies
+    ```bash
+    cd ./front-end
+    npm install
+    ```
 4. Within the root of the project, run the Docker containers:
     ```bash
     docker-compose up

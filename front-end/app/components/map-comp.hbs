@@ -7,10 +7,10 @@
 >
 {{#if this.view}}
   <layers.tile
-    @url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
+    @url='https://tile.openstreetmap.be/osmbe/{z}/{x}/{y}.png'
   />
   {{else}}
-  <layers.tile @url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+  <layers.tile @url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
 {{/if}}
   
   {{#each @signs as |sign|}}

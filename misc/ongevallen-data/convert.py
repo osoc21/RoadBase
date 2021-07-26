@@ -69,12 +69,12 @@ def main():
 	graph = rdflib.Graph()
 
 	# Load accidents from csv dataset, and add all Accident objects to an RDF graph
-	accidents = load_csv('accidents.csv')
+	accidents = load_csv('accidents_small.csv')
 	for a in accidents:
 		a.add_to_graph(graph)
 
 	# Dump the graph to a turtle file
-	write_ttl(graph, 'output.ttl')
+	write_ttl(graph, 'output_small.ttl')
 
 
 if __name__ == '__main__':

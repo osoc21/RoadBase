@@ -13,9 +13,9 @@ export default class IndexController extends Controller {
   updateAllowAddSign(newValue) {
     this.allowAddSign = newValue;
     if (newValue === true) {
-      document.getElementById('ember192').style.cursor = 'copy'
+      document.getElementById('ember192').style.cursor = 'copy';
     } else {
-      document.getElementById('ember192').style.cursor = 'move'
+      document.getElementById('ember192').style.cursor = 'move';
     }
     console.log(this.allowAddSign);
   }
@@ -47,5 +47,10 @@ export default class IndexController extends Controller {
       },
     ];
     this.clickedPosition = undefined;
+  }
+
+  @action
+  closeAddSign() {
+    this.showAddSign = false;
   }
 }

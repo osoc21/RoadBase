@@ -19,6 +19,15 @@
   .add-sign-header {
     display: flex;
     flex-direction: column;
+
+    &__title-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .icon {
+        cursor: pointer;
+      }
+    }
     .add-sign-nav {
       hr {
         position: relative;

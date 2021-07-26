@@ -15,18 +15,24 @@ Roadbase is a POC tool created for crowd-sourcing information about road marks i
     ```bash
     cd ./RoadBase
     ```
-3. Within the root of the project, run the Docker containers:
+    
+3. In the `front-end` directory, install all npm dependencies
+   ```bash
+   cd ./front-end
+   npm install
+   ```
+4. Within the root of the project, run the Docker containers:
     ```bash
     docker-compose up
     ```
-4. Navigate to the `front-end` directory and serve the ember application.
+5. Navigate to the `front-end` directory and serve the ember application.
     > ❗ Make sure to include the proxy tag, otherwise the database cannot be contacted.
     
     >  🕓 Serving the application may take a while...
     ```bash
     ember s --proxy http://localhost:80
     ```
-5. You can now access the application with the address the console returns. *(Normally, this should be http://localhost:4200)*
+6. You can now access the application with the address the console returns. *(Normally, this should be http://localhost:4200)*
 
 ### Server Deployment
 For the server deployment, please visit [this guide](https://github.com/osoc21/RoadBase/blob/master/misc/deployment/README.md).

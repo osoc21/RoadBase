@@ -2,7 +2,7 @@
 ## Applications
 RoadBase consists of the following services that need to be deployed:
 ### Frontend
-The frontend is a simple Ember application that runs in a docker container.
+The frontend is an Ember application that runs in a docker container.
 
 ### Backend
 The RoadBase backend consists of multiple services:
@@ -32,9 +32,9 @@ If you want to change which docker hub repository the images are pushed to, chan
 To setup deployment on any server, a [docker-compose.yml](https://github.com/osoc21/RoadBase/blob/master/misc/deployment/docker-compose.yml) has been created in this folder. If the docker hub repository has changed, don't forget to edit the image links in this file as well.
 
 ## Server
-_Issue: Importing the accident database and migrating it to linked open data generates a huge load on the server which causes the docker compose to fail if not enough memory is available (tried using 1gb of RAM on a digital ocean droplet). The current fix was to only migrate a small part of this dataset to prove technical viability._
+_Issue: Importing the accident database and migrating it to linked open data generates a huge load on the server which causes the docker compose to fail if not enough memory is available (at least 4gb of RAM is recommended). The current fix was to only migrate a small part of this dataset to prove technical viability._
 
-The way this deployment is setup, no source is needed on the server itself. The only file that is necessary is the docker-compose.yml file.
+The way this deployment is setup, no source code is needed on the server itself. The only file that is necessary is the docker-compose.yml file.
 
 ### Full setup
 - Install docker on the server: [Docker documentation](https://docs.docker.com/engine/install/ubuntu/)

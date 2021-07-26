@@ -5,7 +5,7 @@ RoadBase consists of the following services that need to be deployed:
 The frontend is a simple Ember application that runs in a docker container.
 
 ### Backend
-The RoadBase backend (v3.4) consists of multiple containers that can be executed using docker compose:
+The RoadBase backend consists of multiple containers that can be executed using docker compose:
 - semtech/mu-identifier:1.9.1
 - semtech/mu-dispatcher:2.0.0
   - Mounted volumes: ./config/dispatcher:/config

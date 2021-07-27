@@ -22,17 +22,9 @@
 					"type": "string",
 					"predicate": "schema:longitude"
 				},
-				"height": {
-					"type": "schema:QuantitativeValue",
-					"predicate": "mobiliteit:hoogte"
-				},
 				"direction": {
 					"type": "string",
 					"predicate": "mobiliteit:aanzicht"
-				},
-				"authority": {
-					"type": "org:Organization",
-					"predicate": "openbaardomein:beheerder"
 				}
 			},
 			"relationships": {
@@ -40,9 +32,31 @@
 					"predicate": "mobiliteit:realiseert",
 					"target": "roadSignConcept",
 					"cardinality": "one"
+				},
+				"height": {
+					"predicate": "mobiliteit:hoogte",
+					"target": "roadSignHeight",
+					"cardinality": "one"
 				}
 			},
 			"new-resource-base": "https://roadbase.be/road-sign-instances/"
+		},
+
+
+		"heights": {
+			"name": "roadSignHeight",
+			"class": "schema:QuantitativeValue",
+			"attributes": {
+				"unitCode": {
+					"type": "string",
+					"predicate": "schema:unitCode"
+				},
+				"value": {
+					"type": "number",
+					"predicate": "schema:value"
+				}
+			},
+			"new-resource-base": "https://roadbase.be/heights/"
 		}
 	}
 }

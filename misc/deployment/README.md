@@ -56,7 +56,7 @@ docker run -d \
   --interval 120
 ````
 
-(more documentation to be added while doing the actual deploy)
+This has also been added to the docker-compose file and will be setup automatically when running it.
 
 ## Current server
 

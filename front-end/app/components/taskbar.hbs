@@ -11,11 +11,11 @@
   <AuToolbarGroup class="taskbar__actions">
     <AuButtonGroup>
       <AuButton @skin="tertiary" @icon='eye'
-    @iconAlignment='left' >
+    @iconAlignment='left' {{on 'click' (fn @onClick false)}} class="{{unless @allowAddSign 'button-active' }}">
         Opstellingen bekijken
       </AuButton>
       <AuButton @skin="tertiary" @icon='add'
-    @iconAlignment='left'>
+    @iconAlignment='left' {{on 'click' (fn @onClick true)}} class="{{if @allowAddSign 'button-active' }}">
         Nieuwe opstelling toevoegen 
       </AuButton>
     </AuButtonGroup>

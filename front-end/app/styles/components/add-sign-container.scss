@@ -2,9 +2,10 @@
   width: 40%;
   max-width: 600px;
   min-width: 400px;
-  height: 100vh;
+  height: 100%;
+  max-height: 100vh;
 
-  position: fixed;
+  position: absolute;
   left: 100%;
   right: 0;
   top: 0;
@@ -13,71 +14,83 @@
   flex-direction: column;
   padding: 20px;
   background-color: white;
-  border: 2px solid black;
+  box-shadow: -2px 2px 10px grey;
 
   .add-sign-header {
-    .add-sign-nav {
+    display: flex;
+    flex-direction: column;
+
+    &__title-container {
       display: flex;
-      padding: 25px 0;
-
-      &__item {
-        flex: 1;
+      align-items: center;
+      justify-content: space-between;
+      .icon {
         cursor: pointer;
+      }
+    }
+    .add-sign-nav {
+      hr {
+        position: relative;
+        top: 58px;
+        width: 85%;
+        z-index: -1;
+      }
+      .add-sign-nav__container {
         display: flex;
-        align-items: center;
-        flex-direction: column;
+        padding: 25px 0;
 
-        * {
-          margin: 0;
-        }
-
-        .nav-item__icon {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          border: 2px solid black;
+        .add-sign-nav__item {
+          flex: 1;
+          cursor: pointer;
           display: flex;
           align-items: center;
-          justify-content: center;
-        }
-        .nav-item__title {
-          text-align: center;
-          font-size: 13px;
-          margin: 8px 0;
-          color: $secondary-text;
-        }
-      }
+          flex-direction: column;
 
-      &__item--active {
-        .nav-item__title {
-          color: $primary-blue;
+          * {
+            margin: 0;
+          }
+
+          .nav-item__icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .nav-item__title {
+            text-align: center;
+            font-size: 13px;
+            margin: 8px 0;
+            color: $secondary-text;
+          }
         }
 
-        .au-c-badge {
-          background-color: $primary-blue;
-          color: white;
+        .add-sign-nav__item--active {
+          .nav-item__title {
+            color: $primary-blue;
+          }
+
+          .au-c-badge {
+            background-color: $primary-blue;
+            color: white;
+          }
+        }
+        .add-sign-nav__item--completed {
+          .au-c-badge {
+            background-color: $primary-green;
+            color: white;
+          }
         }
       }
-      &__item--completed {
-        .au-c-badge {
-          background-color: $primary-green;
-          color: white;
-        }
-      }
-    }
-    .add-sign-nav::before {
-      content: '';
-      height: 2px;
-      width: 100%;
-      background-color: green;
     }
   }
-  // .add-sign-header::before {
-  // }
 
   .add-sign-content {
     flex: 1;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .add-sign-footer {

@@ -1,36 +1,49 @@
 <div class='add-sign-container {{if @isActive 'is-showing'}}'>
   <div class='add-sign-header'>
-    <AuHeading @level='2' @skin='2'>Verkeersbord maken</AuHeading>
+    <div class='add-sign-header__title-container'>
+      <AuHeading @level='2' @skin='2'>Verkeersbord maken</AuHeading>
+      <AuIcon
+        class='icon'
+        @icon='nav-right'
+        @alignment='left'
+        @size='large'
+        @ariaHidden={{true}}
+        {{on 'click' this.onClose}}
+      />
+    </div>
     <div class='add-sign-nav'>
-      {{#each this.stepTitles as |title index|}}
-        <div
-          class='add-sign-nav__item
-            {{if (eq this.currentTitle title) 'add-sign-nav__item--active'}}
-            {{if
-              (is-lower index this.currentStep)
-              'add-sign-nav__item--completed'
-            }}
-            '
-          {{on 'click' (fn this.setCurrentStep index)}}
-        >
-          {{#if (is-lower index this.currentStep)}}
-            <AuBadge @icon='check' />
-          {{else}}
-            <AuBadge @number={{(increment index 1)}} />
-          {{/if}}
-          <p class='nav-item__title'>{{title}}</p>
-        </div>
-      {{/each}}
+      <hr />
+      <div class='add-sign-nav__container'>
+        {{#each this.stepTitles as |title index|}}
+          <div
+            class='add-sign-nav__item
+              {{if (eq this.currentTitle title) 'add-sign-nav__item--active'}}
+              {{if
+                (is-lower index this.currentStep)
+                'add-sign-nav__item--completed'
+              }}
+              '
+            {{on 'click' (fn this.setCurrentStep index)}}
+          >
+            {{#if (is-lower index this.currentStep)}}
+              <AuBadge @icon='check' />
+            {{else}}
+              <AuBadge @number={{(increment index 1)}} />
+            {{/if}}
+            <p class='nav-item__title'>{{title}}</p>
+          </div>
+        {{/each}}
+      </div>
     </div>
   </div>
   <div class='add-sign-content'>
     {{#if (eq this.currentStep 0)}}
-      <AddSign::AddSignOne />
+      <AddSign::AddSignOne @signs={{@signs}} />
     {{/if}}
 
     {{#if (eq this.currentStep 1)}}
       {{! insert component for screen 1 }}
-      <AddSign::AddSignTwo  @clickedPosition={{@clickedPosition}} />
+      <AddSign::AddSignTwo @clickedPosition={{@clickedPosition}} />
     {{/if}}
 
     {{#if (eq this.currentStep 2)}}
@@ -39,7 +52,7 @@
     {{/if}}
 
     {{#if (eq this.currentStep 3)}}
-      <AddSign::AddSignFour/>
+      <AddSign::AddSignFour />
     {{/if}}
 
     {{#if (eq this.currentStep 4)}}

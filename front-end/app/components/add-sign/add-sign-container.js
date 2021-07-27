@@ -37,4 +37,10 @@ export default class AddSignContainerComponent extends Component {
   setCurrentStep(value) {
     this.currentStep = value;
   }
+
+  @action
+  onClose() {
+    console.log('sdsf');
+    this.args.onClose();
+  }
 }

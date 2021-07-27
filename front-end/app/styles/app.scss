@@ -3,8 +3,11 @@
 // import components
 @import './components/filter.scss';
 @import './components/add-sign-container.scss';
+@import './components/road-sign-list.scss';
+@import './components/add-sign-one.scss';
 @import './components/add-sign-two.scss';
 @import './components/add-sign-three.scss';
+@import './components/road-sign-list.scss';
 // import appuniversum
 @import 'appuniversum.scss';
 
@@ -23,6 +26,12 @@ $paddingValue: 1vh;
 
   header {
     min-height: $navBarHeight;
+  }
+
+  .content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
   }
 
   // PaddingValue is *2 because both Top & Bottom padding is used
@@ -71,15 +80,26 @@ $paddingValue: 1vh;
   margin-right: 3rem;
 }
 
-//Override for PowerSelect Dropdown
-#ember-basic-dropdown-wormhole{
-  z-index: 2000;
+.taskbar__actions .au-c-button {
+  color: #000;
 }
 
+.taskbar__actions .button-active {
+  color: $primary-blue;
+}
+
+//Override for PowerSelect Dropdown
+#ember-basic-dropdown-wormhole {
+  z-index: 2000;
+}
 
 .views {
   position: fixed;
   bottom: 1rem;
   left: 1rem;
   z-index: 2000;
+}
+
+#ember192 {
+  cursor: move;
 }

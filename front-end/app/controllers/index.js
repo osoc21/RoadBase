@@ -10,6 +10,18 @@ export default class IndexController extends Controller {
   @tracked clickedPosition = undefined;
   @tracked signsOnMap = [];
   @tracked showAddSign = false;
+  @tracked allowAddSign = false;
+
+  @action
+  updateAllowAddSign(newValue) {
+    this.allowAddSign = newValue;
+    if (newValue === true) {
+      document.getElementById('ember192').style.cursor = 'copy';
+    } else {
+      document.getElementById('ember192').style.cursor = 'move';
+    }
+    console.log(this.allowAddSign);
+  }
 
   @action
   setClickedPosition(event) {
@@ -37,9 +49,11 @@ export default class IndexController extends Controller {
       lonDirection: lonDirection,
     };
 
-    this.showAddSign = true;
-
     this.addSign.setPosition(this.clickedPosition);
+
+    if (this.allowAddSign) {
+      this.showAddSign = true;
+    }
   }
 
   @action
@@ -61,5 +75,10 @@ export default class IndexController extends Controller {
       },
     ];
     this.clickedPosition = undefined;
+  }
+
+  @action
+  closeAddSign() {
+    this.showAddSign = false;
   }
 }

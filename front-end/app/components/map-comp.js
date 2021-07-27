@@ -32,7 +32,7 @@ export default class CounterComponent extends Component {
 
   @action
   updateView(newView) {
-    this.view = newView
+    this.view = newView;
     console.log(this.view);
   }
 }

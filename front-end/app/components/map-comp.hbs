@@ -1,19 +1,19 @@
-
-<LeafletMap 
+<LeafletMap
+  {{addattribution}}
   @lat={{this.lat}}
   @lng={{this.lng}}
   @zoom={{this.zoom}}
   @onClick={{this.onMapClick}}
   as |layers|
 >
-{{#if this.view}}
-  <layers.tile
-    @url='https://tile.openstreetmap.be/osmbe/{z}/{x}/{y}.png'
-  />
+  {{#if this.view}}
+    <layers.tile @url='https://tile.openstreetmap.be/osmbe/{z}/{x}/{y}.png' />
   {{else}}
-  <layers.tile @url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
-{{/if}}
-  
+    <layers.tile
+      @url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+    />
+  {{/if}}
+
   {{#each @signs as |sign|}}
     <layers.marker
       @location={{sign.location}}
@@ -26,11 +26,7 @@
     </layers.marker>
   {{/each}}
   {{#each this.instances as |instance|}}
-    <layers.marker
-            @location={{instance}}
-            as |markerLayer|
-    >
-    </layers.marker>
+    <layers.marker @location={{instance}} as |markerLayer| />
   {{/each}}
 </LeafletMap>
 
@@ -38,4 +34,4 @@
   <p>{{sign.content.meaning}}</p>
 {{/each}}
 
-<Views @view={{this.view}} @onClick={{this.updateView}}/>
+<Views @view={{this.view}} @onClick={{this.updateView}} />

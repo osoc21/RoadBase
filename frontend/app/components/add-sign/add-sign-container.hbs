@@ -61,21 +61,28 @@
     {{/if}}
   </div>
   <div class='add-sign-footer'>
+    {{#if this.isFirstStep}}
+      <AuButton
+        @skin='secondary'
+        @icon='arrow-left'
+        @iconAlignment='left'
+        {{on 'click' this.decrementCurrentStep}}
+      >
+        Terug
+      </AuButton>
+    {{/if}}
     <AuButton
-      @skin='secondary'
-      @icon='arrow-left'
-      @iconAlignment='left'
-      {{on 'click' this.decrementCurrentStep}}
-    >
-      Terug
-    </AuButton>
-    <AuButton
-      @skin='secondary'
+      @skin='{{if this.isLastStep 'primary' 'secondary'}}'
       @icon='arrow-right'
       @iconAlignment='right'
       {{on 'click' this.incrementCurrentStep}}
     >
-      Volgende
+      {{#if this.isLastStep}}
+        Opslaan
+      {{else}}
+
+        Volgende
+      {{/if}}
     </AuButton>
   </div>
 </div>

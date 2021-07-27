@@ -104,3 +104,31 @@ $paddingValue: 1vh;
 #ember192 {
   cursor: move;
 }
+
+// .marker {
+//   width: 100px;
+//   height: 100px;
+//   &__icon {
+//     width: 20px;
+//     height: 20px;
+//     background-color: green;
+//     transform: rotate(attr(rotation deg));
+//   }
+// }
+
+.roadsign-icon {
+  background-color: black;
+  width: 3rem;
+  height: 1rem;
+  position: relative;
+}
+.roadsign-icon::before {
+  top: 0.1rem;
+  border-radius: 100%;
+  background-color: black;
+  content: '';
+  height: 1.5rem;
+  position: absolute;
+  width: 1.5rem;
+  left: calc((100% - 1.5rem) / 2);
+}

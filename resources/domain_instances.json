@@ -33,11 +33,6 @@
 					"target": "roadSignConcept",
 					"cardinality": "one"
 				},
-				"authority": {
-					"predicate": "openbaardomein:beheerder",
-					"target": "authority",
-					"cardinality": "one"
-				},
 				"height": {
 					"predicate": "mobiliteit:hoogte",
 					"target": "roadSignHeight",
@@ -45,15 +40,6 @@
 				}
 			},
 			"new-resource-base": "https://roadbase.be/road-sign-instances/"
-		},
-
-
-		"authorities": {
-			"name": "authority",
-			"class": "org:Organization",
-			"attributes": {
-
-			}
 		},
 
 
@@ -69,7 +55,8 @@
 					"type": "number",
 					"predicate": "schema:value"
 				}
-			}
+			},
+			"new-resource-base": "https://roadbase.be/heights/"
 		}
 	}
 }

@@ -17,6 +17,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resources/road-sign-instances/"
   end
 
+  match "/heights/*path" do
+    Proxy.forward conn, path, "http://resources/heights/"
+  end
+
   match "/accidents/*path" do
     Proxy.forward conn, path, "http://resources/accidents/"
   end
@@ -41,7 +45,7 @@ defmodule Dispatcher do
 
 
   # Errors
-  match "/_", %{ last_call: true } do
+  match "/*", %{ last_call: true } do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
 

@@ -55,7 +55,7 @@ For the server deployment, please visit [this guide](https://github.com/osoc21/R
     - [LinkedIn](https://www.linkedin.com/in/hans-vertriest-a57763174/)
     - [GitHub](https://github.com/hansvertriest)
 - Julia Van Der Kris
-    - [LinkedIn](https://www.linkedin.com/in/sam-van-der-kris-041226168/)
+    - [LinkedIn](https://www.linkedin.com/in/julia-van-der-kris-041226168/)
     - [GitHub](https://github.com/samvdkris/)
 - Sybren De Boever
     - [LinkedIn](https://www.linkedin.com/in/sybren-de-boever-27281b114/)

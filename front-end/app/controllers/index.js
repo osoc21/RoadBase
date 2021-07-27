@@ -2,8 +2,11 @@ import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import * as L from 'leaflet';
+import { inject as service } from '@ember/service';
 
 export default class IndexController extends Controller {
+  @service addSign;
+
   @tracked clickedPosition = undefined;
   @tracked signsOnMap = [];
   @tracked showAddSign = false;
@@ -22,7 +25,32 @@ export default class IndexController extends Controller {
 
   @action
   setClickedPosition(event) {
-    this.clickedPosition = { lat: event.latlng.lat, lon: event.latlng.lng };
+    const lat = event.latlng.lat;
+    const lon = event.latlng.lng;
+
+    let latDeg = Math.floor(Math.abs(lat));
+    let latMin = Math.floor(Math.abs(lat - latDeg) * 60);
+    let latSec = Math.floor((Math.abs(lat - latDeg) * 60 - latMin) * 60);
+    let lonDeg = Math.floor(Math.abs(lon));
+    let lonMin = Math.floor(Math.abs(lon - lonDeg) * 60);
+    let lonSec = Math.floor((Math.abs(lon - lonDeg) * 60 - lonMin) * 60);
+
+    let latDirection = event.latlng.lat >= 0 ? 'N' : 'Z';
+    let lonDirection = event.latlng.lng >= 0 ? 'O' : 'W';
+
+    this.clickedPosition = {
+      latDeg: latDeg,
+      latMin: latMin,
+      latSec: latSec,
+      latDirection: latDirection,
+      lonDeg: lonDeg,
+      lonMin: lonMin,
+      lonSec: lonSec,
+      lonDirection: lonDirection,
+    };
+
+    this.addSign.setPosition(this.clickedPosition);
+
     if (this.allowAddSign) {
       this.showAddSign = true;
     }

@@ -1,0 +1,46 @@
+<section>
+  <AuHeading @level='3' @skin='3'>
+    Overzicht
+  </AuHeading>
+
+  <AuContent class="step5__content">
+    <AuHeading @level='4' @skin='4' class="step5__subtitle">
+      Locatie
+    </AuHeading>
+    <p>Geassocieerd met volgende straten:</p>
+    <ul>
+      {{#each this.addSign.streets as |street|}}
+      <li>{{ street }}</li>
+      {{/each}}
+    </ul>
+    <div>
+      <p class="">{{ this.addSign.position.latDeg }}° {{ this.addSign.position.latMin }}' {{ this.addSign.position.latSec }}" {{ this.addSign.position.latDirection }}</p>
+      <p class="">{{ this.addSign.position.lonDeg }}° {{ this.addSign.position.lonMin }}' {{ this.addSign.position.lonSec }}" {{ this.addSign.position.lonDirection }}</p>
+    </div>
+
+    <AuHeading @level='4' @skin='4' class="step5__subtitle">
+      Windrichting
+    </AuHeading>
+    <p class="">{{ this.addSign.direction }} °N</p>
+    <AuHeading @level='4' @skin='4' class="step5__subtitle">
+      Plaatsingsdatum
+    </AuHeading>
+    <p class="">{{ this.addSign.placementDate }}</p>
+    <AuHeading @level='4' @skin='4' class="step5__subtitle">
+      Eigenaar
+    </AuHeading>
+    <p class="">{{ this.addSign.authority }}</p>
+
+    <AuHeading @level='4' @skin='4' class="step5__subtitle step5__subtitle--boards">
+      Borden
+    </AuHeading>
+    <div class='selected-signs'>
+      {{#each this.addSign.signs as |sign|}}
+      <article class="selected-signs__sign">
+        <img class='selected-signs__sign__img' src={{sign.concept.image}} />
+        <p class='selected-signs-item__code'>{{sign.concept.roadSignConceptCode}}</p>
+      </article>
+      {{/each}}
+    </div>
+  </AuContent>
+</section>

@@ -7,6 +7,7 @@
 @import './components/add-sign-one.scss';
 @import './components/add-sign-two.scss';
 @import './components/add-sign-three.scss';
+@import './components/add-sign-five.scss';
 @import './components/road-sign-list.scss';
 // import appuniversum
 @import 'appuniversum.scss';
@@ -14,6 +15,10 @@
 $navBarHeight: 4.5vh;
 $toolBarHeight: 5vh;
 $paddingValue: 1vh;
+
+.hidden {
+  display: none;
+}
 
 .ember-application {
   display: flex;

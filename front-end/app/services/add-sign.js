@@ -6,6 +6,10 @@ export default class AddSignService extends Service {
   streets = [];
   date = '';
   owner = '';
+  signs = [];
+  poleHeight = 0;
+  authority = '';
+  placementDate = '';
 
   setStreets(value) {
     this.streets = [...value];
@@ -19,11 +23,23 @@ export default class AddSignService extends Service {
     this.position = value;
   }
 
-  setDate(value) {
-    this.date = value;
+  setPlacementDate(value) {
+    this.placementDate = value;
   }
 
   setOwner(value) {
     this.owner = value;
+  }
+
+  setSigns(value) {
+    this.signs = value;
+  }
+
+  setPoleHeight(value) {
+    this.poleHeight = value;
+  }
+
+  setAuthority(value) {
+    this.authority = value;
   }
 }

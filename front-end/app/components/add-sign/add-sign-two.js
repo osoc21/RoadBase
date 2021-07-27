@@ -6,7 +6,7 @@ import { inject as service } from '@ember/service';
 export default class AddSignAddSignTwoComponent extends Component {
   @service addSign;
 
-  @tracked streets = [];
+  @tracked streets = this.addSign.streets;
 
   @action addStreet() {
     let streetsTemp = [];

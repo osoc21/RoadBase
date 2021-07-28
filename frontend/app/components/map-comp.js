@@ -9,11 +9,7 @@ export default class CounterComponent extends Component {
   @tracked zoom = 12;
   @tracked location = [51, 4];
   @tracked view = true;
-
-  @action
-  onMapClick(e) {
-    this.args.onMapClick(e);
-  }
+  @tracked detailsSign = {};
 
   get instances() {
     const data = this.args.instances;
@@ -42,6 +38,16 @@ export default class CounterComponent extends Component {
   @action
   updateView(newView) {
     this.view = newView;
-    console.log(this.view);
+  }
+
+  @action
+  onMapClick(e) {
+    this.args.onMapClick(e);
+    this.args.onDetailsClick(false);
+  }
+
+  @action
+  onDetailsClick(instance) {
+    this.args.onDetailsClick(true, instance);
   }
 }

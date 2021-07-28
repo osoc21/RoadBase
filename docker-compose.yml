@@ -28,12 +28,12 @@ services:
       - dispatcher:dispatcher
 
   dispatcher:
-    build: ./dispatcher
+    build: ./backend/dispatcher
     links:
       - resources:resources
 
   db:
-    build: ./virtuoso
+    build: ./backend/virtuoso
     environment:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://mu.semte.ch/application"
@@ -43,12 +43,12 @@ services:
       - virtuoso_data:/data
 
   resources:
-    build: ./resources
+    build: ./backend/resources
     links:
       - db:database
 
   migrations:
-    build: ./migrations
+    build: ./backend/migrations
     links:
       - db:database
     environment:

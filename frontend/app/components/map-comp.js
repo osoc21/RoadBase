@@ -29,12 +29,13 @@ export default class CounterComponent extends Component {
         }
       })
       .map((instance) => {
+        console.log(instance['direction']);
         return {
           loc: [instance['location_lat'], instance['location_long']],
           content: instance,
           marker: L.divIcon({
             className: 'marker',
-            html: `<div class="roadsign-icon" id="1" style="transform: rotate(45deg);"></div>`,
+            html: `<div class="roadsign-icon" id="1" style="transform: rotate(${instance.direction}deg);"></div>`,
           }),
         };
       });

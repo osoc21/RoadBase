@@ -33,7 +33,7 @@
 
 (add-prefix "ext" "http://mu.semte.ch/vocabularies/ext/")
 
-(add-prefix "roadbase" "https://roadbase.be/vocabularies/")
+(add-prefix "roadbase" "https://osoc-safe-open-roads.s.redpencil.io/vocabularies/")
 
 (add-prefix "lblodmow" "http://data.lblod.info/vocabularies/mobiliteit/")
 (add-prefix "dct" "http://purl.org/dc/terms/")

@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 from uuid import uuid4
 from rdflib.namespace import RDF, XSD
 
-BASE_URL = 'https://roadbase.be'
+BASE_URL = 'https://osoc-safe-open-roads.s.redpencil.io'
 SCHEMA = rdflib.Namespace('https://schema.org/')
 ROADBASE = rdflib.Namespace(f'{BASE_URL}/vocabularies/')
 MU = rdflib.Namespace('http://mu.semte.ch/vocabularies/core/')

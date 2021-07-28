@@ -1,7 +1,7 @@
 {
 	"version": "0.1",
 	"prefixes": {
-		"roadbase": "https://roadbase.be/vocabularies/",
+		"roadbase": "https://osoc-safe-open-roads.s.redpencil.io/vocabularies/",
 		"schema": "https://schema.org/",
 		"org": "http://www.w3.org/ns/org#",
 		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#",
@@ -39,7 +39,7 @@
 					"cardinality": "one"
 				}
 			},
-			"new-resource-base": "https://roadbase.be/road-sign-instances/"
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-sign-instances/"
 		},
 
 
@@ -56,7 +56,7 @@
 					"predicate": "schema:value"
 				}
 			},
-			"new-resource-base": "https://roadbase.be/heights/"
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/heights/"
 		}
 	}
 }

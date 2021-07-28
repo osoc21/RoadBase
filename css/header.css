@@ -33,6 +33,7 @@
 	position: relative;
 	top: 1.5rem;
 	padding: 1rem 0.5rem;
+  border-radius: 1rem;
 	background-color: white;
 	box-shadow: 0 2px 20px rgba(76,95,92,0.2);
 }

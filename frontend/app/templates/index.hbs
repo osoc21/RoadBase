@@ -6,6 +6,12 @@
 />
 
 <div class='content'>
+
+  {{#if this.showClickOnMap}}
+    <div class='toaster'>
+      <p>Klik op de kaart om een locatie te selecteren.</p>
+    </div>
+  {{/if}}
   <MapComp
     @signs={{this.signsOnMap}}
     @instances={{this.model.instances}}

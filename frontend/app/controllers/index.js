@@ -13,12 +13,14 @@ export default class IndexController extends Controller {
   @tracked showSignDetails = false;
   @tracked allowAddSign = false;
   @tracked signDetails;
+  @tracked showClickOnMap = false;
 
   @action
   updateAllowAddSign(newValue) {
     this.allowAddSign = newValue;
     if (newValue === true) {
       document.getElementById('ember192').style.cursor = 'copy';
+      this.showClickOnMap = true;
     } else {
       document.getElementById('ember192').style.cursor = 'move';
     }
@@ -54,6 +56,8 @@ export default class IndexController extends Controller {
 
     this.addSign.setPosition(this.clickedPosition);
     this.model.cacheNewSign(this.clickedPosition.lat, this.clickedPosition.lon);
+
+    this.showClickOnMap = false;
 
     if (this.allowAddSign) {
       this.showAddSign = true;

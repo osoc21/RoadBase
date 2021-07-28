@@ -4,5 +4,6 @@
 
 
 {$BACKEND_URL} {
+	header Access-Control-Allow-Origin "*"
 	reverse_proxy identifier:80
 }

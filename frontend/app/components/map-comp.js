@@ -20,7 +20,6 @@ export default class CounterComponent extends Component {
 
     return data
       .filter((loca) => {
-        console.log(loca);
         if (
           loca['location_lat'] !== undefined ||
           loca['location_long'] !== undefined
@@ -29,7 +28,6 @@ export default class CounterComponent extends Component {
         }
       })
       .map((instance) => {
-        console.log(instance['direction']);
         return {
           loc: [instance['location_lat'], instance['location_long']],
           content: instance,

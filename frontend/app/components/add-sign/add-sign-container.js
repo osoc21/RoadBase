@@ -48,7 +48,6 @@ export default class AddSignContainerComponent extends Component {
 
   @action
   onClose() {
-    console.log('sdsf');
     this.args.onClose();
   }
 }

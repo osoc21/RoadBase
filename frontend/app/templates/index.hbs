@@ -5,12 +5,12 @@
   @onClick={{this.updateAllowAddSign}}
 />
 
-{{!-- <p {{on 'click' this.randomAction}}>sdfdssfd</p> --}}
 <div class='content'>
   <MapComp
     @signs={{this.signsOnMap}}
     @instances={{this.model.instances}}
     @onMapClick={{this.setClickedPosition}}
+    @onDetailsClick={{this.toggleShowSignDetails}}
   />
 
   <AddSign::AddSignContainer
@@ -18,5 +18,11 @@
     @signs={{this.model.signs}}
     @clickedPosition={{this.clickedPosition}}
     @onClose={{this.closeAddSign}}
+  />
+
+  <SignDetails
+    @detailsActive={{this.showSignDetails}}
+    @onClose={{this.toggleShowSignDetails}}
+    @signDetails={{this.signDetails}}
   />
 </div>

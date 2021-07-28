@@ -10,7 +10,9 @@ export default class IndexController extends Controller {
   @tracked clickedPosition = undefined;
   @tracked signsOnMap = [];
   @tracked showAddSign = false;
+  @tracked showSignDetails = false;
   @tracked allowAddSign = false;
+  @tracked signDetails;
 
   @action
   updateAllowAddSign(newValue) {
@@ -80,5 +82,12 @@ export default class IndexController extends Controller {
   @action
   closeAddSign() {
     this.showAddSign = false;
+  }
+
+  @action toggleShowSignDetails(bool, instance) {
+    this.showSignDetails = bool;
+    this.signDetails = instance;
+    console.log('sign', this.signDetails);
+    console.log('sign', instance);
   }
 }

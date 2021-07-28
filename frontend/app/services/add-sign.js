@@ -42,4 +42,16 @@ export default class AddSignService extends Service {
   setAuthority(value) {
     this.authority = value;
   }
+
+  reset() {
+    this.position = {};
+    this.direction = 0;
+    this.streets = [];
+    this.date = '';
+    this.owner = '';
+    this.signs = [];
+    this.poleHeight = 0;
+    this.authority = '';
+    this.placementDate = '';
+  }
 }

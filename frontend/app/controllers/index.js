@@ -39,6 +39,8 @@ export default class IndexController extends Controller {
     let lonDirection = event.latlng.lng >= 0 ? 'O' : 'W';
 
     this.clickedPosition = {
+      lon,
+      lat,
       latDeg: latDeg,
       latMin: latMin,
       latSec: latSec,

@@ -29,7 +29,17 @@ export default class AddSignContainerComponent extends Component {
 
   @action
   incrementCurrentStep() {
-    if (this.currentStep + 1 < this.stepTitles.length) {
+    // check if last step
+    if (this.isLastStep) {
+      this.args.onSave(
+        this.addSign.position.lat,
+        this.addSign.position.lon,
+        this.addSign.direction,
+        this.addSign.signs[0].concept.id
+      );
+      this.addSign.reset();
+      this.onClose();
+    } else if (this.currentStep + 1 < this.stepTitles.length) {
       this.currentStep += 1;
     }
   }
@@ -49,5 +59,6 @@ export default class AddSignContainerComponent extends Component {
   @action
   onClose() {
     this.args.onClose();
+    this.currentStep = 0;
   }
 }

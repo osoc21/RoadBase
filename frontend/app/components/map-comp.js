@@ -16,7 +16,6 @@ export default class CounterComponent extends Component {
 
     return data
       .filter((loca) => {
-        console.log(loca);
         if (
           loca['location_lat'] !== undefined ||
           loca['location_long'] !== undefined

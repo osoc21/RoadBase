@@ -4,6 +4,7 @@ import { action } from '@ember/object';
 
 export default class IndexRoute extends Route {
   @tracked codeFilter = 'A';
+  @tracked nextStoreId = 1;
 
   model() {
     return {
@@ -15,6 +16,43 @@ export default class IndexRoute extends Route {
       instances: this.store.findAll('road-sign-instance', {
         include: 'road-sign-concept',
       }),
+      cacheNewSign: (location_lat, location_lon, direction, signConceptId) => {
+        // push in cache
+        const concept = signConceptId
+          ? this.store.peekRecord('road-sign-concept', signConceptId)
+          : undefined;
+
+        const result = this.store.push({
+          data: [
+            {
+              id: this.nextStoreId,
+              type: 'road-sign-instance',
+              attributes: {
+                location_lat,
+                location_long: location_lon,
+                direction,
+              },
+              relationships: {},
+            },
+          ],
+        });
+        if (concept) console.log(result, result.roadSignConcept);
+      },
+      saveNewSign: (location_lat, location_lon, direction, signConceptId) => {
+        // save in store
+        const concept = signConceptId
+          ? this.store.peekRecord('road-sign-concept', signConceptId)
+          : undefined;
+
+        const newSignRecord = this.store.createRecord('road-sign-instance', {
+          location_lat,
+          location_long: location_lon,
+          direction,
+          roadSignConcept: concept,
+        });
+        newSignRecord.save();
+        this.nextStoreId += 1;
+      },
     };
   }
 

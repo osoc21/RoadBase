@@ -38,7 +38,7 @@
   </div>
   <div class='add-sign-content'>
     {{#if (eq this.currentStep 0)}}
-      <AddSign::AddSignOne @signs={{@signs}} />
+      <AddSign::AddSignOne @signs={{@signs}} @onUpdate={{@onUpdate}} />
     {{/if}}
 
     {{#if (eq this.currentStep 1)}}
@@ -48,7 +48,7 @@
 
     {{#if (eq this.currentStep 2)}}
       {{! insert component for screen 2 }}
-      <AddSign::AddSignThree />
+      <AddSign::AddSignThree @onUpdate={{@onUpdate}} />
     {{/if}}
 
     {{#if (eq this.currentStep 3)}}

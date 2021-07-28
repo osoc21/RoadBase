@@ -1,7 +1,7 @@
 {
 	"version": "0.1",
 	"prefixes": {
-		"roadbase": "https://roadbase.be/vocabularies/",
+		"roadbase": "https://osoc-safe-open-roads.s.redpencil.io/vocabularies/",
 		"schema": "https://schema.org/",
 		"xsd": "http://www.w3.org/2001/XMLSchema#"
 	},
@@ -24,7 +24,7 @@
 					"predicate": "schema:longitude"
 				}
 			},
-			"new-resource-base": "https://roadbase.be/accidents/"
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/accidents/"
 		}
 	}
 }

@@ -26,7 +26,17 @@
     </layers.marker>
   {{/each}}
   {{#each this.instances as |instance|}}
-    <layers.marker @location={{instance}} as |markerLayer| />
+
+    <layers.marker
+      @location={{instance.loc}}
+      @icon={{instance.marker}}
+      as |markerLayer|
+    >
+      <markerLayer.popup>
+        <h3>{{instance.content.roadSignConcept.meaning}}</h3>
+        <img src={{instance.content.roadSignConcept.image}} />
+      </markerLayer.popup>
+    </layers.marker>
   {{/each}}
 </LeafletMap>
 

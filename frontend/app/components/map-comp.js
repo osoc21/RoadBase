@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import * as L from 'leaflet';
 
 export default class CounterComponent extends Component {
   @tracked lng = 4;
@@ -16,8 +17,10 @@ export default class CounterComponent extends Component {
 
   get instances() {
     const data = this.args.instances;
+
     return data
       .filter((loca) => {
+        console.log(loca);
         if (
           loca['location_lat'] !== undefined ||
           loca['location_long'] !== undefined
@@ -25,8 +28,16 @@ export default class CounterComponent extends Component {
           return loca;
         }
       })
-      .map((loc) => {
-        return [loc['location_lat'], loc['location_long']];
+      .map((instance) => {
+        console.log(instance['direction']);
+        return {
+          loc: [instance['location_lat'], instance['location_long']],
+          content: instance,
+          marker: L.divIcon({
+            className: 'marker',
+            html: `<div class="roadsign-icon" id="1" style="transform: rotate(${instance.direction}deg);"></div>`,
+          }),
+        };
       });
   }
 

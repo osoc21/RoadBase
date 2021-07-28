@@ -12,7 +12,9 @@ export default class IndexRoute extends Route {
           'road-sign-concept-code': this.codeFilter,
         },
       }),
-      instances: this.store.findAll('road-sign-instance'),
+      instances: this.store.findAll('road-sign-instance', {
+        include: 'road-sign-concept',
+      }),
     };
   }
 

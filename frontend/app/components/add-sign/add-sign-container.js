@@ -19,6 +19,14 @@ export default class AddSignContainerComponent extends Component {
     return this.stepTitles[this.currentStep];
   }
 
+  get isLastStep() {
+    return this.currentStep === this.stepTitles.length - 1;
+  }
+
+  get isNotFirstStep() {
+    return this.currentStep !== 0;
+  }
+
   @action
   incrementCurrentStep() {
     if (this.currentStep + 1 < this.stepTitles.length) {

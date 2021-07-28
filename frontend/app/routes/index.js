@@ -16,9 +16,13 @@ export default class IndexRoute extends Route {
       instances: this.store.findAll('road-sign-instance', {
         include: 'road-sign-concept',
       }),
-      saveNewSign: (location_lat, location_lon, direction, signConceptId) => {
+      cacheNewSign: (location_lat, location_lon, direction, signConceptId) => {
         // push in cache
-        this.store.push({
+        const concept = signConceptId
+          ? this.store.peekRecord('road-sign-concept', signConceptId)
+          : undefined;
+
+        const result = this.store.push({
           data: [
             {
               id: this.nextStoreId,
@@ -28,15 +32,26 @@ export default class IndexRoute extends Route {
                 location_long: location_lon,
                 direction,
               },
-              relationships: {
-                type: 'road-sign-concept',
-                id: signConceptId,
-              },
+              relationships: {},
             },
           ],
         });
+        if (concept) console.log(result, result.roadSignConcept);
+      },
+      saveNewSign: (location_lat, location_lon, direction, signConceptId) => {
+        // save in store
+        const concept = signConceptId
+          ? this.store.peekRecord('road-sign-concept', signConceptId)
+          : undefined;
+
+        const newSignRecord = this.store.createRecord('road-sign-instance', {
+          location_lat,
+          location_long: location_lon,
+          direction,
+          roadSignConcept: concept,
+        });
+        newSignRecord.save();
         this.nextStoreId += 1;
-        // push in
       },
     };
   }

@@ -35,6 +35,13 @@ export default class AddSignOneComponent extends Component {
     this.selectedSigns = [...this.selectedSigns, signObject];
     this.showSignSelector = false;
     this.addSign.setSigns(this.selectedSigns);
+
+    this.args.onUpdate(
+      this.addSign.position.lat,
+      this.addSign.position.lon,
+      this.addSign.direction,
+      this.selectedSigns[0].concept.id
+    );
   }
 
   @action updateSign(sign, index) {

@@ -14,5 +14,10 @@ export default class AddSignThreeComponent extends Component {
     arrow.style.transform = `rotate(${this.direction}deg)`;
     // service
     this.addSign.setDirection(this.direction);
+    this.args.onUpdate(
+      this.addSign.position.lat,
+      this.addSign.position.lon,
+      this.direction
+    );
   }
 }

@@ -89,7 +89,5 @@ export default class IndexController extends Controller {
   @action toggleShowSignDetails(bool, instance) {
     this.showSignDetails = bool;
     this.signDetails = instance;
-    console.log('sign', this.signDetails);
-    console.log('sign', instance);
   }
 }

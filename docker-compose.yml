@@ -16,7 +16,7 @@ services:
 
 
   ember:
-    build: ./front-end
+    build: ./frontend
     environment:
       - BACKEND_URL=${BACKEND_URL}
 

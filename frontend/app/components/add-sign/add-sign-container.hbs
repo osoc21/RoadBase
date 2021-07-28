@@ -61,7 +61,7 @@
     {{/if}}
   </div>
   <div class='add-sign-footer'>
-    {{#if this.isFirstStep}}
+    {{#if this.isNotFirstStep}}
       <AuButton
         @skin='secondary'
         @icon='arrow-left'
@@ -70,6 +70,8 @@
       >
         Terug
       </AuButton>
+    {{else}}
+      <div></div>
     {{/if}}
     <AuButton
       @skin='{{if this.isLastStep 'primary' 'secondary'}}'

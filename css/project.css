@@ -6,10 +6,10 @@
 
 .project-image {
 	padding: 1rem;
-	border: 1px solid rgba(0,0,0,0.3);
-	border-radius: 5px;
+	/* border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 5px; */
 	width: 100%;
-	background-color: rgba(0,0,0,0.03);
+	/* background-color: rgba(0,0,0,0.03); */
 	margin: 3rem 0 2rem;
 }
 
@@ -21,8 +21,8 @@
 	}
 
 	.project-image img {
-		border: 1px solid rgba(0,0,0,0.3);
-		border-radius: 2px;
+		/* border: 1px solid rgba(0,0,0,0.3); */
+		/* border-radius: 2px; */
 		width: 100%;
 		background-color: white;
 	}
@@ -39,4 +39,54 @@ ul.team li,
 ul.partners li {
 	padding: 1rem 0;
 	list-style: none;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: #ccdbe8 3px 3px 6px 0px, rgb(217 227 236 / 16%) -3px -3px 6px 1px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.card__title, .card__text {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 50%;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.card__title {
+  top: -50%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 1.5rem;
+}
+
+.card__title h3 {
+  color: white;
+}
+
+.card__text {
+  bottom: -60%;
+  padding: 0 1.5rem;
+}
+
+.card:hover .card__title {
+  top: 0;
+}
+
+.card:hover .card__text {
+  bottom: 0;
 }

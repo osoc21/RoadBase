@@ -36,7 +36,6 @@ export default class IndexRoute extends Route {
             },
           ],
         });
-        if (concept) console.log(result, result.roadSignConcept);
       },
       saveNewSign: (location_lat, location_lon, direction, signConceptId) => {
         // save in store

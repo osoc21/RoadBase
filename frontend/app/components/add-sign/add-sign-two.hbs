@@ -11,7 +11,7 @@
 
   <form class="streets-form">
     <AuInput id='input-regular' class="hidden streets-form__input" placeholder="Voeg een straat toe ..." />
-    <AuInput id='input-regular' class="position__street_input" placeholder="Voeg een straat toe ..." {{on "blur" this.addStreet}} />
+    <AuInput id='input-regular-1' class="position__street_input" placeholder="Voeg een straat toe ..." {{on "blur" this.addStreet}} />
   </form>
 
   <AuButton
@@ -29,17 +29,17 @@
   <div>
     <div class="position__coordinate">
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.latDeg}} />
+        <AuInput id='input-regular-latdeg' class="position__coordinate__section__number" @value={{@clickedPosition.latDeg}} />
         <span>°</span>
       </div>
 
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.latMin}} />
+        <AuInput id='input-regular-latmin' class="position__coordinate__section__number" @value={{@clickedPosition.latMin}} />
         <span>'</span>
       </div>
 
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.latSec}} />
+        <AuInput id='input-regular-latsec' class="position__coordinate__section__number" @value={{@clickedPosition.latSec}} />
         <span>''</span>
       </div>
       <span>{{@clickedPosition.latDirection}}</span>
@@ -47,17 +47,16 @@
 
     <div class="position__coordinate">
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.lonDeg}} />
+        <AuInput id='input-regular-londeg' class="position__coordinate__section__number" @value={{@clickedPosition.lonDeg}} />
         <span>°</span>
       </div>
-
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.lonMin}} />
+        <AuInput id='input-regular-lonmin' class="position__coordinate__section__number" @value={{@clickedPosition.lonMin}} />
         <span>'</span>
       </div>
 
       <div class="position__coordinate__section">
-        <AuInput id='input-regular' class="position__coordinate__section__number" value={{@clickedPosition.lonSec}} />
+        <AuInput id='input-regular-lonsec' class="position__coordinate__section__number" @value={{@clickedPosition.lonSec}} />
         <span>''</span>
       </div>
       <span>{{@clickedPosition.lonDirection}}</span>

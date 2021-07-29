@@ -56,7 +56,6 @@ export default class IndexController extends Controller {
 
     this.addSign.setPosition(this.clickedPosition);
     this.model.cacheNewSign(this.clickedPosition.lat, this.clickedPosition.lon);
-
     this.showClickOnMap = false;
 
     if (this.allowAddSign) {

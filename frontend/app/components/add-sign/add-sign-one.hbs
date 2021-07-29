@@ -3,20 +3,16 @@
     Hoogte
   </AuHeading>
 
-  <form>
-    <p>
-      <AuLabel for='input-regular'>Definieer de hoogte van de paal in meter.</AuLabel>
+  <AuLabel for='input-regular'>Definieer de hoogte van de paal in meter.</AuLabel>
 
-      <span id='pole-height'>
-        <AuInput
-          id='input-regular'
-          {{on 'input' this.updatePoleheight}}
-          value={{this.poleHeight}}
-        />
-        <p>m</p>
-      </span>
-    </p>
-  </form>
+  <span id='pole-height'>
+    <AuInput
+      id='input-regular'
+      {{on 'input' this.updatePoleheight}}
+      value={{this.poleHeight}}
+    />
+    <p>m</p>
+  </span>
 </section>
 
 <section>

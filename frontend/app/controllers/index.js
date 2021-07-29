@@ -10,13 +10,17 @@ export default class IndexController extends Controller {
   @tracked clickedPosition = undefined;
   @tracked signsOnMap = [];
   @tracked showAddSign = false;
+  @tracked showSignDetails = false;
   @tracked allowAddSign = false;
+  @tracked signDetails;
+  @tracked showClickOnMap = false;
 
   @action
   updateAllowAddSign(newValue) {
     this.allowAddSign = newValue;
     if (newValue === true) {
       document.getElementById('map-cursor').style.cursor = 'copy';
+      this.showClickOnMap = true;
     } else {
       document.getElementById('map-cursor').style.cursor = 'move';
     }
@@ -38,6 +42,8 @@ export default class IndexController extends Controller {
     let lonDirection = event.latlng.lng >= 0 ? 'O' : 'W';
 
     this.clickedPosition = {
+      lon,
+      lat,
       latDeg: latDeg,
       latMin: latMin,
       latSec: latSec,
@@ -49,6 +55,9 @@ export default class IndexController extends Controller {
     };
 
     this.addSign.setPosition(this.clickedPosition);
+    this.model.cacheNewSign(this.clickedPosition.lat, this.clickedPosition.lon);
+
+    this.showClickOnMap = false;
 
     if (this.allowAddSign) {
       this.showAddSign = true;
@@ -79,5 +88,10 @@ export default class IndexController extends Controller {
   @action
   closeAddSign() {
     this.showAddSign = false;
+  }
+
+  @action toggleShowSignDetails(bool, instance) {
+    this.showSignDetails = bool;
+    this.signDetails = instance;
   }
 }

@@ -1,0 +1,43 @@
+<div class='details-container {{if @detailsActive ' is-showing'}}'>
+  <div class='details-header'>
+    <div class='details-header__title-container'>
+      <AuHeading @level='2' @skin='2'>Details verkeersbord</AuHeading>
+      <AuIcon class='icon' @icon='nav-right' @alignment='left' @size='large' @ariaHidden={{true}} {{on 'click' this.onClose}} />
+    </div>
+  </div>
+  <AuContent class='details-content'>
+    <AuHeading @level='4' @skin='4' class="step5__subtitle">
+      Locatie
+    </AuHeading>
+    <div>
+      <p class="">{{ @signDetails.content.location_lat }}</p>
+      <p class="">{{ @signDetails.content.location_long }}</p>
+    </div>
+
+    <AuHeading @level='4' @skin='4' class="step5__subtitle">
+      Windrichting
+    </AuHeading>
+    <p class="">{{ @signDetails.content.direction }} °N</p>
+
+    <AuHeading @level='4' @skin='4' class="step5__subtitle">
+      Plaatsingsdatum
+    </AuHeading>
+    <p class="">22/08/1996</p>
+
+    <AuHeading @level='4' @skin='4' class="step5__subtitle">
+      Eigenaar
+    </AuHeading>
+    <p class="">Gent</p>
+
+    <AuHeading @level='4' @skin='4' class="step5__subtitle step5__subtitle--boards">
+      Borden
+    </AuHeading>
+    <div class='selected-signs'>
+      <article class="selected-signs__sign">
+        <img class='selected-signs__sign__img' src={{ @signDetails.content.roadSignConcept.image }} />
+        <p class='selected-signs-item__code'>{{ @signDetails.content.roadSignConcept.roadSignConceptCode }}</p>
+      </article>
+    </div>
+
+    </AuContent>
+</div>

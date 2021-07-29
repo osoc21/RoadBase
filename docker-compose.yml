@@ -26,6 +26,8 @@ services:
     image: semtech/mu-identifier:1.9.1
     links:
       - dispatcher:dispatcher
+    environment:
+      - DEFAULT_ACCESS_CONTROL_ALLOW_ORIGIN_HEADER=*
 
   dispatcher:
     build: ./backend/dispatcher

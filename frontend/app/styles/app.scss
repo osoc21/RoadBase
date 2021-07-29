@@ -2,6 +2,7 @@
 @import 'variables.scss';
 // import components
 @import './components/filter.scss';
+@import './components/details.scss';
 @import './components/add-sign-container.scss';
 @import './components/road-sign-list.scss';
 @import './components/add-sign-one.scss';
@@ -33,6 +34,18 @@ $paddingValue: 1vh;
     flex: 1;
     position: relative;
     overflow: hidden;
+
+    .toaster {
+      background-color: $secondary-text;
+      display: flex;
+      justify-content: center;
+      color: white;
+      padding: 7px 0;
+      position: absolute;
+      top: 0;
+      z-index: 2000;
+      width: 100%;
+    }
   }
 
   // PaddingValue is *2 because both Top & Bottom padding is used
@@ -104,17 +117,6 @@ $paddingValue: 1vh;
 #map-cursor {
   cursor: move;
 }
-
-// .marker {
-//   width: 100px;
-//   height: 100px;
-//   &__icon {
-//     width: 20px;
-//     height: 20px;
-//     background-color: green;
-//     transform: rotate(attr(rotation deg));
-//   }
-// }
 
 .roadsign-icon {
   background-color: black;

@@ -5,12 +5,18 @@
   @onClick={{this.updateAllowAddSign}}
 />
 
-{{!-- <p {{on 'click' this.randomAction}}>sdfdssfd</p> --}}
 <div class='content'>
+
+  {{#if this.showClickOnMap}}
+    <div class='toaster'>
+      <p>Klik op de kaart om een locatie te selecteren.</p>
+    </div>
+  {{/if}}
   <MapComp
     @signs={{this.signsOnMap}}
     @instances={{this.model.instances}}
     @onMapClick={{this.setClickedPosition}}
+    @onDetailsClick={{this.toggleShowSignDetails}}
   />
 
   <AddSign::AddSignContainer
@@ -18,5 +24,13 @@
     @signs={{this.model.signs}}
     @clickedPosition={{this.clickedPosition}}
     @onClose={{this.closeAddSign}}
+    @onSave={{this.model.saveNewSign}}
+    @onUpdate={{this.model.cacheNewSign}}
+  />
+
+  <SignDetails
+    @detailsActive={{this.showSignDetails}}
+    @onClose={{this.toggleShowSignDetails}}
+    @signDetails={{this.signDetails}}
   />
 </div>

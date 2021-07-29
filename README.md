@@ -38,7 +38,7 @@ Roadbase is a POC tool created for crowd-sourcing information about road marks i
     
     >  🕓 Serving the application may take a while...
     ```bash
-    ember s --proxy http://localhost:80
+    ember s --proxy http://localhost:8000
     ```
 2. You can now access the application with the address the console returns. *(Normally, this should be http://localhost:4200)*
 
@@ -84,3 +84,4 @@ For the server deployment, please visit [this guide](https://github.com/osoc21/R
 ## Additional Resources
 
 For additional information, visit our [Engineering Wiki](https://roadbase.notion.site/Engineering-Wiki-f926251e176e4a8abecd464d30d8aea4).
+

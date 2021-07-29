@@ -14,10 +14,10 @@
       @searchMessage="Typ om te zoeken"
       @options={{this.cities}}
       @selected={{this.authority}}
-      @onChange={{fn this.onAuthoritySelect}} as |authority|>
+      @onChange={{this.onAuthoritySelect}} as |authority|>
       <p>{{authority}}</p>
     </PowerSelect>
     <AuLabel for="sign-date">Geplande datum of plaatsingsdatum</AuLabel>
-    <AuDatePicker @value={{this.placementDate}} @onChange={{fn this.onPlacementDateSelect}} />
+    <AuDatePicker @value={{this.placementDate}} @onChange={{this.onPlacementDateSelect}} />
   </AuContent>
 </section>

@@ -9,10 +9,8 @@
     Toebehorende straten
   </AuHeading>
 
-  <form class="streets-form">
-    <AuInput id='input-regular' class="hidden streets-form__input" placeholder="Voeg een straat toe ..." />
-    <AuInput id='input-regular-1' class="position__street_input" placeholder="Voeg een straat toe ..." {{on "blur" this.addStreet}} />
-  </form>
+  <AuInput id='input-regular' class="hidden streets-form__input" placeholder="Voeg een straat toe ..." />
+  <AuInput id='input-regular' class="position__street_input" placeholder="Voeg een straat toe ..." {{on "blur" this.addStreet}} />
 
   <AuButton
     @skin='primary'

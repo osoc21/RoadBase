@@ -13,6 +13,15 @@ defmodule Dispatcher do
 
 
 
+  # Handle OPTIONS preflight HTTP request
+  options "/*" do
+    conn
+    |> Plug.Conn.put_resp_header( "access-control-allow-headers", "content-type,accept" )
+    |> Plug.Conn.put_resp_header( "access-control-allow-methods", "*" )
+    |> send_resp( 200, "{ \"message\": \"ok\" }" )
+  end
+
+
   match "/road-sign-instances/*path" do
     Proxy.forward conn, path, "http://resources/road-sign-instances/"
   end
@@ -43,11 +52,6 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resources/road-sign-categories/"
   end
 
-
-  # Handle OPTIONS preflight HTTP request
-  options "*_path" do
-    send_resp( conn, 200, "Option calls are accepted by default" )
-  end
 
   # Errors
   match "/*", %{ last_call: true } do

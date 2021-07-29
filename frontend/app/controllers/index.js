@@ -19,10 +19,10 @@ export default class IndexController extends Controller {
   updateAllowAddSign(newValue) {
     this.allowAddSign = newValue;
     if (newValue === true) {
-      document.getElementById('ember192').style.cursor = 'copy';
+      document.getElementById('map-cursor').style.cursor = 'copy';
       this.showClickOnMap = true;
     } else {
-      document.getElementById('ember192').style.cursor = 'move';
+      document.getElementById('map-cursor').style.cursor = 'move';
     }
   }
 

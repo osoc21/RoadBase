@@ -4,7 +4,8 @@
 		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#",
 		"openbaardomein": "https://data.vlaanderen.be/ns/openbaardomein#",
 		"schema": "https://schema.org/",
-		"locn": "http://www.w3.org/ns/locn#"
+		"locn": "http://www.w3.org/ns/locn#",
+		"org": "http://www.w3.org/ns/org#"
 	},
 
 	"resources": {
@@ -22,7 +23,8 @@
 					"predicate": "mobiliteit:omvatVerkeersbord",
 					"target": "roadSignInstance",
 					"cardinality": "one"
-				}
+				},
+				// 
 			},
 			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-sign-placements/"
 		},
@@ -35,7 +37,15 @@
 				"direction": {
 					"predicate": "mobiliteit:aanzicht",
 					"type": "string"
-				}
+				},
+				"picture": {
+					"predicate": "mobiliteit:grafischeWeergave",
+					"type": "url"
+				},
+				// "authority": {
+				// 	"predicate": "openbaardomein:beheerder",
+				// 	"type": "org:Organization"
+				// }
 			},
 			"relationships": {
 				"road-sign-concept": {
@@ -45,8 +55,37 @@
 				},
 				"height": {
 					"predicate": "mobiliteit:opstelhoogte",
-					"target": "roadSignHeight",
+					"target": "quantitativeValue",
 					"cardinality": "one"
+				},
+				// "board_size": {
+				// 	"predicate": "mobiliteit:Verkeersbord.afmeting",
+				// 	"type": "quantitativeValue",
+				// 	"cardinality": "one"
+				// },
+				// "board_width": {
+				// 	"predicate": "mobiliteit:breedte",
+				// 	"type": "quantitativeValue",
+				// 	"cardinality": "one"
+				// },
+				// "board_height": {
+				// 	"predicate": "mobiliteit:hoogte",
+				// 	"target": "quantitativeValue",
+				// 	"cardinality": "one"
+				// },
+				"supplier": {
+					"predicate": "mobiliteit:leverancier",
+					"target": "agent",
+					"cardinality": "one"
+				},
+				"operational_status": {
+					"predicate": "mobiliteit:Verkeersbord.operationeleStatus",
+					"target": "code",
+					"cardinality": "one"
+				},
+				"comment": {
+					"predicate": "schema:comment",
+					"type": "string"
 				}
 			},
 			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-sign-instances/"
@@ -82,20 +121,37 @@
 		},
 
 
-		"heights": {
-			"name": "roadSignHeight",
+		"quantitative-values": {
+			"name": "quantitativeValue",
 			"class": "schema:QuantitativeValue",
 			"attributes": {
 				"unitCode": {
-					"type": "string",
-					"predicate": "schema:unitCode"
+					"predicate": "schema:unitCode",
+					"type": "string"
 				},
 				"value": {
-					"type": "number",
-					"predicate": "schema:value"
+					"predicate": "schema:value",
+					"type": "number"
 				}
 			},
-			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/heights/"
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/quantitative-values/"
+		},
+
+
+		"codes": {
+			"name": "code",
+			"class": "skos:Concept",
+			"attributes": {
+				"code": {
+					"predicate": "skos:notation",
+					"type": "string"
+				},
+				"description": {
+					"predicate": "skos:scopeNote",
+					"type": "string"
+				}
+			},
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/codes/"
 		}
 	}
 }

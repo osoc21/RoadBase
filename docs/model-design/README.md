@@ -8,11 +8,11 @@ Distinctions between the categories of properties stored in some classes, especi
 
 Classes will have more properties than the ones listed here, but these are the main ones relevant to this project. For a full overview, the [Verkeersborden application profile](https://data.vlaanderen.be/doc/applicatieprofiel/verkeersborden/#Opstelling) should be used as reference.
 
-* [`Opstelling`](#traffic-sign-placement): describes *placement* of a sign
-	* [`Verkeersbord`](#traffic-sign-instance): physical dimensions + other metadata
-		* [`Verkeersbord-Verkeersteken`](#traffic-sign-combination): sign combinations ("onderborden")
-			* [`Verkeersbordconcept`](#traffic-sign-concept): *type* of traffic sign
-				* [`VerkeersbordconceptStatus`](#traffic-sign-state): whether or not a traffic sign type is still in use
+* [`Opstelling`](#road-sign-placement): describes *placement* of a sign
+	* [`Verkeersbord`](#road-sign-instance): physical dimensions + other metadata
+		* [`Verkeersbord-Verkeersteken`](#road-sign-combination): sign combinations ("onderborden")
+			* [`Verkeersbordconcept`](#road-sign-concept): *type* of road sign
+				* [`VerkeersbordconceptStatus`](#road-sign-state): whether or not a road sign type is still in use
 
 
 
@@ -21,13 +21,13 @@ Classes will have more properties than the ones listed here, but these are the m
 
 
 
-# traffic-sign-placement
+# road-sign-placement
 **Type**: `mobiliteit:Opstelling`  
 Describes specific data about how a sign is *placed*. Most importantly, it contains the geographical coordinates, but also for example the sign's condition and position relative to the road.
 
-## traffic-sign-instance
+## road-sign-instance
 * **Predicate**: `mobiliteit:omvatVerkeersbord`
-* **Type**: `traffic-sign-instance` reference
+* **Type**: `road-sign-instance` reference
 	* (class: `mobiliteit:Verkeersbord`)
 
 ## location
@@ -44,9 +44,9 @@ Describes specific data about how a sign is *placed*. Most importantly, it conta
 
 
 
-# traffic-sign-instance
+# road-sign-instance
 **Type**: `infrastructuur:Verkeersbord`  
-Describes a real-world instance of a traffic sign. Contains physical properties such as dimensions, but also the supplier and managing authority.
+Describes a real-world instance of a road sign. Contains physical properties such as dimensions, but also the supplier and managing authority.
 
 ## direction
 * **Predicate**: `mobiliteit:aanzicht`
@@ -57,7 +57,7 @@ Describes a real-world instance of a traffic sign. Contains physical properties 
 * **Predicate**: `mobiliteit:opstelhoogte`
 * **Type**: `schema:QuantitativeValue`
 
-## traffic-sign-concept
+## road-sign-concept
 * **Predicate**: `mobiliteit:realiseert`
 * **Type**: `mobiliteit:Verkeersbord-Verkeersteken`
 
@@ -68,18 +68,18 @@ Describes a real-world instance of a traffic sign. Contains physical properties 
 
 
 
-# traffic-sign-combination
+# road-sign-combination
 **Type**: `mobiliteit:Verkeersbord-Verkeersteken`  
 Describes a sign and optionally a subsign, can be nested.
 
-## traffic-sign-concept
+## road-sign-concept
 * **Predicate**: `mobiliteit:heeftVerkeersbordconcept`
-* **Type**: `traffic-sign-concept` reference
+* **Type**: `road-sign-concept` reference
 	* (class: `mobiliteit:Verkeersbord-Verkeersteken`)
 
-## traffic-sign-combination
+## road-sign-combination
 * **Predicate**: `mobiliteit:heeftOnderbord`
-* **Type**: `traffic-sign-combination` reference
+* **Type**: `road-sign-combination` reference
 	* (class: `mobiliteit:Verkeersbord-Verkeersteken`)
 
 
@@ -89,9 +89,9 @@ Describes a sign and optionally a subsign, can be nested.
 
 
 
-# traffic-sign-concept
+# road-sign-concept
 **Type**: `mobiliteit:Verkeersbordconcept`  
-Describes a *type* of traffic sign. Contains a description, category, etc.
+Describes a *type* of road sign. Contains a description, category, etc.
 
 ## description
 * **Predicate**: `skos:scopeNote`
@@ -104,7 +104,7 @@ Describes a *type* of traffic sign. Contains a description, category, etc.
 
 ## state
 * **Predicate**: `vs:term_status`
-* **Type**: `traffic-sign-state` reference
+* **Type**: `road-sign-state` reference
 	* (class: `mobiliteit:VerkeersbordconceptStatus`)
 
 
@@ -114,9 +114,9 @@ Describes a *type* of traffic sign. Contains a description, category, etc.
 
 
 
-# traffic-sign-state
+# road-sign-state
 **Type**: `mobiliteit:VerkeersbordconceptStatus`  
-Describes the current state of a traffic sign concept (whether it's being used)
+Describes the current state of a road sign concept (whether it's being used)
 
 ## state
 * **Predicate**: `mobiliteit:VerkeersbordconceptStatus.status`

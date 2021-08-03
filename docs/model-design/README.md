@@ -1,4 +1,4 @@
-# General layout
+# Resources layout
 
 Aight this might get somewhat confusing, so buckle up kiddo
 
@@ -8,10 +8,11 @@ Distinctions between the categories of properties stored in some classes, especi
 
 Classes will have more properties than the ones listed here, but these are the main ones relevant to this project. For a full overview, the [Verkeersborden application profile](https://data.vlaanderen.be/doc/applicatieprofiel/verkeersborden/#Opstelling) should be used as reference.
 
-* `Opstelling`: describes *placement* of a sign
-	* `Verkeersbord`: physical dimensions + other metadata
-		* `Verkeersbord-Verkeersteken`: sign combinations ("onderborden")
-			* `Verkeersbordconcept` *type* of traffic sign
+* [`Opstelling`](#traffic-sign-placement): describes *placement* of a sign
+	* [`Verkeersbord`](#traffic-sign-instance): physical dimensions + other metadata
+		* [`Verkeersbord-Verkeersteken`](#traffic-sign-combination): sign combinations ("onderborden")
+			* [`Verkeersbordconcept`](#traffic-sign-concept): *type* of traffic sign
+				* [`VerkeersbordconceptStatus`](#traffic-sign-state): whether or not a traffic sign type is still in use
 
 
 

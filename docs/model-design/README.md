@@ -4,7 +4,7 @@ Aight this might get somewhat confusing, so buckle up kiddo
 
 So, the highest-level class is `Opstelling`, which refers to a `Verkeersbord-Verkeersteken`, which refers to a `Verkeersbord`, which refers to a `Verkeersbordconcept` (and optionally more `Verkeersbord-Verkeersteken`s, if it's a combination of multiple signs).
 
-Distinctions between the categories of properties stored in some classes, especially `Opstelling` and `Verkeersbord`, honestly seem somewhat arbitrary. The "beheerder" property of `Verkeersbord` for example, would seem more intuitive as a property of `Opstelling`.
+Distinctions between the categories of properties stored in some classes, especially `Opstelling` and `Verkeersbord`, honestly seem somewhat arbitrary. The "beheerder" property of `Verkeersbord` for example, would seem more intuitive as a property of `Opstelling`. And the `aanzicht` property of `Verkeersbord` would make more sense in `Opstelling`, in my (completely objective and always correct) opinion.
 
 Classes will have more properties than the ones listed here, but these are the main ones relevant to this project. For a full overview, the [Verkeersborden application profile](https://data.vlaanderen.be/doc/applicatieprofiel/verkeersborden/#Opstelling) should be used as reference.
 

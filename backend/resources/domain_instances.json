@@ -1,30 +1,40 @@
 {
 	"version": "0.1",
 	"prefixes": {
-		"roadbase": "https://osoc-safe-open-roads.s.redpencil.io/vocabularies/",
-		"schema": "https://schema.org/",
-		"org": "http://www.w3.org/ns/org#",
 		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#",
 		"openbaardomein": "https://data.vlaanderen.be/ns/openbaardomein#",
-		"xsd": "http://www.w3.org/2001/XMLSchema#"
+		"schema": "https://schema.org/",
+		"locn": "http://www.w3.org/ns/locn#"
 	},
 
 	"resources": {
+		"road-sign-placement": {
+			"name": "roadSignPlacement",
+			"class": "mobiliteit:Opstelling",
+			"attributes": {
+				"location": {
+					"predicate": "locn:geometry",
+					"type": "locn:Geometry"
+				}
+			},
+			"relationships": {
+				"road-sign-instance": {
+					"predicate": "mobiliteit:omvatVerkeersbord",
+					"target": "roadSignInstance",
+					"cardinality": "one"
+				}
+			},
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-sign-placements/"
+		},
+
+
 		"road-sign-instances": {
 			"name": "roadSignInstance",
-			"class": "roadbase:RoadSignInstance",
+			"class": "mobiliteit:Verkeersbord",
 			"attributes": {
-				"location_lat": {
-					"type": "string",
-					"predicate": "schema:latitude"
-				},
-				"location_long": {
-					"type": "string",
-					"predicate": "schema:longitude"
-				},
 				"direction": {
-					"type": "string",
-					"predicate": "mobiliteit:aanzicht"
+					"predicate": "mobiliteit:aanzicht",
+					"type": "string"
 				}
 			},
 			"relationships": {
@@ -34,12 +44,41 @@
 					"cardinality": "one"
 				},
 				"height": {
-					"predicate": "mobiliteit:hoogte",
+					"predicate": "mobiliteit:opstelhoogte",
 					"target": "roadSignHeight",
 					"cardinality": "one"
 				}
 			},
 			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-sign-instances/"
+		},
+
+
+		"road-sign-combinations": {
+			"name": "roadSignCombination",
+			"class": "mobiliteit:Verkeersbord-Verkeersteken",
+			"attributes": {
+				"is_zone_begin": {
+					"predicate": "mobiliteit:isBeginZone",
+					"type": "boolean"
+				},
+				"is_zone_end": {
+					"predicate": "mobiliteit:isEindeZone",
+					"type": "boolean"
+				}
+			},
+			"relationships": {
+				"road-sign-concept": {
+					"predicate": "mobiliteit:heeftVerkeersbordconcept",
+					"target": "roadSignConcept",
+					"cardinality": "one"
+				},
+				"road-sign-combination": {
+					"predicate": "mobiliteit:heeftOnderbord",
+					"target": "roadSignCombination",
+					"cardinality": "one"
+				}
+			},
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/"
 		},
 
 

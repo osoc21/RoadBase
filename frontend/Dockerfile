@@ -4,8 +4,8 @@ WORKDIR /app
 COPY ./package.json /app/
 COPY ./package-lock.json /app/
 
-RUN npm i
 RUN npm i -g ember-cli
+RUN npm i
 
 COPY . /app/
 RUN ember build --environment=production

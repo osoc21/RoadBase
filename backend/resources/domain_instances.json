@@ -24,8 +24,7 @@
 					"predicate": "mobiliteit:omvatVerkeersbord",
 					"target": "roadSignInstance",
 					"cardinality": "one"
-				},
-				// 
+				}
 			},
 			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-sign-placements/"
 		},
@@ -57,12 +56,12 @@
 				},
 				"board_size": {
 					"predicate": "mobiliteit:Verkeersbord.afmeting",
-					"type": "quantitativeValue",
+					"target": "quantitativeValue",
 					"cardinality": "one"
 				},
 				"board_width": {
 					"predicate": "mobiliteit:breedte",
-					"type": "quantitativeValue",
+					"target": "quantitativeValue",
 					"cardinality": "one"
 				},
 				"board_height": {
@@ -87,7 +86,8 @@
 				},
 				"comment": {
 					"predicate": "schema:comment",
-					"type": "string"
+					"target": "string",
+					"cardinality": "one"
 				}
 			},
 			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-sign-instances/"

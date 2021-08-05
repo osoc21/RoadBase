@@ -127,7 +127,7 @@
 			"name": "quantitativeValue",
 			"class": "schema:QuantitativeValue",
 			"attributes": {
-				"unitCode": {
+				"unit_code": {
 					"predicate": "schema:unitCode",
 					"type": "string"
 				},

@@ -64,7 +64,7 @@ Describes a real-world instance of a road sign. Contains physical properties suc
 ## supplier
 * **Predicate**: `mobiliteit:leverancier`
 * **Type**: `org:Organization`
-* **Note**: The [traffic signs application profile](https://data.vlaanderen.be/doc/applicatieprofiel/verkeersborden/#Verkeersbord%3Aleverancier) specifies a `dc:Agent` type. But since the `dc:Agent` model doesn't actually have any properties, and `org:Organization` is a subclass of `dc:Agent`, I decided to use that instead for this project. For other applications, this might need to be changed though.
+* **Note**: The [traffic signs application profile](https://data.vlaanderen.be/doc/applicatieprofiel/verkeersborden/#Verkeersbord%3Aleverancier) specifies a `dc:Agent` type. But since the `dc:Agent` model doesn't actually have any properties, and `org:Organization` is a subclass of `dc:Agent`, I decided to use that instead for this project. For other applications, this might need to be changed though. It could also be interesting to use [this expanded definition of dc:Agent](https://data.vlaanderen.be/doc/applicatieprofiel/organisatie-basis/#Agent) instead.
 
 
 
@@ -132,12 +132,37 @@ Describes the current state of a road sign concept (whether it's being used)
 
 <br />
 <br />
+<br />
+<br />
+
+
+
+# quantitative-value
+**Type**: `schema:QuantitativeValue`
+Describes a value with a given unit
+
+## value
+* **Predicate**: `schema:value`
+* **Type**: number
+
+## unit_code
+* **Predicate**: `schema:unitCode`
+* **Type**: string literal
+* **Example value**: `"MTR"`
+	* (https://tfig.unece.org/contents/recommendation-20.htm)
+
+
+
+<br />
+<br />
 
 
 
 # organization
 **Type**: `org:Organization`  
 Describes an organization with a (primary/secondary) name and a "code"
+
+**Note**: It could be interesting to use [this expanded definition of org:Organization](https://data.vlaanderen.be/doc/applicatieprofiel/organisatie-basis/#Organisatie) instead. But for this project, having an organization with a name is the main important thing.
 
 ## name
 * **Predicate**: `skos:prefLabel`
@@ -150,3 +175,24 @@ Describes an organization with a (primary/secondary) name and a "code"
 ## code
 * **Predicate**: `skos:notation`
 * **Type**: string literal
+
+
+
+<br />
+<br />
+
+
+
+# code
+**Type**: `skos:Concept`  
+Used to describe some more abstract concepts, in this case "position relative to road" and "operational status".
+
+## code
+* **Predicate**: `skos:notation`
+* **Type**: string literal
+* **Example values**: `"left"`, `"right"`
+
+## description
+* **Predicate**: `skos:scopeNote`
+* **Type**: string literal
+* **Example value**: `"to the left side of the road"`

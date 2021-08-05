@@ -61,6 +61,11 @@ Describes a real-world instance of a road sign. Contains physical properties suc
 * **Predicate**: `mobiliteit:realiseert`
 * **Type**: `mobiliteit:Verkeersbord-Verkeersteken`
 
+## supplier
+* **Predicate**: `mobiliteit:leverancier`
+* **Type**: `org:Organization`
+* **Note**: The [traffic signs application profile](https://data.vlaanderen.be/doc/applicatieprofiel/verkeersborden/#Verkeersbord%3Aleverancier) specifies a `dc:Agent` type. But since the `dc:Agent` model doesn't actually have any properties, and `org:Organization` is a subclass of `dc:Agent`, I decided to use that instead for this project. For other applications, this might need to be changed though.
+
 
 
 <br />
@@ -122,3 +127,26 @@ Describes the current state of a road sign concept (whether it's being used)
 * **Predicate**: `mobiliteit:VerkeersbordconceptStatus.status`
 * **Type**: string literal
 * **Example values**: `"stabiel"`, `"onstabiel"`, `"afgeschaft"`
+
+
+
+<br />
+<br />
+
+
+
+# organization
+**Type**: `org:Organization`  
+Describes an organization with a (primary/secondary) name and a "code"
+
+## name
+* **Predicate**: `skos:prefLabel`
+* **Type**: string literal
+
+## altname
+* **Predicate**: `skos:altLabel`
+* **Type**: string literal
+
+## code
+* **Predicate**: `skos:notation`
+* **Type**: string literal

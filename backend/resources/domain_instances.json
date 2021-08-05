@@ -5,7 +5,8 @@
 		"openbaardomein": "https://data.vlaanderen.be/ns/openbaardomein#",
 		"schema": "https://schema.org/",
 		"locn": "http://www.w3.org/ns/locn#",
-		"org": "http://www.w3.org/ns/org#"
+		"org": "http://www.w3.org/ns/org#",
+		"dc": "http://purl.org/dc/terms/"
 	},
 
 	"resources": {
@@ -41,11 +42,7 @@
 				"picture": {
 					"predicate": "mobiliteit:grafischeWeergave",
 					"type": "url"
-				},
-				// "authority": {
-				// 	"predicate": "openbaardomein:beheerder",
-				// 	"type": "org:Organization"
-				// }
+				}
 			},
 			"relationships": {
 				"road-sign-concept": {
@@ -73,9 +70,14 @@
 				// 	"target": "quantitativeValue",
 				// 	"cardinality": "one"
 				// },
+				"authority": {
+					"predicate": "openbaardomein:beheerder",
+					"target": "organization",
+					"cardinality": "one"
+				},
 				"supplier": {
 					"predicate": "mobiliteit:leverancier",
-					"target": "agent",
+					"target": "organization",
 					"cardinality": "one"
 				},
 				"operational_status": {
@@ -152,6 +154,34 @@
 				}
 			},
 			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/codes/"
+		},
+
+
+		"agents": {
+			"name": "agent",
+			"class": "dc:Agent",
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/agents/"
+		},
+
+
+		"organizations": {
+			"name": "organization",
+			"class": "org:Organization",
+			"attributes": {
+				"name": {
+					"predicate": "skos:prefLabel",
+					"type": "string"
+				},
+				"altname": {
+					"predicate": "skos:altLabel",
+					"type": "string"
+				},
+				"code": {
+					"predicate": "skos:notation",
+					"type": "string"
+				}
+			},
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/organizations/"
 		}
 	}
 }

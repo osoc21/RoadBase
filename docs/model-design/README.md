@@ -54,8 +54,16 @@ Describes a real-world instance of a road sign. Contains physical properties suc
 * **Example values**: `"0"`, `"90"`, `"180"`, `"270"`
 
 ## height
+* (The height at which a board is placed, distance between the ground and bottom of the board)
 * **Predicate**: `mobiliteit:opstelhoogte`
-* **Type**: `schema:QuantitativeValue`
+* **Type**: `quantitativeValue` reference
+	* (class: `schema:QuantitativeValue`)
+
+## board_size, board_width and board_height
+* (Dimensions of the board itself. Size is the diameter of circular boards, width and height are used for rectangular boards)
+* **Predicate**: `mobiliteit:Verkeersbord.afmeting`, `mobiliteit:breedte`, `mobiliteit:hoogte`
+* **Type**: `schema:QuantitativeValue` reference
+	* (class: `schema:QuantitativeValue`)
 
 ## road-sign-concept
 * **Predicate**: `mobiliteit:realiseert`

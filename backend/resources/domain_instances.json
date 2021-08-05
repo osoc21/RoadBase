@@ -55,21 +55,21 @@
 					"target": "quantitativeValue",
 					"cardinality": "one"
 				},
-				// "board_size": {
-				// 	"predicate": "mobiliteit:Verkeersbord.afmeting",
-				// 	"type": "quantitativeValue",
-				// 	"cardinality": "one"
-				// },
-				// "board_width": {
-				// 	"predicate": "mobiliteit:breedte",
-				// 	"type": "quantitativeValue",
-				// 	"cardinality": "one"
-				// },
-				// "board_height": {
-				// 	"predicate": "mobiliteit:hoogte",
-				// 	"target": "quantitativeValue",
-				// 	"cardinality": "one"
-				// },
+				"board_size": {
+					"predicate": "mobiliteit:Verkeersbord.afmeting",
+					"type": "quantitativeValue",
+					"cardinality": "one"
+				},
+				"board_width": {
+					"predicate": "mobiliteit:breedte",
+					"type": "quantitativeValue",
+					"cardinality": "one"
+				},
+				"board_height": {
+					"predicate": "mobiliteit:hoogte",
+					"target": "quantitativeValue",
+					"cardinality": "one"
+				},
 				"authority": {
 					"predicate": "openbaardomein:beheerder",
 					"target": "organization",

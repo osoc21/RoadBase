@@ -2,7 +2,9 @@
 	"version": "0.1",
 	"prefixes": {
 		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#",
+		"infrastructuur": "https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#",
 		"openbaardomein": "https://data.vlaanderen.be/ns/openbaardomein#",
+		"skos": "http://www.w3.org/2004/02/skos/core#",
 		"schema": "https://schema.org/",
 		"locn": "http://www.w3.org/ns/locn#",
 		"org": "http://www.w3.org/ns/org#",
@@ -32,7 +34,7 @@
 
 		"road-sign-instances": {
 			"name": "roadSignInstance",
-			"class": "mobiliteit:Verkeersbord",
+			"class": "infrastructuur:Verkeersbord",
 			"attributes": {
 				"direction": {
 					"predicate": "mobiliteit:aanzicht",

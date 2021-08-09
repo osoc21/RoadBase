@@ -1,0 +1,69 @@
+{
+	"version": "0.1",
+	"prefixes": {
+		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#",
+		"infrastructuur": "https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#",
+		"openbaardomein": "https://data.vlaanderen.be/ns/openbaardomein#",
+		"skos": "http://www.w3.org/2004/02/skos/core#",
+		"locn": "http://www.w3.org/ns/locn#",
+		"xsd": "http://www.w3.org/2001/XMLSchema#",
+		"dc": "http://purl.org/dc/terms/"
+	},
+
+	"resources": {
+		"traffic-lights": {
+			"name": "trafficLight",
+			"class": "infrastructuur:Verkeerslicht",
+			"attributes": {
+				"start_date": {
+					"predicate": "openbaardomein:begindatum",
+					"type": "xsd:DateTime"
+				},
+				"end_date": {
+					"predicate": "openbaardomein:einddatum",
+					"type": "xsd:DateTime"
+				},
+				"location": {
+					"predicate": "locn:geometry",
+					"type": "locn:Geometry"
+				},
+				"lighted": {
+					"predicate": "infrastructuur:inwendigVerlicht",
+					"type": "boolean"
+				},
+				"level": {
+					"predicate": "openbaardomein:niveau",
+					"type": "number"
+				},
+				"accuracy": {
+					"predicate": "openbaardomein:nauwkeurigheid",
+					"type": "url"
+				},
+				"relation": {
+					"predicate": "dc:relation",
+					"type": "url"
+				}
+			},
+			"relationships": {
+				"material": {
+					"predicate": "infrastructuur:materiaal",
+					"target": "material",
+					"cardinality": "many"
+				}
+			}
+		},
+
+
+		"materials": {
+			"name": "material",
+			"class": "skos:Concept",
+			"attributes": {
+				"name": {
+					"predicate": "skos:notation",
+					"type": "string"
+				}
+			},
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/materials/"
+		}
+	}
+}

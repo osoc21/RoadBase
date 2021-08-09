@@ -1,0 +1,15 @@
+{
+	"version": "0.1",
+	"prefixes": {
+		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#",
+		"openbaardomein": "https://data.vlaanderen.be/ns/openbaardomein#",
+		"schema": "https://schema.org/",
+		"locn": "http://www.w3.org/ns/locn#",
+		"org": "http://www.w3.org/ns/org#",
+		"dc": "http://purl.org/dc/terms/"
+	},
+
+	"resources": {
+		
+	}
+}

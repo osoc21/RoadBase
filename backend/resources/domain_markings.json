@@ -1,15 +1,55 @@
 {
 	"version": "0.1",
 	"prefixes": {
-		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#",
+		"infrastructuur": "https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#",
 		"openbaardomein": "https://data.vlaanderen.be/ns/openbaardomein#",
-		"schema": "https://schema.org/",
+		"skos": "http://www.w3.org/2004/02/skos/core#",
 		"locn": "http://www.w3.org/ns/locn#",
-		"org": "http://www.w3.org/ns/org#",
 		"dc": "http://purl.org/dc/terms/"
 	},
 
 	"resources": {
-		
+		"road-markings": {
+			"name": "roadMarking",
+			"class": "infrastructuur:Wegmarkering",
+			"attributes": {
+				"start_date": {
+					"predicate": "openbaardomein:begindatum",
+					"type": "xsd:DateTime"
+				},
+				"end_date": {
+					"predicate": "openbaardomein:einddatum",
+					"type": "xsd:DateTime"
+				},
+				"location": {
+					"predicate": "locn:geometry",
+					"type": "locn:Geometry"
+				},
+				"lighted": {
+					"predicate": "infrastructuur:inwendigVerlicht",
+					"type": "boolean"
+				},
+				"level": {
+					"predicate": "openbaardomein:niveau",
+					"type": "number"
+				},
+				"accuracy": {
+					"predicate": "openbaardomein:nauwkeurigheid",
+					"type": "url"
+				},
+				"relation": {
+					"predicate": "dc:relation",
+					"type": "url"
+				}
+			},
+			"relationships": {
+				"material": {
+					"predicate": "infrastructuur:materiaal",
+					"target": "material",
+					"cardinality": "many"
+				}
+			},
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-markings/"
+		}
 	}
 }

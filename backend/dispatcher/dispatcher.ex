@@ -22,20 +22,47 @@ defmodule Dispatcher do
   end
 
 
+
+  # Road markings
+
+
+  # Traffic lights
+  match "/traffic-lights/*path" do
+    Proxy.forward conn, path, "http://resources/traffic-lights/"
+  end
+
+  match "/materials/*path" do
+    Proxy.forward conn, path, "http://resources/materials/"
+  end
+
+
+  # Road sign instances
+  match "/road-sign-placements/*path" do
+    Proxy.forward conn, path, "http://resources/road-sign-placements/"
+  end
+
   match "/road-sign-instances/*path" do
     Proxy.forward conn, path, "http://resources/road-sign-instances/"
   end
 
-  match "/heights/*path" do
-    Proxy.forward conn, path, "http://resources/heights/"
+  match "/road-sign-combinations/*path" do
+    Proxy.forward conn, path, "http://resources/road-sign-combinations/"
   end
 
-  match "/accidents/*path" do
-    Proxy.forward conn, path, "http://resources/accidents/"
+  match "/quantitative-values/*path" do
+    Proxy.forward conn, path, "http://resources/quantitative-values/"
+  end
+
+  match "/codes/*path" do
+    Proxy.forward conn, path, "http://resources/codes/"
+  end
+
+  match "/organizations/*path" do
+    Proxy.forward conn, path, "http://resources/organizations/"
   end
 
 
-  # "Verkeersborden" migration microservice
+  # Road sign concepts
   match "/road-sign-concepts/*path" do
     Proxy.forward conn, path, "http://resources/road-sign-concepts/"
   end
@@ -50,6 +77,12 @@ defmodule Dispatcher do
 
   match "/road-sign-categories/*path" do
     Proxy.forward conn, path, "http://resources/road-sign-categories/"
+  end
+
+
+  # Road accidents
+  match "/road-sign-accidents/*path" do
+    Proxy.forward conn, path, "http://resources/road-sign-accidents/"
   end
 
 

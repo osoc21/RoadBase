@@ -50,7 +50,8 @@
 					"target": "material",
 					"cardinality": "many"
 				}
-			}
+			},
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/traffic-lights/"
 		},
 
 

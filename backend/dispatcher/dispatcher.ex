@@ -81,8 +81,8 @@ defmodule Dispatcher do
 
 
   # Road accidents
-  match "/road-sign-accidents/*path" do
-    Proxy.forward conn, path, "http://resources/road-sign-accidents/"
+  match "/accidents/*path" do
+    Proxy.forward conn, path, "http://resources/accidents/"
   end
 
 

@@ -6,9 +6,9 @@ from uuid import uuid4
 from rdflib.namespace import RDF, XSD
 
 BASE_URL = 'https://osoc-safe-open-roads.s.redpencil.io'
-SCHEMA = rdflib.Namespace('https://schema.org/')
 ROADBASE = rdflib.Namespace(f'{BASE_URL}/vocabularies/')
 MU = rdflib.Namespace('http://mu.semte.ch/vocabularies/core/')
+LOCN = rdflib.Namespace('http://www.w3.org/ns/locn#')
 
 
 @dataclass
@@ -35,12 +35,13 @@ class Accident:
 		dt = datetime.fromtimestamp(self.timestamp, timezone(timedelta(hours=1), 'Europe/Brussels'))
 		dt_iso8601 = dt.isoformat()
 
+		geo_uri = f'geo:{self.lat},{self.lng}'
+
 		# Add triples for coordinates and timestamp of the accident
 		g.add((uri, RDF.type, ROADBASE.Accident))
 		g.add((uri, MU.uuid, rdflib.Literal(uuid4())))
-		g.add((uri, SCHEMA.latitude, rdflib.Literal(self.lat)))
-		g.add((uri, SCHEMA.longitude, rdflib.Literal(self.lng)))
-		g.add((uri, XSD.dateTime, rdflib.Literal(dt_iso8601)))
+		g.add((uri, ROADBASE.timestamp, rdflib.Literal(dt_iso8601)))
+		g.add((uri, LOCN.geometry, rdflib.URIRef(geo_uri)))
 		# TODO?: add other fields. These don't have an already existing predicate though, and aren't actually needed for this project.
 
 
@@ -58,7 +59,7 @@ def load_csv(filename) -> list[Accident]:
 
 def write_ttl(graph: rdflib.Graph, filename: str):
 	'''Write graph back to a turte file'''
-	with open(filename, 'wb') as f:
+	with open(filename, 'w') as f:
 		ttl = graph.serialize(format='turtle')
 		if ttl:
 			f.write(ttl)

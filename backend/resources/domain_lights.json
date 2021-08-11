@@ -17,11 +17,11 @@
 			"attributes": {
 				"start_date": {
 					"predicate": "openbaardomein:begindatum",
-					"type": "xsd:DateTime"
+					"type": "xsd:dateTime"
 				},
 				"end_date": {
 					"predicate": "openbaardomein:einddatum",
-					"type": "xsd:DateTime"
+					"type": "xsd:dateTime"
 				},
 				"location": {
 					"predicate": "locn:geometry",

@@ -65,7 +65,7 @@ Describes a real-world instance of a road sign. Contains physical properties suc
 * **Type**: `schema:QuantitativeValue` reference
 	* (class: `schema:QuantitativeValue`)
 
-## road-sign-concept
+## road-sign-combination
 * **Predicate**: `mobiliteit:realiseert`
 * **Type**: `mobiliteit:Verkeersbord-Verkeersteken`
 

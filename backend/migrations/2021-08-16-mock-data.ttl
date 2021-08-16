@@ -1,0 +1,67 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix mobiliteit: <https://data.vlaanderen.be/ns/mobiliteit#> .
+@prefix infrastructuur: <https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#> .
+@prefix openbaardomein: <https://data.vlaanderen.be/ns/openbaardomein#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <https://schema.org/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+
+
+#    Combination
+<https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/72cc6adf-7776-4187-ac32-3e29f38c8210> a mobiliteit:Verkeersbord-Verkeersteken ;
+	mu:uuid "72cc6adf-7776-4187-ac32-3e29f38c8210" ;
+	mobiliteit:heeftVerkeersbordconcept <http://data.vlaanderen.be/id/concept/Verkeersbordconcept/1b0064d6a66dc26109c3173acb5254c81e508aa875ff16764b6d45cb34ef651a> ;
+	mobiliteit:isBeginZone false ;
+	mobiliteit:isEindZone false .
+
+
+#    Instance
+# Height
+<https://osoc-safe-open-roads.s.redpencil.io/quantitative-values/a8cc904d-5c9d-4108-91b1-84ecaedce63c> a schema:QuantitativeValue ;
+	mu:uuid "a8cc904d-5c9d-4108-91b1-84ecaedce63c" ;
+	schema:value 2 ;
+	schema:unitCode "MTR" .
+
+# Size
+<https://osoc-safe-open-roads.s.redpencil.io/quantitative-values/d2c54485-3ef6-4748-beb2-87ad7ef7710a> a schema:QuantitativeValue ;
+	mu:uuid "d2c54485-3ef6-4748-beb2-87ad7ef7710a" ;
+	schema:value 0.25 ;
+	schema:unitCode "MTR" .
+
+# Authority
+<https://osoc-safe-open-roads.s.redpencil.io/organizations/79ba64b4-068d-4e3b-b883-8c3301e40017> a org:Organization ;
+	mu:uuid "79ba64b4-068d-4e3b-b883-8c3301e40017" ;
+	skos:prefLabel "Beheerder van het bord" ;
+	skos:altLabel "Een andere naam voor de beheerder van het bord" ;
+	skos:notation "BEHEERDER" .
+
+# Supplier
+<https://osoc-safe-open-roads.s.redpencil.io/organizations/58ae2439-b5b4-496c-bda0-19943535d2c8> a org:Organization ;
+	mu:uuid "58ae2439-b5b4-496c-bda0-19943535d2c8" ;
+	skos:prefLabel "Leverancier van het bord" ;
+	skos:altLabel "Een andere naam voor de leverancier van het bord" ;
+	skos:notation "LEVERANCIER" .
+
+# Operational status
+<https://osoc-safe-open-roads.s.redpencil.io/codes/45d753d9-cd13-4491-9ad9-3dc7ef00bc24> a skos:Concept ;
+	mu:uuid "45d753d9-cd13-4491-9ad9-3dc7ef00bc24" ;
+	skos:notation "OK" ;
+	skos:description "Yep alles helemaal goed hier" .
+
+<https://osoc-safe-open-roads.s.redpencil.io/road-sign-instances/d266014f-69f8-4a8b-b03f-943f867414ca> a infrastructuur:Verkeersbord ;
+	mu:uuid "d266014f-69f8-4a8b-b03f-943f867414ca" ;
+	mobiliteit:realiseert <https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/72cc6adf-7776-4187-ac32-3e29f38c8210> ;
+	mobiliteit:opstelhoogte <https://osoc-safe-open-roads.s.redpencil.io/quantitative-values/a8cc904d-5c9d-4108-91b1-84ecaedce63c> ;
+	mobiliteit:Verkeersbord.afmeting <https://osoc-safe-open-roads.s.redpencil.io/quantitative-values/d2c54485-3ef6-4748-beb2-87ad7ef7710a> ;
+	openbaardomein:beheerder <https://osoc-safe-open-roads.s.redpencil.io/organizations/79ba64b4-068d-4e3b-b883-8c3301e40017> ;
+	openbaardomein:leverancier <https://osoc-safe-open-roads.s.redpencil.io/organizations/58ae2439-b5b4-496c-bda0-19943535d2c8> ;
+	mobiliteit:Verkeersbord.operationeleStatus <https://osoc-safe-open-roads.s.redpencil.io/codes/1> ;
+	schema:comment "Yep dit is inderdaad een bord." .
+
+
+#    Placement
+<https://osoc-safe-open-roads.s.redpencil.io/road-sign-placements/91156cf4-718f-49f1-98ab-52ba3b84231a> a mobiliteit:Opstelling ;
+	mu:uuid "91156cf4-718f-49f1-98ab-52ba3b84231a" ;
+	mobiliteit:omvatVerkeersbord <https://osoc-safe-open-roads.s.redpencil.io/road-sign-instances/d266014f-69f8-4a8b-b03f-943f867414ca> ;
+	locn:geometry "geo:50.933813981621235,4.03698742389679"^^locn:Geometry .

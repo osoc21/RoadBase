@@ -46,9 +46,9 @@
 				}
 			},
 			"relationships": {
-				"road-sign-concept": {
+				"road-sign-combination": {
 					"predicate": "mobiliteit:realiseert",
-					"target": "roadSignConcept",
+					"target": "roadSignCombination",
 					"cardinality": "one"
 				},
 				"height": {

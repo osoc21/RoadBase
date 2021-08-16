@@ -64,4 +64,7 @@
 <https://osoc-safe-open-roads.s.redpencil.io/road-sign-placements/91156cf4-718f-49f1-98ab-52ba3b84231a> a mobiliteit:Opstelling ;
 	mu:uuid "91156cf4-718f-49f1-98ab-52ba3b84231a" ;
 	mobiliteit:omvatVerkeersbord <https://osoc-safe-open-roads.s.redpencil.io/road-sign-instances/d266014f-69f8-4a8b-b03f-943f867414ca> ;
-	locn:geometry "geo:50.933813981621235,4.03698742389679"^^locn:Geometry .
+	locn:geometry "geo:50.933813981621235,4.03698742389679" .
+	# locn:geometry "geo:50.933813981621235,4.03698742389679"^^locn:Geometry .
+	# ^ Should actually be a locn:Geometry, but mu-cl-resources does not like that
+	# (Note: I also might've just misunderstood the locn spec? ¯\_(ツ)_/¯)

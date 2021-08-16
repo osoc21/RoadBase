@@ -12,7 +12,7 @@
 	},
 
 	"resources": {
-		"road-sign-placement": {
+		"road-sign-placements": {
 			"name": "roadSignPlacement",
 			"class": "mobiliteit:Opstelling",
 			"attributes": {

@@ -29,7 +29,8 @@ class Accident:
 
 	def add_to_graph(self, g: rdflib.Graph):
 		'''Add this Accident to an RDF graph'''
-		uri = rdflib.URIRef(f'{BASE_URL}/accidents/{self.id}')
+		uuid = uuid4()
+		uri = rdflib.URIRef(f'{BASE_URL}/accidents/{uuid}')
 
 		# Turn UNIX timestamp from dataset into an ISO 8601 datetime string with the CET timezone
 		dt = datetime.fromtimestamp(self.timestamp, timezone(timedelta(hours=1), 'Europe/Brussels'))
@@ -39,7 +40,7 @@ class Accident:
 
 		# Add triples for coordinates and timestamp of the accident
 		g.add((uri, RDF.type, ROADBASE.Accident))
-		g.add((uri, MU.uuid, rdflib.Literal(uuid4())))
+		g.add((uri, MU.uuid, rdflib.Literal(uuid)))
 		g.add((uri, ROADBASE.timestamp, rdflib.Literal(dt_iso8601)))
 		g.add((uri, LOCN.geometry, rdflib.URIRef(geo_uri)))
 		# TODO?: add other fields. These don't have an already existing predicate though, and aren't actually needed for this project.

@@ -1,0 +1,92 @@
+<div prefix="
+	mobiliteit: https://data.vlaanderen.be/ns/mobiliteit#
+	infrastructuur: https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#
+	openbaardomein: https://data.vlaanderen.be/ns/openbaardomein#
+	skos: http://www.w3.org/2004/02/skos/core#
+	schema: https://schema.org/
+	org: http://www.w3.org/ns/org#
+	locn: http://www.w3.org/ns/locn#"
+	resource="#opstelling"
+	typeof="mobiliteit:Opstelling">
+	Dit fysieke bord bevindt zich op <span property="locn:geometry" datatype="locn:Geometry">geo:50.933813981621235,4.03698742389679</span><br /><br />
+
+
+	<div property="mobiliteit:omvatVerkeersbord" resource="#verkeersbord" typeof="infrastructuur:Verkeersbord">
+		Het bord wordt geleverd door deze organisatie:
+		<div property="openbaardomein:leverancier" typeof="org:Organization">
+			<b property="skos:notation">LEVERANCIER</b>
+			<div property="skos:prefLabel">Leverancier van het bord</div>
+			<div property="skos:altLabel">(Een andere naam voor de leverancier van het bord)</div>
+		</div><br />
+
+		Het bord wordt beheerd door deze organisatie:
+		<div property="openbaardomein:beheerder" typeof="org:Organization">
+			<b property="skos:notation">BEHEERDER</b>
+			<div property="skos:prefLabel">Beheerder van het bord</div>
+			<div property="skos:altLabel">(Een andere naam voor de beheerder van het bord)</div>
+		</div><br />
+
+		Comment:
+		<span property="schema:comment">Yep dit is inderdaad een bord.</span><br />
+
+		Operationele status:
+		<span property="mobiliteit:Verkeersbord.operationeleStatus" typeof="skos:Concept">OK</span><br />
+
+		Opstelhoogte:
+		<span property="mobiliteit:opstelhoogte" typeof="schema:QuantitativeValue">
+			<span property="schema:value">2</span>
+			<span property="schema:unitCode">MTR</span>
+		</span><br />
+
+		Afmeting (diagonaal):
+		<span property="mobiliteit:mobiliteit:Verkeersbord.afmeting" typeof="schema:QuantitativeValue">
+			<span property="schema:value">0.25</span>
+			<span property="schema:unitCode">MTR</span>
+		</span><br />
+
+		Bordhoogte:
+		<span property="mobiliteit:hoogte" typeof="schema:QuantitativeValue">
+			<span property="schema:value"></span>
+			<span property="schema:unitCode"></span>
+		</span><br />
+
+		Bordbreedte:
+		<span property="mobiliteit:breedte" typeof="schema:QuantitativeValue">
+			<span property="schema:value"></span>
+			<span property="schema:unitCode"></span>
+		</span><br /><br />
+
+
+		<div property="mobiliteit:realiseert" typeof="mobiliteit:Verkeersbord-Verkeersteken">
+			Geeft begin van zone aan:
+			<span property="mobiliteit:isBeginZone">false</span><br />
+
+			Geeft einde van zone aan:
+			<span property="mobiliteit:isEindeZone">false</span><br />
+
+
+			<div property="mobiliteit:heeftVerkeersbordconcept" typeof="mobiliteit:Verkeersbordconcept">
+				<img property="mobiliteit:grafischeWeergave" src="http://mobiliteit.vo.data.gift/images/3b3291d61283d2522afbea6ae5d9731ce8a6994fc75fecee6fd2f22f5114fc3b" style="vertical-align: middle;" />
+				<b property="skos:prefLabel">B5</b>:
+				<span property="skos:definition">Stoppen en voorrang verlenen.</span>
+			</div><br />
+
+
+			<div property="mobiliteit:heeftOnderbord" typeof="mobiliteit:Verkeersbord-Verkeersteken">
+				<div property="mobiliteit:realiseert" typeof="mobiliteit:Verkeersbord-Verkeersteken">
+					Geeft begin van zone aan:
+					<span property="mobiliteit:isBeginZone">false</span><br />
+
+					Geeft einde van zone aan:
+					<span property="mobiliteit:isEindeZone">false</span><br />
+
+					<div property="mobiliteit:heeftVerkeersbordconcept" typeof="mobiliteit:Verkeersbordconcept">
+						<img property="mobiliteit:grafischeWeergave" src="http://mobiliteit.vo.data.gift/images/3b3291d61283d2522afbea6ae5d9731ce8a6994fc75fecee6fd2f22f5114fc3b" style="vertical-align: middle;" />
+						<b property="skos:prefLabel">B5</b>:
+						<span property="skos:definition">Stoppen en voorrang verlenen.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

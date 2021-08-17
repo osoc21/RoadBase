@@ -1,5 +1,6 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
+const prettier = require("prettier");
 const path = require("path");
 const data = require("./data");
 
@@ -20,7 +21,16 @@ app.get("/", (req, res) => {
 app.get("/rdfa", (req, res) => {
 	let opstellingUuid = req.query.uuid;
 
-	res.render("opstelling.html", data.getMockData());
+	res.render("opstelling.njk", data.getMockData(), (err, html) => {
+		// Autoformat output, because nunjucks's templating messes with the indentation levels
+		html = prettier.format(html, {
+			parser: "html",
+			useTabs: true,
+			printWidth: 200,
+			jsxBracketSameLine: true
+		});
+		res.send(html);
+	});
 });
 
 

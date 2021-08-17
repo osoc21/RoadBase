@@ -1,0 +1,7 @@
+{% macro organization(notation, prefLabel, altLabel) %}
+<div property="openbaardomein:leverancier" typeof="org:Organization">
+	<b property="skos:notation">{{ notation }}</b>
+	<div property="skos:prefLabel">{{ prefLabel }}</div>
+	<div property="skos:altLabel">({{ altLabel }})</div>
+</div><br />
+{% endmacro %}

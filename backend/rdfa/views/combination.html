@@ -1,0 +1,19 @@
+{% from "concept.html" import concept %}
+
+{% macro combination(board) %}
+Geeft begin van zone aan:
+<span property="mobiliteit:isBeginZone">{{ board.isBeginZone }}</span><br />
+
+Geeft einde van zone aan:
+<span property="mobiliteit:isEindeZone">{{ board.isEndZone }}</span><br />
+
+
+{{ concept(board.concept) }}
+
+
+{% if board.subBoard %}
+<div property="mobiliteit:heeftOnderbord" typeof="mobiliteit:Verkeersbord-Verkeersteken">
+	{{ combination(board.subBoard) }}
+</div>
+{% endif %}
+{% endmacro %}

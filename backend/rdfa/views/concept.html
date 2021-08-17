@@ -1,0 +1,7 @@
+{% macro concept(concept) %}
+<div property="mobiliteit:heeftVerkeersbordconcept" typeof="mobiliteit:Verkeersbordconcept">
+	<img property="mobiliteit:grafischeWeergave" src="{{ concept.image }}" style="vertical-align: middle;" />
+	<b property="skos:prefLabel">{{ concept.code }}</b>:
+	<span property="skos:scopeNote">{{ concept.meaning }}</span>
+</div><br />
+{% endmacro %}

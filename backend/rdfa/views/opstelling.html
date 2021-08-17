@@ -1,0 +1,59 @@
+{% from "organization.html" import organization %}
+{% from "combination.html" import combination %}
+
+<div prefix="
+	mobiliteit: https://data.vlaanderen.be/ns/mobiliteit#
+	infrastructuur: https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#
+	openbaardomein: https://data.vlaanderen.be/ns/openbaardomein#
+	skos: http://www.w3.org/2004/02/skos/core#
+	schema: https://schema.org/
+	org: http://www.w3.org/ns/org#
+	locn: http://www.w3.org/ns/locn#"
+	resource="#opstelling"
+	typeof="mobiliteit:Opstelling">
+	Dit fysieke bord bevindt zich op <span property="locn:geometry" datatype="locn:Geometry">geo:50.933813981621235,4.03698742389679</span><br /><br />
+
+
+	<div property="mobiliteit:omvatVerkeersbord" resource="#verkeersbord" typeof="infrastructuur:Verkeersbord">
+		Het bord wordt geleverd door deze organisatie:
+		{{ organization(supplier.notation, supplier.prefLabel, supplier.altLabel) }}
+
+		Het bord wordt beheeerd door deze organisatie:
+		{{ organization(authority.notation, authority.prefLabel, authority.altLabel) }}
+
+		Comment:
+		<span property="schema:comment">{{ comment }}</span><br />
+
+		Operationele status:
+		<span property="mobiliteit:Verkeersbord.operationeleStatus" typeof="skos:Concept">{{ operationalStatus }}</span><br />
+
+		Opstelhoogte:
+		<span property="mobiliteit:opstelhoogte" typeof="schema:QuantitativeValue">
+			<span property="schema:value">{{ height.value }}</span>
+			<span property="schema:unitCode">{{ height.unitCode }}</span>
+		</span><br />
+
+		Afmeting (diagonaal):
+		<span property="mobiliteit:mobiliteit:Verkeersbord.afmeting" typeof="schema:QuantitativeValue">
+			<span property="schema:value">{{ size.value }}</span>
+			<span property="schema:unitCode">{{ size.unitCode }}</span>
+		</span><br />
+
+		Bordhoogte:
+		<span property="mobiliteit:hoogte" typeof="schema:QuantitativeValue">
+			<span property="schema:value">{{ boardHeight.value }}</span>
+			<span property="schema:unitCode">{{ boardHeight.unitCode }}</span>
+		</span><br />
+
+		Bordbreedte:
+		<span property="mobiliteit:breedte" typeof="schema:QuantitativeValue">
+			<span property="schema:value">{{ boardWidth.value }}</span>
+			<span property="schema:unitCode">{{ boardWidth.unitCode }}</span>
+		</span><br /><br />
+
+
+		<div property="mobiliteit:realiseert" typeof="mobiliteit:Verkeersbord-Verkeersteken">
+			{{ combination(board) }}
+		</div>
+	</div>
+</div>

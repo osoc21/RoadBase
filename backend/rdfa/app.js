@@ -5,9 +5,9 @@ const path = require("path");
 const data = require("./data");
 
 const app = express();
-nunjucks.configure(path.join(__dirname, 'views'), {
+nunjucks.configure(path.join(__dirname, "views"), {
 	autoescape: true,
-	express: app
+	express: app,
 });
 
 const PORT = 8888;
@@ -21,13 +21,12 @@ app.get("/", (req, res) => {
 app.get("/rdfa", (req, res) => {
 	let opstellingUuid = req.query.uuid;
 
-	res.render("opstelling.njk", data.getMockData(), (err, html) => {
+	res.render("opstelling.njk", data.getOpstelling(opstellingUuid), (err, html) => {
 		// Autoformat output, because nunjucks's templating messes with the indentation levels
 		html = prettier.format(html, {
 			parser: "html",
 			useTabs: true,
 			printWidth: 200,
-			jsxBracketSameLine: true
 		});
 		res.send(html);
 	});

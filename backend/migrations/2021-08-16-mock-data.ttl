@@ -52,6 +52,7 @@
 <https://osoc-safe-open-roads.s.redpencil.io/road-sign-instances/d266014f-69f8-4a8b-b03f-943f867414ca> a infrastructuur:Verkeersbord ;
 	mu:uuid "d266014f-69f8-4a8b-b03f-943f867414ca" ;
 	mobiliteit:realiseert <https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/72cc6adf-7776-4187-ac32-3e29f38c8210> ;
+	mobiliteit:aanzicht "90" ;
 	mobiliteit:opstelhoogte <https://osoc-safe-open-roads.s.redpencil.io/quantitative-values/a8cc904d-5c9d-4108-91b1-84ecaedce63c> ;
 	mobiliteit:Verkeersbord.afmeting <https://osoc-safe-open-roads.s.redpencil.io/quantitative-values/d2c54485-3ef6-4748-beb2-87ad7ef7710a> ;
 	openbaardomein:beheerder <https://osoc-safe-open-roads.s.redpencil.io/organizations/79ba64b4-068d-4e3b-b883-8c3301e40017> ;

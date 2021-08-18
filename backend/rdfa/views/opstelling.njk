@@ -11,7 +11,7 @@
 	locn: http://www.w3.org/ns/locn#"
 	resource="#opstelling"
 	typeof="mobiliteit:Opstelling">
-	Dit fysieke bord bevindt zich op <span property="locn:geometry" datatype="locn:Geometry">geo:50.933813981621235,4.03698742389679</span><br /><br />
+	Dit fysieke bord bevindt zich op <span property="locn:geometry" datatype="locn:Geometry">{{ location }}</span><br /><br />
 
 
 	<div property="mobiliteit:omvatVerkeersbord" resource="#verkeersbord" typeof="infrastructuur:Verkeersbord">
@@ -26,6 +26,9 @@
 
 		Operationele status:
 		<span property="mobiliteit:Verkeersbord.operationeleStatus" typeof="skos:Concept">{{ operationalStatus }}</span><br />
+
+		Aanzicht:
+		<span property="mobiliteit:aanzicht">{{ rotation }}°</span><br />
 
 		Opstelhoogte:
 		<span property="mobiliteit:opstelhoogte" typeof="schema:QuantitativeValue">

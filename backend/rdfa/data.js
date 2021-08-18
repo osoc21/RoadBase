@@ -54,7 +54,7 @@ async function queryMain(uuid) {
 			mobiliteit:aanzicht ?rotation ;
 			mobiliteit:opstelhoogte [
 				schema:value ?heightValue ;
-				schema:unitCode ?heightUnit
+				schema:unitCode ?heightUnitCode
 			] ;
 			openbaardomein:beheerder [
 				skos:notation ?authorityNotation ;
@@ -66,7 +66,9 @@ async function queryMain(uuid) {
 				skos:prefLabel ?supplierPrefLabel ;
 				skos:altLabel ?supplierAltLabel
 			];
-			mobiliteit:Verkeersbord.operationeleStatus ?operationalStatus ;
+			mobiliteit:Verkeersbord.operationeleStatus [
+				skos:notation ?operationalStatus
+			] ;
 			schema:comment ?comment ;
 			mobiliteit:realiseert ?combination .
 
@@ -74,7 +76,7 @@ async function queryMain(uuid) {
 		{
 			?verkeersbord mobiliteit:Verkeersbord.afmeting [
 				schema:value ?sizeValue ;
-				schema:unitCode ?sizeUnit
+				schema:unitCode ?sizeUnitCode
 			]
 		}
 		UNION
@@ -82,16 +84,66 @@ async function queryMain(uuid) {
 			?verkeersbord
 				mobiliteit:hoogte [
 				schema:value ?heightValue ;
-				schema:unitCode ?heightUnit
+				schema:unitCode ?heightUnitCode
 			] ;
 				mobiliteit:breedte [
 				schema:value ?widthValue ;
-				schema:unitCode ?widthUnit
+				schema:unitCode ?widthUnitCode
 			]
 		}
 	}`;
 
-	return await query(q);
+	let res = await query(q);
+
+	// Collapse some properties into objects that are nicer to work with for templating.
+	// Not very elegant, but ¯\_(ツ)_/¯
+	res.supplier = {
+		notation: res.supplierNotation,
+		prefLabel: res.supplierPrefLabel,
+		altLabel: res.supplierAltLabel
+	};
+	delete res.supplierNotation;
+	delete res.supplierPrefLabel;
+	delete res.supplierAltLabel;
+
+	res.authority = {
+		notation: res.authorityNotation,
+		prefLabel: res.authorityPrefLabel,
+		altLabel: res.authorityAltLabel
+	};
+	delete res.authorityNotation;
+	delete res.authorityPrefLabel;
+	delete res.authorityAltLabel;
+
+	res.height = {
+		value: res.heightValue,
+		unitCode: res.heightUnitCode
+	}
+	delete res.heightValue;
+	delete res.heightUnitCode;
+
+	res.size = {
+		value: res.sizeValue,
+		unitCode: res.sizeUnitCode
+	}
+	delete res.sizeValue;
+	delete res.sizeUnitCode;
+
+	res.boardHeight = {
+		value: res.boardHeightValue,
+		unitCode: res.boardHeightUnitCode
+	}
+	delete res.boardHeightValue;
+	delete res.boardHeightUnitCode;
+
+	res.boardWidth = {
+		value: res.boardWidthValue,
+		unitCode: res.boardWidthUnitCode
+	}
+	delete res.boardWidthValue;
+	delete res.boardWidthUnitCode;
+
+	return res;
 }
 
 
@@ -102,7 +154,7 @@ async function querySubBoards(combination) {
 	PREFIX infrastructuur: <https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#>
 
 	SELECT ?isBeginZone ?isEndZone ?code ?meaning ?image (COUNT(?mid)-1 as ?distance) WHERE {
-		<https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/72cc6adf-7776-4187-ac32-3e29f38c8210>
+		<${combination}>
 			a mobiliteit:Verkeersbord-Verkeersteken ;
 			# Traverse the linked list - property paths go brrrrrrrr
 			mobiliteit:heeftOnderbord* ?mid .

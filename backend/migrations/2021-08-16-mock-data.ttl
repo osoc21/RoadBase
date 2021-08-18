@@ -78,7 +78,7 @@
 	mobiliteit:Verkeersbord.afmeting <https://osoc-safe-open-roads.s.redpencil.io/quantitative-values/d2c54485-3ef6-4748-beb2-87ad7ef7710a> ;
 	openbaardomein:beheerder <https://osoc-safe-open-roads.s.redpencil.io/organizations/79ba64b4-068d-4e3b-b883-8c3301e40017> ;
 	openbaardomein:leverancier <https://osoc-safe-open-roads.s.redpencil.io/organizations/58ae2439-b5b4-496c-bda0-19943535d2c8> ;
-	mobiliteit:Verkeersbord.operationeleStatus <https://osoc-safe-open-roads.s.redpencil.io/codes/1> ;
+	mobiliteit:Verkeersbord.operationeleStatus <https://osoc-safe-open-roads.s.redpencil.io/codes/45d753d9-cd13-4491-9ad9-3dc7ef00bc24> ;
 	schema:comment "Yep dit is inderdaad een bord." .
 
 

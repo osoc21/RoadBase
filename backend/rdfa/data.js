@@ -27,7 +27,7 @@ async function query(q) {
 		})
 		.on("end", () => {
 			// If there's only a single row, return it as an object instead of an array of objects
-			if (rowObjs.length == 1) resolve(rowObjs[0]);
+			if (rowObjs.length === 1) resolve(rowObjs[0]);
 			else resolve(rowObjs);
 		});
 	});
@@ -101,32 +101,59 @@ async function querySubBoards(combination) {
 	PREFIX mobiliteit: <https://data.vlaanderen.be/ns/mobiliteit#>
 	PREFIX infrastructuur: <https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#>
 
-	SELECT * WHERE {
-		<${combination}>
+	SELECT ?isBeginZone ?isEndZone ?code ?meaning ?image (COUNT(?mid)-1 as ?distance) WHERE {
+		<https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/72cc6adf-7776-4187-ac32-3e29f38c8210>
 			a mobiliteit:Verkeersbord-Verkeersteken ;
-			mobiliteit:heeftOnderbord* ?subBoard .
+			# Traverse the linked list - property paths go brrrrrrrr
+			mobiliteit:heeftOnderbord* ?mid .
+
+		# Used for sorting by distance
+		?mid mobiliteit:heeftOnderbord* ?subBoard .
 
 		?subBoard
 			a mobiliteit:Verkeersbord-Verkeersteken ;
+			mobiliteit:isBeginZone ?isBeginZone ;
+			mobiliteit:isEindZone ?isEndZone ;
 			mobiliteit:heeftVerkeersbordconcept [
 				a mobiliteit:Verkeersbordconcept ;
 				skos:prefLabel ?code ;
 				skos:scopeNote ?meaning ;
 				mobiliteit:grafischeWeergave ?image
 			]
-	}`;
+	} ORDER BY ?distance`;
 
-	let res = await query(q);
-	return res;
+	let rows = await query(q);
+	let subBoards = {}
+
+	for (const [index, row] of rows.entries()) {
+		let ref = subBoards;
+
+		for (let i = 0; i < index; i++) {
+			if (!ref.subBoard) ref.subBoard = {};
+			ref = ref.subBoard;
+		}
+
+		Object.assign(ref, {
+			isBeginZone: Boolean(row.isBeginZone),
+			isEndZone: Boolean(row.isEndZone),
+			concept: {
+				code: row.code,
+				meaning: row.meaning,
+				image: row.image
+			}
+		});
+	}
+
+	return subBoards;
 }
 
 
 async function getOpstelling(uuid) {
 	let opstelling = await queryMain(uuid);
 	let subBoards = await querySubBoards(opstelling.combination);
+	opstelling.board = subBoards;
 
-
-	return getMockData();
+	return opstelling;
 }
 
 
@@ -179,4 +206,4 @@ function getMockData() {
 }
 
 
-module.exports = { getOpstelling, getMockData };
+module.exports = { getOpstelling };

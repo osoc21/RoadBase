@@ -4,8 +4,38 @@ const endpointUrl = "http://localhost:8890/sparql";
 const client = new SparqlClient({ endpointUrl });
 
 
-async function getOpstelling(uuid) {
-	let query = `
+//! TODO: escape inputs please for the love of god
+/**
+ * Execute a SPARQL query, return the results as an array of row objects, or as a single row object if there's only a single result.
+ *
+ * @param {string} q Query to execute
+ * @returns array of result objects, or single result object
+ */
+async function query(q) {
+	const stream = await client.query.select(q);
+	let rowObjs = [];
+
+	// Resolve the promise only when we're finished reading from the query stream
+	return new Promise(async (resolve, reject) => {
+		// Key-value pairs -> row object
+		stream.on("data", (row) => {
+			let obj = {};
+			Object.entries(row).forEach(([key, value]) => {
+				obj[key] = value.value;
+			});
+			rowObjs.push(obj);
+		})
+		.on("end", () => {
+			// If there's only a single row, return it as an object instead of an array of objects
+			if (rowObjs.length == 1) resolve(rowObjs[0]);
+			else resolve(rowObjs);
+		});
+	});
+}
+
+
+async function queryMain(uuid) {
+	let q = `
 	PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
 	PREFIX mobiliteit: <https://data.vlaanderen.be/ns/mobiliteit#>
 	PREFIX openbaardomein: <https://data.vlaanderen.be/ns/openbaardomein#>
@@ -51,27 +81,54 @@ async function getOpstelling(uuid) {
 		{
 			?verkeersbord
 				mobiliteit:hoogte [
-				schema:value ?sizeValue ;
-				schema:unitCode ?sizeUnit
+				schema:value ?heightValue ;
+				schema:unitCode ?heightUnit
 			] ;
 				mobiliteit:breedte [
-				schema:value ?sizeValue ;
-				schema:unitCode ?sizeUnit
+				schema:value ?widthValue ;
+				schema:unitCode ?widthUnit
 			]
 		}
 	}`;
 
-	const stream = await client.query.select(query);
+	return await query(q);
+}
 
-	stream.on("data", (row) => {
-		console.log(row);
-		Object.entries(row).forEach(([key, value]) => {
-			console.log(`${key}: ${value.value} (${value.termType})`);
-		});
-	});
+
+async function querySubBoards(combination) {
+	//! This is BAD. sparql-http-client doesn't seem prepapred statements, would URL encoding be sufficient?
+	let q = `
+	PREFIX mobiliteit: <https://data.vlaanderen.be/ns/mobiliteit#>
+	PREFIX infrastructuur: <https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#>
+
+	SELECT * WHERE {
+		<${combination}>
+			a mobiliteit:Verkeersbord-Verkeersteken ;
+			mobiliteit:heeftOnderbord* ?subBoard .
+
+		?subBoard
+			a mobiliteit:Verkeersbord-Verkeersteken ;
+			mobiliteit:heeftVerkeersbordconcept [
+				a mobiliteit:Verkeersbordconcept ;
+				skos:prefLabel ?code ;
+				skos:scopeNote ?meaning ;
+				mobiliteit:grafischeWeergave ?image
+			]
+	}`;
+
+	let res = await query(q);
+	return res;
+}
+
+
+async function getOpstelling(uuid) {
+	let opstelling = await queryMain(uuid);
+	let subBoards = await querySubBoards(opstelling.combination);
+
 
 	return getMockData();
 }
+
 
 
 function getMockData() {

@@ -12,6 +12,27 @@
 <https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/72cc6adf-7776-4187-ac32-3e29f38c8210> a mobiliteit:Verkeersbord-Verkeersteken ;
 	mu:uuid "72cc6adf-7776-4187-ac32-3e29f38c8210" ;
 	mobiliteit:heeftVerkeersbordconcept <http://data.vlaanderen.be/id/concept/Verkeersbordconcept/1b0064d6a66dc26109c3173acb5254c81e508aa875ff16764b6d45cb34ef651a> ;
+	mobiliteit:heeftOnderbord <https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/995cd718-9c51-445e-ab1f-6673da062a6d> ;
+	mobiliteit:isBeginZone false ;
+	mobiliteit:isEindZone false .
+
+<https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/995cd718-9c51-445e-ab1f-6673da062a6d> a mobiliteit:Verkeersbord-Verkeersteken ;
+	mu:uuid "995cd718-9c51-445e-ab1f-6673da062a6d" ;
+	mobiliteit:heeftVerkeersbordconcept <http://data.vlaanderen.be/id/concept/Verkeersbordconcept/1c6110b80aad28134ee6cc79cf506a65a0488d1c649841e152ffbdb5031bb5ee> ;
+	mobiliteit:heeftOnderbord <https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/4aaf1476-e9b7-451c-adcd-04d95871b58e> ;
+	mobiliteit:isBeginZone false ;
+	mobiliteit:isEindZone false .
+
+<https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/4aaf1476-e9b7-451c-adcd-04d95871b58e> a mobiliteit:Verkeersbord-Verkeersteken ;
+	mu:uuid "4aaf1476-e9b7-451c-adcd-04d95871b58e" ;
+	mobiliteit:heeftVerkeersbordconcept <http://data.vlaanderen.be/id/concept/Verkeersbordconcept/1f0b9da8ea2c2908b40d94fdcf93c8cd60949e0107e9d7552cc6e75161026f44> ;
+	mobiliteit:heeftOnderbord <https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/5aa967a5-246e-4283-a5c2-c64249e45bc3> ;
+	mobiliteit:isBeginZone false ;
+	mobiliteit:isEindZone false .
+
+<https://osoc-safe-open-roads.s.redpencil.io/road-sign-combinations/5aa967a5-246e-4283-a5c2-c64249e45bc3> a mobiliteit:Verkeersbord-Verkeersteken ;
+	mu:uuid "5aa967a5-246e-4283-a5c2-c64249e45bc3" ;
+	mobiliteit:heeftVerkeersbordconcept <http://data.vlaanderen.be/id/concept/Verkeersbordconcept/1c7dc73190d75178b1c27d7ccea4bcaf2dfdefe91f947757550b9358f3541376> ;
 	mobiliteit:isBeginZone false ;
 	mobiliteit:isEindZone false .
 

@@ -7,6 +7,5 @@
 
 (read-domain-file "domain_concepts.json")
 (read-domain-file "domain_instances.json")
-(read-domain-file "domain_markings.json")
-(read-domain-file "domain_lights.json")
+(read-domain-file "domain_signals.json")
 (read-domain-file "domain_accidents.json")

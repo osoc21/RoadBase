@@ -1,19 +1,17 @@
 {
 	"version": "0.1",
 	"prefixes": {
-		"mobiliteit": "https://data.vlaanderen.be/ns/mobiliteit#",
 		"infrastructuur": "https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#",
 		"openbaardomein": "https://data.vlaanderen.be/ns/openbaardomein#",
 		"skos": "http://www.w3.org/2004/02/skos/core#",
 		"locn": "http://www.w3.org/ns/locn#",
-		"xsd": "http://www.w3.org/2001/XMLSchema#",
 		"dc": "http://purl.org/dc/terms/"
 	},
 
 	"resources": {
-		"traffic-lights": {
-			"name": "trafficLight",
-			"class": "infrastructuur:Verkeerslicht",
+		"road-signal": {
+			"name": "roadSignal",
+			"class": "infrastructuur:Wegsignalisatie",
 			"attributes": {
 				"start_date": {
 					"predicate": "openbaardomein:begindatum",
@@ -51,20 +49,23 @@
 					"cardinality": "many"
 				}
 			},
-			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/traffic-lights/"
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-signal/"
 		},
 
 
-		"materials": {
-			"name": "material",
-			"class": "skos:Concept",
-			"attributes": {
-				"name": {
-					"predicate": "skos:notation",
-					"type": "string"
-				}
-			},
-			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/materials/"
+		"road-markings": {
+			"name": "roadMarking",
+			"class": "infrastructuur:Wegmarkering",
+			"super": ["roadSignal"],
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-markings/"
+		},
+
+
+		"traffic-lights": {
+			"name": "trafficLight",
+			"class": "infrastructuur:Verkeerslicht",
+			"super": ["roadSignal"],
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/traffic-lights/"
 		}
 	}
 }

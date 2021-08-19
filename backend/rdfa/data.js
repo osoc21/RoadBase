@@ -4,7 +4,6 @@ const endpointUrl = "http://localhost:8890/sparql";
 const client = new SparqlClient({ endpointUrl });
 
 
-//! TODO: escape inputs please for the love of god
 /**
  * Execute a SPARQL query, return the results as an array of row objects, or as a single row object if there's only a single result.
  *
@@ -34,7 +33,17 @@ async function query(q) {
 }
 
 
+function sparqlEscapeString(value){
+	return '"""' + value.replace(/[\\"]/g, function(match) { return '\\' + match; }) + '"""';
+};
+
+function sparqlEscapeUri(value){
+	return '<' + value.replace(/[\\"']/g, function(match) { return '\\' + match; }) + '>';
+};
+
+
 async function queryMain(uuid) {
+	uuid = sparqlEscapeString(uuid);
 	let q = `
 	PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
 	PREFIX mobiliteit: <https://data.vlaanderen.be/ns/mobiliteit#>
@@ -46,7 +55,7 @@ async function queryMain(uuid) {
 
 	SELECT * WHERE {
 		?s
-			mu:uuid "${uuid}" ;
+			mu:uuid ${uuid} ;
 			locn:geometry ?location ;
 			mobiliteit:omvatVerkeersbord ?verkeersbord .
 
@@ -148,13 +157,13 @@ async function queryMain(uuid) {
 
 
 async function querySubBoards(combination) {
-	//! This is BAD. sparql-http-client doesn't seem prepapred statements, would URL encoding be sufficient?
+	combination = sparqlEscapeUri(combination);
 	let q = `
 	PREFIX mobiliteit: <https://data.vlaanderen.be/ns/mobiliteit#>
 	PREFIX infrastructuur: <https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#>
 
 	SELECT ?isBeginZone ?isEndZone ?code ?meaning ?image (COUNT(?mid)-1 as ?distance) WHERE {
-		<${combination}>
+		${combination}
 			a mobiliteit:Verkeersbord-Verkeersteken ;
 			# Traverse the linked list - property paths go brrrrrrrr
 			mobiliteit:heeftOnderbord* ?mid .

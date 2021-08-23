@@ -7,19 +7,29 @@ services:
       - 80:80
       - 443:443
       - 8000:8000
+      - 8888:8888
     volumes:
       - caddy_data:/data
       - caddy_config:/config
     environment:
-      - FRONTEND_URL=${FRONTEND_URL}
-      - BACKEND_URL=${BACKEND_URL}
+      FRONTEND_URL: ${FRONTEND_URL}
+      BACKEND_URL: ${BACKEND_URL}
+      RDFA_URL: ${RDFA_URL}
+    restart: always
 
 
   ember:
     build: ./frontend
     environment:
-      - BACKEND_URL=${BACKEND_URL}
+      BACKEND_URL: ${BACKEND_URL}
+    restart: always
 
+
+  rdfa:
+    build: ./backend/rdfa
+    environment:
+      SPARQL_ENDPOINT: "http://db:8890/sparql"
+    restart: always
 
 
   identifier:
@@ -27,12 +37,13 @@ services:
     links:
       - dispatcher:dispatcher
     environment:
-      - DEFAULT_ACCESS_CONTROL_ALLOW_ORIGIN_HEADER=*
+      DEFAULT_ACCESS_CONTROL_ALLOW_ORIGIN_HEADER: "*"
 
   dispatcher:
     build: ./backend/dispatcher
     links:
       - resources:resources
+    restart: always
 
   db:
     build: ./backend/virtuoso
@@ -43,18 +54,21 @@ services:
       - "8890:8890"
     volumes:
       - virtuoso_data:/data
+    restart: always
 
   resources:
     build: ./backend/resources
     links:
       - db:database
+    restart: always
 
   migrations:
     build: ./backend/migrations
     links:
       - db:database
     environment:
-      - BATCH_SIZE=750  # Otherwise virtuoso will create pretty long SQL queries and keep retrying with a smaller batch size until it succeeds
+      BATCH_SIZE: 750  # Otherwise virtuoso will create pretty long SQL queries and keep retrying with a smaller batch size until it succeeds
+    restart: always
 
 
 volumes:

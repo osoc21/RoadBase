@@ -6,3 +6,8 @@
 {$BACKEND_URL} {
 	reverse_proxy identifier:80
 }
+
+
+{$RDFA_URL} {
+	reverse_proxy rdfa:8888
+}

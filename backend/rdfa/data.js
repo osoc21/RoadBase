@@ -1,6 +1,6 @@
 const SparqlClient = require("sparql-http-client");
 
-const endpointUrl = "http://localhost:8890/sparql";
+const endpointUrl = process.env.SPARQL_ENDPOINT || "http://localhost:8890/sparql";
 const client = new SparqlClient({ endpointUrl });
 
 

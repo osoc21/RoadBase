@@ -26,6 +26,7 @@ jobs:
           docker build backend/resources/ -t jodideloof/osoc-containers:resources_image
           docker build backend/virtuoso/ -t jodideloof/osoc-containers:virtuoso_image
           docker build frontend/ -t jodideloof/osoc-containers:frontend_image
+          docker build backend/rdfa/ -t jodideloof/osoc-containers:rdfa_image
       - name: Docker Push
         run: |
           docker ps -a
@@ -35,3 +36,4 @@ jobs:
           docker push jodideloof/osoc-containers:resources_image
           docker push jodideloof/osoc-containers:virtuoso_image
           docker push jodideloof/osoc-containers:frontend_image
+          docker push jodideloof/osoc-containers:rdfa_image

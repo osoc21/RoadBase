@@ -1,10 +1,12 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
+const cors = require('cors');
 const prettier = require("prettier");
 const path = require("path");
 const data = require("./data");
 
 const app = express();
+app.use(cors());
 nunjucks.configure(path.join(__dirname, "views"), {
 	autoescape: true,
 	express: app,

@@ -1,7 +1,42 @@
+Both `road-marking` and `traffic-light` are subclasses of `road-signals` and (at this point in time) look the same.
+
+
+
+<br />
+<br />
+
+
+
 # road-marking
 **Type**: `infrastructuur:Wegmarkering`  
+**Superclass**: [`road-signal`](#road-signal) ([`infrastructuur:Wegsignalisatie`](https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#Wegsignalisatie))  
 **Application profile**: https://data.vlaanderen.be/doc/applicatieprofiel/infrastructuurelementen/#Wegmarkering  
 Describes a road marking, its placement, location and other metadata.
+
+
+
+<br />
+<br />
+
+
+
+# traffic-light
+**Type**: `infrastructuur:Verkeerslicht`  
+**Application profile**: https://data.vlaanderen.be/doc/applicatieprofiel/infrastructuurelementen/#Verkeerslicht  
+**Superclass**: [`road-signal`](#road-signal) ([`infrastructuur:Wegsignalisatie`](https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#Wegsignalisatie))  
+Describes a traffic light, its placement, location and other metadata.
+
+
+
+<br />
+<br />
+
+
+
+# road-signal
+**Type**: [`infrastructuur:Wegsignalisatie`](https://data.vlaanderen.be/ns/openbaardomein/infrastructuur#Wegsignalisatie)  
+**Application profile**: https://data.vlaanderen.be/doc/applicatieprofiel/infrastructuurelementen/#Wegsignalisatie  
+Parent class for `infrastructuur:Wegmarkering` and `infrastructuur:Verkeerslicht`
 
 ## start_date, end_date
 * **Predicate**: `openbaardomein:begindatum`, `openbaardomein:einddatum`
@@ -49,7 +84,7 @@ Describes a road marking, its placement, location and other metadata.
 
 # material
 **Type**: `skos:Concept`  
-Describes a material used for a road marking
+Describes a material used for a road signal
 
 ## name
 * **Predicate**: `skos:notation`

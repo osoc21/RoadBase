@@ -1,8 +1,5 @@
 # Resources design
 
 * [Road signs](road_signs.md)
-* [Road markings](road_markings.md)
-* [Traffic lights](traffic_lights.md)
+* [Road signals](road_signals.md) (road markings + traffic lights)
 * [Accidents](accidents.md)
-
-

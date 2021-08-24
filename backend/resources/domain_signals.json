@@ -5,6 +5,7 @@
 		"openbaardomein": "https://data.vlaanderen.be/ns/openbaardomein#",
 		"skos": "http://www.w3.org/2004/02/skos/core#",
 		"locn": "http://www.w3.org/ns/locn#",
+		"xsd": "http://www.w3.org/2001/XMLSchema#",
 		"dc": "http://purl.org/dc/terms/"
 	},
 

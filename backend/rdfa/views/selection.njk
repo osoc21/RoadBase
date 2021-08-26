@@ -1,0 +1,8 @@
+{% from "instance.njk" import instance %}
+
+
+<div prefix="rdfs: http://www.w3.org/2000/01/rdf-schema#" resource="#selection" typeof="rdfs:Bag">
+	{% for i in instances %}
+		{{ instance(i) }}
+	{% endfor %}
+</div>

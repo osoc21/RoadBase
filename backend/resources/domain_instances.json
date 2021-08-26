@@ -12,6 +12,21 @@
 	},
 
 	"resources": {
+		"road-sign-placement-selections": {
+			"name": "roadSignPlacementSelection",
+			"class": "rdfs:Bag",
+			"attributes": {},
+			"relationships": {
+				"road-sign-placement": {
+					"predicate": "rdfs:member",
+					"target": "roadSignPlacement",
+					"cardinality": "many"
+				}
+			},
+			"new-resource-base": "https://osoc-safe-open-roads.s.redpencil.io/road-sign-placement-selections/"
+		},
+
+
 		"road-sign-placements": {
 			"name": "roadSignPlacement",
 			"class": "mobiliteit:Opstelling",

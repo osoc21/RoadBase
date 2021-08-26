@@ -23,8 +23,9 @@ app.get("/", (req, res) => {
 app.get("/rdfa", async (req, res) => {
 	let opstellingUuid = req.query.uuid;
 	let opstelling = await data.getOpstelling(opstellingUuid);
+	let instances = {"instances": [opstelling]};
 
-	res.render("opstelling.njk", opstelling, (err, html) => {
+	res.render("selection.njk", instances, (err, html) => {
 		// Autoformat output, because nunjucks's templating messes with the indentation levels
 		html = prettier.format(html, {
 			parser: "html",

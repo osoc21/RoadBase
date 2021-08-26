@@ -21,11 +21,15 @@ app.get("/", (req, res) => {
 
 
 app.get("/rdfa", async (req, res) => {
-	let opstellingUuid = req.query.uuid;
-	let opstelling = await data.getOpstelling(opstellingUuid);
-	let instances = {"instances": [opstelling]};
+	let instanceUuids = req.query.uuid.split(",");
 
-	res.render("selection.njk", instances, (err, html) => {
+	// Fetch all instances asynchronously. Note: order is not guaranteed!
+	let instances = await Promise.all(instanceUuids.map(async (uuid) => {
+		return await data.getInstance(uuid);
+	}));
+	let ctx = {"instances": instances};
+
+	res.render("selection.njk", ctx, (err, html) => {
 		// Autoformat output, because nunjucks's templating messes with the indentation levels
 		html = prettier.format(html, {
 			parser: "html",

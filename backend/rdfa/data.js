@@ -209,12 +209,12 @@ async function querySubBoards(combination) {
 }
 
 
-async function getOpstelling(uuid) {
-	let opstelling = await queryMain(uuid);
-	let subBoards = await querySubBoards(opstelling.combination);
-	opstelling.board = subBoards;
+async function getInstance(uuid) {
+	let instance = await queryMain(uuid);
+	let subBoards = await querySubBoards(instance.combination);
+	instance.board = subBoards;
 
-	return opstelling;
+	return instance;
 }
 
 
@@ -267,4 +267,4 @@ function getMockData() {
 }
 
 
-module.exports = { getOpstelling };
+module.exports = { getInstance };
